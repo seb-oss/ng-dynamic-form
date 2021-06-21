@@ -1,7 +1,6 @@
 {
   "name": "ng-dynamic-form",
   "version": "0.0.0",
-  "homepage": "http://omarVodiaK.github.io/@sebgrou/ng-dynamic-form",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
