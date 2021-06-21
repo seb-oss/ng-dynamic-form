@@ -1,0 +1,12 @@
+<ng-container *ngIf="extendedFormGroup">
+  <app-dynamic-form
+    [extendedFormGroup]="extendedFormGroup"
+    [activeStep]="activeStep"
+    [hasFormActions]="hasFormActions"
+    [nextAction]="nextAction"
+    [previousAction]="previousAction"
+    [cancelAction]="cancelAction"
+    (nextEvent)="goToNextStep()"
+    (previousEvent)="gotToPreviousStep()"
+  ></app-dynamic-form>
+</ng-container>
