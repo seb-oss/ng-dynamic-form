@@ -12,7 +12,7 @@
     "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
     "build-pack-install": "npm run build:lib && npm run pack && npm i dist/dynamic-form/dynamic-form-0.0.1.tgz",
     "storybook": "npm run docs:json && start-storybook -p 6006",
-    "build-storybook": "npm run docs:json && build-storybook"
+    "build-storybook": "build-storybook -o docs-build -s ./stories/assets"
   },
   "private": true,
   "dependencies": {
