@@ -1,7 +1,6 @@
 import {
   ChangeDetectorRef,
   Component,
-  ContentChild,
   EventEmitter,
   Input,
   Output,
@@ -363,41 +362,6 @@ export class DynamicFormComponent {
       return [];
     }
   }
-
-  getValidationErrorFor = (
-    key: string,
-    formItem: DynamicFormItem,
-    index?: number
-  ): string => {
-    let errorMessage: string;
-    if (
-      !this.validationErrors ||
-      (this.validationErrors && !this.validationErrors.length)
-    ) {
-      return null;
-    }
-
-    let sectionErrors: IDynamicFormValidationError[];
-    if (index) {
-      // check for sectionIndex
-      sectionErrors = this.validationErrors.filter(
-        (error) => error.sectionId === key && error.sectionIndex === index
-      );
-    } else {
-      sectionErrors = this.validationErrors.filter(
-        (error) => error.sectionId === key
-      );
-    }
-
-    sectionErrors?.length &&
-      sectionErrors.forEach((error) => {
-        if (error.key === formItem.key) {
-          errorMessage = error.errorMessage;
-        }
-      });
-
-    return errorMessage;
-  };
 
   controlValueChanged(): void {
     this.submitted &&= false;
