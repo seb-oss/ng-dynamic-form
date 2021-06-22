@@ -389,7 +389,7 @@ export class DynamicFormComponent {
 
   next(): void {
     this.submitted = true;
-    if (this.formService.validateForm(this.extendedFormGroup)) {
+    if (this.formService.validateForm(this.sectionList[0])) {
       this.nextEvent?.emit();
       this.submitted = false;
     }

@@ -11,7 +11,7 @@
     "pack": "cd dist/dynamic-form && npm pack",
     "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
     "build-pack-install": "npm run build:lib && npm run pack && npm i dist/dynamic-form/dynamic-form-0.0.1.tgz",
-    "storybook": "npm run docs:json && start-storybook -p 6006",
+    "storybook": "npm run docs:json && start-storybook -p 6006 --no-manager-cache",
     "build-storybook": "build-storybook -o docs-build -s ./stories/assets"
   },
   "private": true,
@@ -40,7 +40,9 @@
     "@storybook/addon-actions": "^6.2.9",
     "@storybook/addon-essentials": "^6.2.9",
     "@storybook/addon-links": "^6.2.9",
+    "@storybook/addons": "^6.2.9",
     "@storybook/angular": "^6.2.9",
+    "@storybook/theming": "^6.2.9",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
     "babel-loader": "^8.2.2",

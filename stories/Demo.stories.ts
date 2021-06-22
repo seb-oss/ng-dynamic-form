@@ -647,6 +647,26 @@ ModalConditionalRendering.args = {
   ] as DynamicFormSection[],
 };
 
+export const InlineMultipleRecords = Template.bind({});
+InlineMultipleRecords.args = {
+  activeStep: 0,
+  formSection: [
+    {
+      key: 'inline-multiple-records',
+      title: 'Wifes',
+      items: [
+        {
+          key: 'key-1',
+          label: 'Wife name',
+          value: '',
+          controlType: 'Text',
+        },
+      ],
+      multi: true,
+    },
+  ] as DynamicFormSection[],
+};
+
 export const MultipleRecords = Template.bind({});
 MultipleRecords.args = {
   activeStep: 0,

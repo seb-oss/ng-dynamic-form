@@ -78,38 +78,38 @@
         },
         {
             "name": "ConfirmInformation",
-            "id": "interface-ConfirmInformation-9c33bbaf64b7f3797107d7abb637d782",
+            "id": "interface-ConfirmInformation-2b4bf2dac69a6c6832d28e4b3a9ddbfd",
             "file": "projects/dynamic-form/src/lib/model/dynamicFormOption.ts",
             "type": "interface",
-            "sourceCode": "import { AttributeTypeMap } from \"./models\";\nimport { DynamicFormItem, Media } from \"./dynamicFormItem\";\n\nexport interface ConfirmInformation {\n    title?: string;\n    message?: string;\n    accept?: string;\n    deny?: string;\n}\n\nexport interface FollowUpItem {\n    type: string;\n    items: DynamicFormItem[];\n    multi?: boolean;\n}\n\nexport interface DynamicFormOption<T = any> {\n    id?: string;\n    value?: T;\n    label?: string | null;\n    disabled?: boolean | null;\n    category?: string;\n    order?: number;\n    confirm?: ConfirmInformation;\n    media?: Media[];\n    followUpItems?: FollowUpItem;\n}\n\nexport const attributeTypeMapDynamicFormOption: AttributeTypeMap[] = [\n    { name: \"value\", type: \"object\" },\n    { name: \"label\", type: \"string\" },\n    { name: \"disabled\", type: \"boolean\" },\n];\n",
+            "sourceCode": "import { AttributeTypeMap } from './models';\nimport { DynamicFormItem, Media } from './dynamicFormItem';\nimport { DynamicFormSection } from './dynamicFormSection';\n\nexport interface ConfirmInformation {\n  title?: string;\n  message?: string;\n  accept?: string;\n  deny?: string;\n}\n\nexport interface FollowUpItem {\n  type: string;\n  items: DynamicFormItem[];\n  multi?: boolean;\n}\n\nexport interface DynamicFormOption<T = any> {\n  id?: string;\n  value?: T;\n  label?: string | null;\n  disabled?: boolean | null;\n  category?: string;\n  order?: number;\n  confirm?: ConfirmInformation;\n  media?: Media[];\n  followUpItems?: FollowUpItem;\n}\n\nexport const attributeTypeMapDynamicFormOption: AttributeTypeMap[] = [\n  { name: 'value', type: 'object' },\n  { name: 'label', type: 'string' },\n  { name: 'disabled', type: 'boolean' },\n];\n",
             "properties": [
                 {
                     "name": "accept",
                     "type": "string",
                     "optional": true,
                     "description": "",
-                    "line": 7
+                    "line": 8
                 },
                 {
                     "name": "deny",
                     "type": "string",
                     "optional": true,
                     "description": "",
-                    "line": 8
+                    "line": 9
                 },
                 {
                     "name": "message",
                     "type": "string",
                     "optional": true,
                     "description": "",
-                    "line": 6
+                    "line": 7
                 },
                 {
                     "name": "title",
                     "type": "string",
                     "optional": true,
                     "description": "",
-                    "line": 5
+                    "line": 6
                 }
             ],
             "indexSignatures": [],
@@ -256,73 +256,73 @@
         },
         {
             "name": "DynamicFormOption",
-            "id": "interface-DynamicFormOption-9c33bbaf64b7f3797107d7abb637d782",
+            "id": "interface-DynamicFormOption-2b4bf2dac69a6c6832d28e4b3a9ddbfd",
             "file": "projects/dynamic-form/src/lib/model/dynamicFormOption.ts",
             "type": "interface",
-            "sourceCode": "import { AttributeTypeMap } from \"./models\";\nimport { DynamicFormItem, Media } from \"./dynamicFormItem\";\n\nexport interface ConfirmInformation {\n    title?: string;\n    message?: string;\n    accept?: string;\n    deny?: string;\n}\n\nexport interface FollowUpItem {\n    type: string;\n    items: DynamicFormItem[];\n    multi?: boolean;\n}\n\nexport interface DynamicFormOption<T = any> {\n    id?: string;\n    value?: T;\n    label?: string | null;\n    disabled?: boolean | null;\n    category?: string;\n    order?: number;\n    confirm?: ConfirmInformation;\n    media?: Media[];\n    followUpItems?: FollowUpItem;\n}\n\nexport const attributeTypeMapDynamicFormOption: AttributeTypeMap[] = [\n    { name: \"value\", type: \"object\" },\n    { name: \"label\", type: \"string\" },\n    { name: \"disabled\", type: \"boolean\" },\n];\n",
+            "sourceCode": "import { AttributeTypeMap } from './models';\nimport { DynamicFormItem, Media } from './dynamicFormItem';\nimport { DynamicFormSection } from './dynamicFormSection';\n\nexport interface ConfirmInformation {\n  title?: string;\n  message?: string;\n  accept?: string;\n  deny?: string;\n}\n\nexport interface FollowUpItem {\n  type: string;\n  items: DynamicFormItem[];\n  multi?: boolean;\n}\n\nexport interface DynamicFormOption<T = any> {\n  id?: string;\n  value?: T;\n  label?: string | null;\n  disabled?: boolean | null;\n  category?: string;\n  order?: number;\n  confirm?: ConfirmInformation;\n  media?: Media[];\n  followUpItems?: FollowUpItem;\n}\n\nexport const attributeTypeMapDynamicFormOption: AttributeTypeMap[] = [\n  { name: 'value', type: 'object' },\n  { name: 'label', type: 'string' },\n  { name: 'disabled', type: 'boolean' },\n];\n",
             "properties": [
                 {
                     "name": "category",
                     "type": "string",
                     "optional": true,
                     "description": "",
-                    "line": 22
+                    "line": 23
                 },
                 {
                     "name": "confirm",
                     "type": "ConfirmInformation",
                     "optional": true,
                     "description": "",
-                    "line": 24
+                    "line": 25
                 },
                 {
                     "name": "disabled",
                     "type": "boolean | null",
                     "optional": true,
                     "description": "",
-                    "line": 21
+                    "line": 22
                 },
                 {
                     "name": "followUpItems",
                     "type": "FollowUpItem",
                     "optional": true,
                     "description": "",
-                    "line": 26
+                    "line": 27
                 },
                 {
                     "name": "id",
                     "type": "string",
                     "optional": true,
                     "description": "",
-                    "line": 18
+                    "line": 19
                 },
                 {
                     "name": "label",
                     "type": "string | null",
                     "optional": true,
                     "description": "",
-                    "line": 20
+                    "line": 21
                 },
                 {
                     "name": "media",
                     "type": "Media[]",
                     "optional": true,
                     "description": "",
-                    "line": 25
+                    "line": 26
                 },
                 {
                     "name": "order",
                     "type": "number",
                     "optional": true,
                     "description": "",
-                    "line": 23
+                    "line": 24
                 },
                 {
                     "name": "value",
                     "type": "T",
                     "optional": true,
                     "description": "",
-                    "line": 19
+                    "line": 20
                 }
             ],
             "indexSignatures": [],
@@ -483,31 +483,31 @@
         },
         {
             "name": "FollowUpItem",
-            "id": "interface-FollowUpItem-9c33bbaf64b7f3797107d7abb637d782",
+            "id": "interface-FollowUpItem-2b4bf2dac69a6c6832d28e4b3a9ddbfd",
             "file": "projects/dynamic-form/src/lib/model/dynamicFormOption.ts",
             "type": "interface",
-            "sourceCode": "import { AttributeTypeMap } from \"./models\";\nimport { DynamicFormItem, Media } from \"./dynamicFormItem\";\n\nexport interface ConfirmInformation {\n    title?: string;\n    message?: string;\n    accept?: string;\n    deny?: string;\n}\n\nexport interface FollowUpItem {\n    type: string;\n    items: DynamicFormItem[];\n    multi?: boolean;\n}\n\nexport interface DynamicFormOption<T = any> {\n    id?: string;\n    value?: T;\n    label?: string | null;\n    disabled?: boolean | null;\n    category?: string;\n    order?: number;\n    confirm?: ConfirmInformation;\n    media?: Media[];\n    followUpItems?: FollowUpItem;\n}\n\nexport const attributeTypeMapDynamicFormOption: AttributeTypeMap[] = [\n    { name: \"value\", type: \"object\" },\n    { name: \"label\", type: \"string\" },\n    { name: \"disabled\", type: \"boolean\" },\n];\n",
+            "sourceCode": "import { AttributeTypeMap } from './models';\nimport { DynamicFormItem, Media } from './dynamicFormItem';\nimport { DynamicFormSection } from './dynamicFormSection';\n\nexport interface ConfirmInformation {\n  title?: string;\n  message?: string;\n  accept?: string;\n  deny?: string;\n}\n\nexport interface FollowUpItem {\n  type: string;\n  items: DynamicFormItem[];\n  multi?: boolean;\n}\n\nexport interface DynamicFormOption<T = any> {\n  id?: string;\n  value?: T;\n  label?: string | null;\n  disabled?: boolean | null;\n  category?: string;\n  order?: number;\n  confirm?: ConfirmInformation;\n  media?: Media[];\n  followUpItems?: FollowUpItem;\n}\n\nexport const attributeTypeMapDynamicFormOption: AttributeTypeMap[] = [\n  { name: 'value', type: 'object' },\n  { name: 'label', type: 'string' },\n  { name: 'disabled', type: 'boolean' },\n];\n",
             "properties": [
                 {
                     "name": "items",
                     "type": "DynamicFormItem[]",
                     "optional": false,
                     "description": "",
-                    "line": 13
+                    "line": 14
                 },
                 {
                     "name": "multi",
                     "type": "boolean",
                     "optional": true,
                     "description": "",
-                    "line": 14
+                    "line": 15
                 },
                 {
                     "name": "type",
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 12
+                    "line": 13
                 }
             ],
             "indexSignatures": [],
@@ -563,45 +563,45 @@
         },
         {
             "name": "IDynamicFormValidationError",
-            "id": "interface-IDynamicFormValidationError-a3f37b98cfa0296b294929229b8465d4",
+            "id": "interface-IDynamicFormValidationError-99c9d4351e3ebf49636352d65e734eab",
             "file": "projects/dynamic-form/src/lib/dynamic-form.component.ts",
             "type": "interface",
-            "sourceCode": "import {\n  ChangeDetectorRef,\n  Component,\n  ContentChild,\n  EventEmitter,\n  Input,\n  Output,\n  TemplateRef,\n} from '@angular/core';\nimport { FormControl } from '@angular/forms';\nimport { KeyValue } from '@angular/common';\nimport { DynamicFormItem, DynamicFormOption } from './model/models';\nimport {\n  ExtendedFormGroup,\n  ExtendedFormGroupControls,\n} from './model/custom-classes/extended-form-group';\nimport { ExtendedFormControl } from './model/custom-classes/extended-form-control';\nimport { ExtendedFormArray } from './model/custom-classes/extended-form-array';\nimport { ExtendedFormGroupArray } from './model/custom-classes/extended-form-group-array';\nimport { FormService } from './form.service';\n\ninterface IDynamicFormValidationError {\n  key: string;\n  errorMessage: string;\n  sectionId: string;\n  sectionIndex: number;\n  formItem: Partial<DynamicFormItem>;\n}\n\nexport interface IFormAction {\n  hasAction: boolean;\n  label?: string;\n}\n/** some comment */\n@Component({\n  selector: 'app-dynamic-form',\n  templateUrl: './dynamic-form.component.html',\n  providers: [FormService],\n  styles: [\n    `\n      ::ng-deep .dynamic-form-section-item {\n        margin-bottom: 1.5rem;\n      }\n    `,\n  ],\n})\nexport class DynamicFormComponent {\n  @Input() extendedFormGroup: ExtendedFormGroup;\n  @Input() validationErrors: IDynamicFormValidationError[];\n  @Input() activeStep: number;\n  @Input() sectionTemplate: TemplateRef<any>;\n  @Input() itemTemplate: TemplateRef<any>;\n  @Input() actionsTemplate: TemplateRef<any>;\n  @Input() disclaimerTemplate: TemplateRef<any>;\n  @Input() itemCustomClass: string;\n  @Input() hasFormActions: boolean = true;\n  @Input() nextAction: IFormAction = {\n    hasAction: true,\n    label: 'Next',\n  };\n  @Input() previousAction: IFormAction = {\n    hasAction: true,\n    label: 'Previous',\n  };\n  @Input() cancelAction: IFormAction = {\n    hasAction: true,\n    label: 'Cancel',\n  };\n  @Output() previousEvent: EventEmitter<any> = new EventEmitter();\n  @Output() nextEvent: EventEmitter<any> = new EventEmitter();\n  @Output() cancelEvent: EventEmitter<any> = new EventEmitter();\n\n  submitted: boolean = false;\n\n  newFormGroup: { form: ExtendedFormGroup; index: number } = {\n    form: null,\n    index: null,\n  };\n\n  followUpModalToggle: boolean = false;\n\n  constructor(\n    private formService: FormService,\n    private cd: ChangeDetectorRef\n  ) {}\n\n  shouldRenderFollowUpControlsType(key: any): string {\n    if (key.value?.followUpItems) {\n      return key.value?.followUpItems.type;\n    }\n  }\n\n  dimissFollowUpModal(item: ExtendedFormControl): void {\n    this.followUpModalToggle = false;\n    !item.formGroup && item?.reset();\n  }\n\n  saveFollowUpModal(param: {\n    item: ExtendedFormGroup;\n    control: ExtendedFormControl;\n  }): void {\n    const { item, control } = param;\n    if (item.valid) {\n      if (this.newFormGroup.index !== null) {\n        (control.formGroup as ExtendedFormGroupArray).setControl(\n          this.newFormGroup.index,\n          item\n        );\n      } else {\n        if (!control.formGroup?.controls?.length) {\n          control.formGroup = new ExtendedFormGroupArray([item]);\n        } else {\n          (control.formGroup as ExtendedFormGroupArray).push(item);\n        }\n      }\n      this.followUpModalToggle = false;\n      this.cd.detectChanges();\n    }\n  }\n\n  createFormGroup(item: any) {\n    this.newFormGroup = {\n      form: this.formService.dynamicFormItemsToFormGroup(item),\n      index: null,\n    };\n    this.followUpModalToggle = true;\n  }\n\n  modalShouldBeRendered(control): boolean {\n    if (control.value?.followUpItems) {\n      return !!this.newFormGroup.form;\n    }\n  }\n\n  /**\n   * SHOULD RENDER CONTROL:\n   * Determines if the form control should be rendered or not.\n   * @param key section key\n   * @param formItem the target form item that should or should not be displayed\n   * @param index if the formgroup is an array this is the index of the formgroup item\n   */\n  shouldRenderControl(\n    key: string,\n    formItem: DynamicFormItem,\n    index?: number\n  ): boolean {\n    if (this.extendedFormGroup.controls)\n      if (formItem?.rulerKey) {\n        // It has a ruler key, trying to find the ruler and it's value\n        let ruler: ExtendedFormControl;\n        if (index > -1) {\n          // the form control where the ruler should be is an array\n          const target: ExtendedFormControl = (this.extendedFormGroup.get(\n            key\n          ) as ExtendedFormGroupArray)\n            .at(index)\n            .get(formItem.rulerKey) as ExtendedFormControl;\n          if (target) {\n            ruler = target;\n          }\n        } else {\n          // no array index: the form control where the ruler should be is a regular form\n          ruler = this.extendedFormGroup\n            ?.get(key)\n            ?.get(formItem.rulerKey) as ExtendedFormControl;\n        }\n        const rulerValue: any = ruler.value;\n        const { condition }: DynamicFormItem = formItem;\n        if (rulerValue === undefined || condition === undefined) {\n          console.warn(\n            'Something went wrong in shouldRenderControl: Ruler value or condition could not be found.'\n          );\n          return false;\n        }\n        if (\n          typeof rulerValue === 'string' &&\n          rulerValue === (condition as any)\n        ) {\n          return this.shouldRenderControl(key, ruler.formItem, index);\n        } else if (\n          rulerValue &&\n          condition &&\n          typeof condition === 'object' &&\n          Array.isArray(condition)\n        ) {\n          for (const conditionItem of condition as Array<any>) {\n            if (conditionItem) {\n              if (typeof rulerValue === 'object' && Array.isArray(rulerValue)) {\n                for (const rulerValueItem of rulerValue as Array<any>) {\n                  if (\n                    rulerValueItem &&\n                    rulerValueItem.value === conditionItem.value\n                  ) {\n                    return this.shouldRenderControl(key, ruler.formItem, index);\n                  }\n                }\n              } else if (\n                typeof rulerValue === 'object' &&\n                !Array.isArray(rulerValue)\n              ) {\n                if (rulerValue && rulerValue.value === conditionItem.value) {\n                  return this.shouldRenderControl(key, ruler.formItem, index);\n                }\n              }\n            }\n          }\n        } else if (\n          rulerValue &&\n          typeof rulerValue === 'object' &&\n          !Array.isArray(rulerValue) &&\n          rulerValue.value === (condition as DynamicFormOption).value\n        ) {\n          return this.shouldRenderControl(key, ruler.formItem, index);\n        } else if (\n          rulerValue &&\n          typeof rulerValue === 'boolean' &&\n          rulerValue === condition\n        ) {\n          return this.shouldRenderControl(key, ruler.formItem, index);\n        }\n        return false;\n      }\n    return true;\n  }\n\n  /**\n   * ADD NEW ITEM TO FORM ARRAY WITH ID:\n   * Duplicates the whole section or a form item within a section\n   * @param key section key\n   * @param id the id of the form item which should be duplicated\n   * @param sectionIndex if the formgroup is an array this is the index of the formgroup item\n   */\n  addNewItemToFormArrayWithId(\n    key: string,\n    id?: string,\n    sectionIndex?: number\n  ): void {\n    if (id) {\n      // There is an id which means we want to duplicate a form item within a section\n      if (sectionIndex > -1) {\n        // the form control where the item to duplicate should be is an array\n        const target: ExtendedFormArray = (this.extendedFormGroup.get(\n          key\n        ) as ExtendedFormGroupArray).at(sectionIndex) as ExtendedFormArray;\n        (target.get(id) as ExtendedFormArray).push(new FormControl(''));\n      } else {\n        // the form control is not an array since there is no section index\n        (this.extendedFormGroup.get(key).get(id) as ExtendedFormArray).push(\n          new FormControl('')\n        );\n      }\n    } else {\n      // There is no id which means we want to duplicate the entire section\n      const target: ExtendedFormGroupArray = this.extendedFormGroup.get(\n        key\n      ) as ExtendedFormGroupArray;\n      const childControls: ExtendedFormGroupControls = this.formService.dynamicFormItemsToControls(\n        target.sectionItem.items\n      );\n      const formGroup: ExtendedFormGroup = new ExtendedFormGroup(\n        childControls,\n        target.sectionItem\n      );\n      target.push(formGroup);\n    }\n  }\n\n  /**\n   * REMOVE ITEM AT INDEX FROM FORM ARRAY WITH ID:\n   * Removes the whole section or a form item within a section\n   * @param key section key\n   * @param info the id of the form item which should be removed and the index of where to remove it\n   * @param sectionIndex if the formgroup is an array this is the index of the formgroup item\n   */\n  removeItemAtIndexFromFormArrayWithId(\n    key: string,\n    info?: { id: string; index: number },\n    sectionIndex?: number\n  ): void {\n    if (info && info.id) {\n      // There is info which means we want to remove a form item within a section\n      if (sectionIndex > -1) {\n        // the form control where the item to remove should be is an array\n        const target: ExtendedFormArray = (this.extendedFormGroup.get(\n          key\n        ) as ExtendedFormGroupArray).at(sectionIndex) as ExtendedFormArray;\n        (target.get(info.id) as ExtendedFormArray).removeAt(info.index);\n      } else {\n        // the form control is not an array since there is no section index\n        (this.extendedFormGroup\n          .get(key)\n          .get(info.id) as ExtendedFormArray).removeAt(info.index);\n      }\n    } else {\n      // there is no info indicating we should use the section index to remove the section itself\n      if (sectionIndex > -1) {\n        (this.extendedFormGroup.get(key) as ExtendedFormGroupArray).removeAt(\n          sectionIndex\n        );\n      } else {\n        console.warn(\n          'Error at removeItemAtIndexFromFormArrayWithId: Tried to remove section but no section index was provided'\n        );\n      }\n    }\n  }\n\n  removeItemFromParent(param: {\n    form: ExtendedFormControl;\n    index: number;\n  }): void {\n    const { form, index } = param;\n    (form.formGroup as ExtendedFormGroupArray).removeAt(index);\n    // reset parent control if the formGroup property doesn't have controls\n    if (!(form.formGroup as ExtendedFormGroupArray).controls?.length) {\n      form.reset();\n    }\n    this.followUpModalToggle = false;\n  }\n\n  editItemFromParent(param: {\n    formArray: ExtendedFormArray;\n    index: number;\n  }): void {\n    const { formArray, index } = param;\n    this.newFormGroup = {\n      form: new ExtendedFormGroup(\n        (formArray.at(index) as ExtendedFormGroup)\n          .controls as ExtendedFormGroupControls\n      ),\n      index,\n    };\n    this.followUpModalToggle = true;\n  }\n\n  orderForm = (\n    a: KeyValue<string, ExtendedFormGroup | ExtendedFormControl>,\n    b: KeyValue<string, ExtendedFormGroup | ExtendedFormControl>\n  ): number => {\n    if (a.value['sectionItem'] && b.value['sectionItem']) {\n      return (\n        (a.value as ExtendedFormGroup).sectionItem.order -\n        (b.value as ExtendedFormGroup).sectionItem.order\n      );\n    } else if (a.value['formItem'] && b.value['formItem']) {\n      return (\n        (a.value as ExtendedFormControl).formItem.order -\n        (b.value as ExtendedFormControl).formItem.order\n      );\n    }\n    return 0;\n  };\n\n  getFormArrayControls(\n    control: ExtendedFormGroupArray\n  ): Array<ExtendedFormGroup> {\n    if (control instanceof ExtendedFormGroupArray) {\n      return control.controls as Array<ExtendedFormGroup>;\n    } else {\n      console.warn(\n        'Error in getFormArrayControls: control is not an instance of ExtendedFormGroupArray'\n      );\n      return [];\n    }\n  }\n\n  getValidationErrorFor = (\n    key: string,\n    formItem: DynamicFormItem,\n    index?: number\n  ): string => {\n    let errorMessage: string;\n    if (\n      !this.validationErrors ||\n      (this.validationErrors && !this.validationErrors.length)\n    ) {\n      return null;\n    }\n\n    let sectionErrors: IDynamicFormValidationError[];\n    if (index) {\n      // check for sectionIndex\n      sectionErrors = this.validationErrors.filter(\n        (error) => error.sectionId === key && error.sectionIndex === index\n      );\n    } else {\n      sectionErrors = this.validationErrors.filter(\n        (error) => error.sectionId === key\n      );\n    }\n\n    sectionErrors?.length &&\n      sectionErrors.forEach((error) => {\n        if (error.key === formItem.key) {\n          errorMessage = error.errorMessage;\n        }\n      });\n\n    return errorMessage;\n  };\n\n  controlValueChanged(): void {\n    this.submitted &&= false;\n  }\n\n  get sectionList() {\n    if (this.activeStep !== null) {\n      return [\n        this.extendedFormGroup.controls[\n          Object.keys(this.extendedFormGroup.controls)[this.activeStep]\n        ],\n      ];\n    } else {\n      return this.extendedFormGroup.controls;\n    }\n  }\n\n  validate(): void {\n    console.log(this.extendedFormGroup);\n  }\n\n  cancel(): void {\n    this.cancelEvent.emit();\n  }\n\n  next(): void {\n    this.submitted = true;\n    if (this.formService.validateForm(this.extendedFormGroup)) {\n      this.nextEvent?.emit();\n      this.submitted = false;\n    }\n  }\n\n  previous(): void {\n    this.previousEvent.emit();\n  }\n}\n",
+            "sourceCode": "import {\n  ChangeDetectorRef,\n  Component,\n  EventEmitter,\n  Input,\n  Output,\n  TemplateRef,\n} from '@angular/core';\nimport { FormControl } from '@angular/forms';\nimport { KeyValue } from '@angular/common';\nimport { DynamicFormItem, DynamicFormOption } from './model/models';\nimport {\n  ExtendedFormGroup,\n  ExtendedFormGroupControls,\n} from './model/custom-classes/extended-form-group';\nimport { ExtendedFormControl } from './model/custom-classes/extended-form-control';\nimport { ExtendedFormArray } from './model/custom-classes/extended-form-array';\nimport { ExtendedFormGroupArray } from './model/custom-classes/extended-form-group-array';\nimport { FormService } from './form.service';\n\ninterface IDynamicFormValidationError {\n  key: string;\n  errorMessage: string;\n  sectionId: string;\n  sectionIndex: number;\n  formItem: Partial<DynamicFormItem>;\n}\n\nexport interface IFormAction {\n  hasAction: boolean;\n  label?: string;\n}\n/** some comment */\n@Component({\n  selector: 'app-dynamic-form',\n  templateUrl: './dynamic-form.component.html',\n  providers: [FormService],\n  styles: [\n    `\n      ::ng-deep .dynamic-form-section-item {\n        margin-bottom: 1.5rem;\n      }\n    `,\n  ],\n})\nexport class DynamicFormComponent {\n  @Input() extendedFormGroup: ExtendedFormGroup;\n  @Input() validationErrors: IDynamicFormValidationError[];\n  @Input() activeStep: number;\n  @Input() sectionTemplate: TemplateRef<any>;\n  @Input() itemTemplate: TemplateRef<any>;\n  @Input() actionsTemplate: TemplateRef<any>;\n  @Input() disclaimerTemplate: TemplateRef<any>;\n  @Input() itemCustomClass: string;\n  @Input() hasFormActions: boolean = true;\n  @Input() nextAction: IFormAction = {\n    hasAction: true,\n    label: 'Next',\n  };\n  @Input() previousAction: IFormAction = {\n    hasAction: true,\n    label: 'Previous',\n  };\n  @Input() cancelAction: IFormAction = {\n    hasAction: true,\n    label: 'Cancel',\n  };\n  @Output() previousEvent: EventEmitter<any> = new EventEmitter();\n  @Output() nextEvent: EventEmitter<any> = new EventEmitter();\n  @Output() cancelEvent: EventEmitter<any> = new EventEmitter();\n\n  submitted: boolean = false;\n\n  newFormGroup: { form: ExtendedFormGroup; index: number } = {\n    form: null,\n    index: null,\n  };\n\n  followUpModalToggle: boolean = false;\n\n  constructor(\n    private formService: FormService,\n    private cd: ChangeDetectorRef\n  ) {}\n\n  shouldRenderFollowUpControlsType(key: any): string {\n    if (key.value?.followUpItems) {\n      return key.value?.followUpItems.type;\n    }\n  }\n\n  dimissFollowUpModal(item: ExtendedFormControl): void {\n    this.followUpModalToggle = false;\n    !item.formGroup && item?.reset();\n  }\n\n  saveFollowUpModal(param: {\n    item: ExtendedFormGroup;\n    control: ExtendedFormControl;\n  }): void {\n    const { item, control } = param;\n    if (item.valid) {\n      if (this.newFormGroup.index !== null) {\n        (control.formGroup as ExtendedFormGroupArray).setControl(\n          this.newFormGroup.index,\n          item\n        );\n      } else {\n        if (!control.formGroup?.controls?.length) {\n          control.formGroup = new ExtendedFormGroupArray([item]);\n        } else {\n          (control.formGroup as ExtendedFormGroupArray).push(item);\n        }\n      }\n      this.followUpModalToggle = false;\n      this.cd.detectChanges();\n    }\n  }\n\n  createFormGroup(item: any) {\n    this.newFormGroup = {\n      form: this.formService.dynamicFormItemsToFormGroup(item),\n      index: null,\n    };\n    this.followUpModalToggle = true;\n  }\n\n  modalShouldBeRendered(control): boolean {\n    if (control.value?.followUpItems) {\n      return !!this.newFormGroup.form;\n    }\n  }\n\n  /**\n   * SHOULD RENDER CONTROL:\n   * Determines if the form control should be rendered or not.\n   * @param key section key\n   * @param formItem the target form item that should or should not be displayed\n   * @param index if the formgroup is an array this is the index of the formgroup item\n   */\n  shouldRenderControl(\n    key: string,\n    formItem: DynamicFormItem,\n    index?: number\n  ): boolean {\n    if (this.extendedFormGroup.controls)\n      if (formItem?.rulerKey) {\n        // It has a ruler key, trying to find the ruler and it's value\n        let ruler: ExtendedFormControl;\n        if (index > -1) {\n          // the form control where the ruler should be is an array\n          const target: ExtendedFormControl = (this.extendedFormGroup.get(\n            key\n          ) as ExtendedFormGroupArray)\n            .at(index)\n            .get(formItem.rulerKey) as ExtendedFormControl;\n          if (target) {\n            ruler = target;\n          }\n        } else {\n          // no array index: the form control where the ruler should be is a regular form\n          ruler = this.extendedFormGroup\n            ?.get(key)\n            ?.get(formItem.rulerKey) as ExtendedFormControl;\n        }\n        const rulerValue: any = ruler.value;\n        const { condition }: DynamicFormItem = formItem;\n        if (rulerValue === undefined || condition === undefined) {\n          console.warn(\n            'Something went wrong in shouldRenderControl: Ruler value or condition could not be found.'\n          );\n          return false;\n        }\n        if (\n          typeof rulerValue === 'string' &&\n          rulerValue === (condition as any)\n        ) {\n          return this.shouldRenderControl(key, ruler.formItem, index);\n        } else if (\n          rulerValue &&\n          condition &&\n          typeof condition === 'object' &&\n          Array.isArray(condition)\n        ) {\n          for (const conditionItem of condition as Array<any>) {\n            if (conditionItem) {\n              if (typeof rulerValue === 'object' && Array.isArray(rulerValue)) {\n                for (const rulerValueItem of rulerValue as Array<any>) {\n                  if (\n                    rulerValueItem &&\n                    rulerValueItem.value === conditionItem.value\n                  ) {\n                    return this.shouldRenderControl(key, ruler.formItem, index);\n                  }\n                }\n              } else if (\n                typeof rulerValue === 'object' &&\n                !Array.isArray(rulerValue)\n              ) {\n                if (rulerValue && rulerValue.value === conditionItem.value) {\n                  return this.shouldRenderControl(key, ruler.formItem, index);\n                }\n              }\n            }\n          }\n        } else if (\n          rulerValue &&\n          typeof rulerValue === 'object' &&\n          !Array.isArray(rulerValue) &&\n          rulerValue.value === (condition as DynamicFormOption).value\n        ) {\n          return this.shouldRenderControl(key, ruler.formItem, index);\n        } else if (\n          rulerValue &&\n          typeof rulerValue === 'boolean' &&\n          rulerValue === condition\n        ) {\n          return this.shouldRenderControl(key, ruler.formItem, index);\n        }\n        return false;\n      }\n    return true;\n  }\n\n  /**\n   * ADD NEW ITEM TO FORM ARRAY WITH ID:\n   * Duplicates the whole section or a form item within a section\n   * @param key section key\n   * @param id the id of the form item which should be duplicated\n   * @param sectionIndex if the formgroup is an array this is the index of the formgroup item\n   */\n  addNewItemToFormArrayWithId(\n    key: string,\n    id?: string,\n    sectionIndex?: number\n  ): void {\n    if (id) {\n      // There is an id which means we want to duplicate a form item within a section\n      if (sectionIndex > -1) {\n        // the form control where the item to duplicate should be is an array\n        const target: ExtendedFormArray = (this.extendedFormGroup.get(\n          key\n        ) as ExtendedFormGroupArray).at(sectionIndex) as ExtendedFormArray;\n        (target.get(id) as ExtendedFormArray).push(new FormControl(''));\n      } else {\n        // the form control is not an array since there is no section index\n        (this.extendedFormGroup.get(key).get(id) as ExtendedFormArray).push(\n          new FormControl('')\n        );\n      }\n    } else {\n      // There is no id which means we want to duplicate the entire section\n      const target: ExtendedFormGroupArray = this.extendedFormGroup.get(\n        key\n      ) as ExtendedFormGroupArray;\n      const childControls: ExtendedFormGroupControls = this.formService.dynamicFormItemsToControls(\n        target.sectionItem.items\n      );\n      const formGroup: ExtendedFormGroup = new ExtendedFormGroup(\n        childControls,\n        target.sectionItem\n      );\n      target.push(formGroup);\n    }\n  }\n\n  /**\n   * REMOVE ITEM AT INDEX FROM FORM ARRAY WITH ID:\n   * Removes the whole section or a form item within a section\n   * @param key section key\n   * @param info the id of the form item which should be removed and the index of where to remove it\n   * @param sectionIndex if the formgroup is an array this is the index of the formgroup item\n   */\n  removeItemAtIndexFromFormArrayWithId(\n    key: string,\n    info?: { id: string; index: number },\n    sectionIndex?: number\n  ): void {\n    if (info && info.id) {\n      // There is info which means we want to remove a form item within a section\n      if (sectionIndex > -1) {\n        // the form control where the item to remove should be is an array\n        const target: ExtendedFormArray = (this.extendedFormGroup.get(\n          key\n        ) as ExtendedFormGroupArray).at(sectionIndex) as ExtendedFormArray;\n        (target.get(info.id) as ExtendedFormArray).removeAt(info.index);\n      } else {\n        // the form control is not an array since there is no section index\n        (this.extendedFormGroup\n          .get(key)\n          .get(info.id) as ExtendedFormArray).removeAt(info.index);\n      }\n    } else {\n      // there is no info indicating we should use the section index to remove the section itself\n      if (sectionIndex > -1) {\n        (this.extendedFormGroup.get(key) as ExtendedFormGroupArray).removeAt(\n          sectionIndex\n        );\n      } else {\n        console.warn(\n          'Error at removeItemAtIndexFromFormArrayWithId: Tried to remove section but no section index was provided'\n        );\n      }\n    }\n  }\n\n  removeItemFromParent(param: {\n    form: ExtendedFormControl;\n    index: number;\n  }): void {\n    const { form, index } = param;\n    (form.formGroup as ExtendedFormGroupArray).removeAt(index);\n    // reset parent control if the formGroup property doesn't have controls\n    if (!(form.formGroup as ExtendedFormGroupArray).controls?.length) {\n      form.reset();\n    }\n    this.followUpModalToggle = false;\n  }\n\n  editItemFromParent(param: {\n    formArray: ExtendedFormArray;\n    index: number;\n  }): void {\n    const { formArray, index } = param;\n    this.newFormGroup = {\n      form: new ExtendedFormGroup(\n        (formArray.at(index) as ExtendedFormGroup)\n          .controls as ExtendedFormGroupControls\n      ),\n      index,\n    };\n    this.followUpModalToggle = true;\n  }\n\n  orderForm = (\n    a: KeyValue<string, ExtendedFormGroup | ExtendedFormControl>,\n    b: KeyValue<string, ExtendedFormGroup | ExtendedFormControl>\n  ): number => {\n    if (a.value['sectionItem'] && b.value['sectionItem']) {\n      return (\n        (a.value as ExtendedFormGroup).sectionItem.order -\n        (b.value as ExtendedFormGroup).sectionItem.order\n      );\n    } else if (a.value['formItem'] && b.value['formItem']) {\n      return (\n        (a.value as ExtendedFormControl).formItem.order -\n        (b.value as ExtendedFormControl).formItem.order\n      );\n    }\n    return 0;\n  };\n\n  getFormArrayControls(\n    control: ExtendedFormGroupArray\n  ): Array<ExtendedFormGroup> {\n    if (control instanceof ExtendedFormGroupArray) {\n      return control.controls as Array<ExtendedFormGroup>;\n    } else {\n      console.warn(\n        'Error in getFormArrayControls: control is not an instance of ExtendedFormGroupArray'\n      );\n      return [];\n    }\n  }\n\n  controlValueChanged(): void {\n    this.submitted &&= false;\n  }\n\n  get sectionList() {\n    if (this.activeStep !== null) {\n      return [\n        this.extendedFormGroup.controls[\n          Object.keys(this.extendedFormGroup.controls)[this.activeStep]\n        ],\n      ];\n    } else {\n      return this.extendedFormGroup.controls;\n    }\n  }\n\n  validate(): void {\n    console.log(this.extendedFormGroup);\n  }\n\n  cancel(): void {\n    this.cancelEvent.emit();\n  }\n\n  next(): void {\n    this.submitted = true;\n    if (this.formService.validateForm(this.sectionList[0])) {\n      this.nextEvent?.emit();\n      this.submitted = false;\n    }\n  }\n\n  previous(): void {\n    this.previousEvent.emit();\n  }\n}\n",
             "properties": [
                 {
                     "name": "errorMessage",
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 24
+                    "line": 23
                 },
                 {
                     "name": "formItem",
                     "type": "Partial<DynamicFormItem>",
                     "optional": false,
                     "description": "",
-                    "line": 27
+                    "line": 26
                 },
                 {
                     "name": "key",
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 23
+                    "line": 22
                 },
                 {
                     "name": "sectionId",
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 25
+                    "line": 24
                 },
                 {
                     "name": "sectionIndex",
                     "type": "number",
                     "optional": false,
                     "description": "",
-                    "line": 26
+                    "line": 25
                 }
             ],
             "indexSignatures": [],
@@ -610,24 +610,24 @@
         },
         {
             "name": "IFormAction",
-            "id": "interface-IFormAction-a3f37b98cfa0296b294929229b8465d4",
+            "id": "interface-IFormAction-99c9d4351e3ebf49636352d65e734eab",
             "file": "projects/dynamic-form/src/lib/dynamic-form.component.ts",
             "type": "interface",
-            "sourceCode": "import {\n  ChangeDetectorRef,\n  Component,\n  ContentChild,\n  EventEmitter,\n  Input,\n  Output,\n  TemplateRef,\n} from '@angular/core';\nimport { FormControl } from '@angular/forms';\nimport { KeyValue } from '@angular/common';\nimport { DynamicFormItem, DynamicFormOption } from './model/models';\nimport {\n  ExtendedFormGroup,\n  ExtendedFormGroupControls,\n} from './model/custom-classes/extended-form-group';\nimport { ExtendedFormControl } from './model/custom-classes/extended-form-control';\nimport { ExtendedFormArray } from './model/custom-classes/extended-form-array';\nimport { ExtendedFormGroupArray } from './model/custom-classes/extended-form-group-array';\nimport { FormService } from './form.service';\n\ninterface IDynamicFormValidationError {\n  key: string;\n  errorMessage: string;\n  sectionId: string;\n  sectionIndex: number;\n  formItem: Partial<DynamicFormItem>;\n}\n\nexport interface IFormAction {\n  hasAction: boolean;\n  label?: string;\n}\n/** some comment */\n@Component({\n  selector: 'app-dynamic-form',\n  templateUrl: './dynamic-form.component.html',\n  providers: [FormService],\n  styles: [\n    `\n      ::ng-deep .dynamic-form-section-item {\n        margin-bottom: 1.5rem;\n      }\n    `,\n  ],\n})\nexport class DynamicFormComponent {\n  @Input() extendedFormGroup: ExtendedFormGroup;\n  @Input() validationErrors: IDynamicFormValidationError[];\n  @Input() activeStep: number;\n  @Input() sectionTemplate: TemplateRef<any>;\n  @Input() itemTemplate: TemplateRef<any>;\n  @Input() actionsTemplate: TemplateRef<any>;\n  @Input() disclaimerTemplate: TemplateRef<any>;\n  @Input() itemCustomClass: string;\n  @Input() hasFormActions: boolean = true;\n  @Input() nextAction: IFormAction = {\n    hasAction: true,\n    label: 'Next',\n  };\n  @Input() previousAction: IFormAction = {\n    hasAction: true,\n    label: 'Previous',\n  };\n  @Input() cancelAction: IFormAction = {\n    hasAction: true,\n    label: 'Cancel',\n  };\n  @Output() previousEvent: EventEmitter<any> = new EventEmitter();\n  @Output() nextEvent: EventEmitter<any> = new EventEmitter();\n  @Output() cancelEvent: EventEmitter<any> = new EventEmitter();\n\n  submitted: boolean = false;\n\n  newFormGroup: { form: ExtendedFormGroup; index: number } = {\n    form: null,\n    index: null,\n  };\n\n  followUpModalToggle: boolean = false;\n\n  constructor(\n    private formService: FormService,\n    private cd: ChangeDetectorRef\n  ) {}\n\n  shouldRenderFollowUpControlsType(key: any): string {\n    if (key.value?.followUpItems) {\n      return key.value?.followUpItems.type;\n    }\n  }\n\n  dimissFollowUpModal(item: ExtendedFormControl): void {\n    this.followUpModalToggle = false;\n    !item.formGroup && item?.reset();\n  }\n\n  saveFollowUpModal(param: {\n    item: ExtendedFormGroup;\n    control: ExtendedFormControl;\n  }): void {\n    const { item, control } = param;\n    if (item.valid) {\n      if (this.newFormGroup.index !== null) {\n        (control.formGroup as ExtendedFormGroupArray).setControl(\n          this.newFormGroup.index,\n          item\n        );\n      } else {\n        if (!control.formGroup?.controls?.length) {\n          control.formGroup = new ExtendedFormGroupArray([item]);\n        } else {\n          (control.formGroup as ExtendedFormGroupArray).push(item);\n        }\n      }\n      this.followUpModalToggle = false;\n      this.cd.detectChanges();\n    }\n  }\n\n  createFormGroup(item: any) {\n    this.newFormGroup = {\n      form: this.formService.dynamicFormItemsToFormGroup(item),\n      index: null,\n    };\n    this.followUpModalToggle = true;\n  }\n\n  modalShouldBeRendered(control): boolean {\n    if (control.value?.followUpItems) {\n      return !!this.newFormGroup.form;\n    }\n  }\n\n  /**\n   * SHOULD RENDER CONTROL:\n   * Determines if the form control should be rendered or not.\n   * @param key section key\n   * @param formItem the target form item that should or should not be displayed\n   * @param index if the formgroup is an array this is the index of the formgroup item\n   */\n  shouldRenderControl(\n    key: string,\n    formItem: DynamicFormItem,\n    index?: number\n  ): boolean {\n    if (this.extendedFormGroup.controls)\n      if (formItem?.rulerKey) {\n        // It has a ruler key, trying to find the ruler and it's value\n        let ruler: ExtendedFormControl;\n        if (index > -1) {\n          // the form control where the ruler should be is an array\n          const target: ExtendedFormControl = (this.extendedFormGroup.get(\n            key\n          ) as ExtendedFormGroupArray)\n            .at(index)\n            .get(formItem.rulerKey) as ExtendedFormControl;\n          if (target) {\n            ruler = target;\n          }\n        } else {\n          // no array index: the form control where the ruler should be is a regular form\n          ruler = this.extendedFormGroup\n            ?.get(key)\n            ?.get(formItem.rulerKey) as ExtendedFormControl;\n        }\n        const rulerValue: any = ruler.value;\n        const { condition }: DynamicFormItem = formItem;\n        if (rulerValue === undefined || condition === undefined) {\n          console.warn(\n            'Something went wrong in shouldRenderControl: Ruler value or condition could not be found.'\n          );\n          return false;\n        }\n        if (\n          typeof rulerValue === 'string' &&\n          rulerValue === (condition as any)\n        ) {\n          return this.shouldRenderControl(key, ruler.formItem, index);\n        } else if (\n          rulerValue &&\n          condition &&\n          typeof condition === 'object' &&\n          Array.isArray(condition)\n        ) {\n          for (const conditionItem of condition as Array<any>) {\n            if (conditionItem) {\n              if (typeof rulerValue === 'object' && Array.isArray(rulerValue)) {\n                for (const rulerValueItem of rulerValue as Array<any>) {\n                  if (\n                    rulerValueItem &&\n                    rulerValueItem.value === conditionItem.value\n                  ) {\n                    return this.shouldRenderControl(key, ruler.formItem, index);\n                  }\n                }\n              } else if (\n                typeof rulerValue === 'object' &&\n                !Array.isArray(rulerValue)\n              ) {\n                if (rulerValue && rulerValue.value === conditionItem.value) {\n                  return this.shouldRenderControl(key, ruler.formItem, index);\n                }\n              }\n            }\n          }\n        } else if (\n          rulerValue &&\n          typeof rulerValue === 'object' &&\n          !Array.isArray(rulerValue) &&\n          rulerValue.value === (condition as DynamicFormOption).value\n        ) {\n          return this.shouldRenderControl(key, ruler.formItem, index);\n        } else if (\n          rulerValue &&\n          typeof rulerValue === 'boolean' &&\n          rulerValue === condition\n        ) {\n          return this.shouldRenderControl(key, ruler.formItem, index);\n        }\n        return false;\n      }\n    return true;\n  }\n\n  /**\n   * ADD NEW ITEM TO FORM ARRAY WITH ID:\n   * Duplicates the whole section or a form item within a section\n   * @param key section key\n   * @param id the id of the form item which should be duplicated\n   * @param sectionIndex if the formgroup is an array this is the index of the formgroup item\n   */\n  addNewItemToFormArrayWithId(\n    key: string,\n    id?: string,\n    sectionIndex?: number\n  ): void {\n    if (id) {\n      // There is an id which means we want to duplicate a form item within a section\n      if (sectionIndex > -1) {\n        // the form control where the item to duplicate should be is an array\n        const target: ExtendedFormArray = (this.extendedFormGroup.get(\n          key\n        ) as ExtendedFormGroupArray).at(sectionIndex) as ExtendedFormArray;\n        (target.get(id) as ExtendedFormArray).push(new FormControl(''));\n      } else {\n        // the form control is not an array since there is no section index\n        (this.extendedFormGroup.get(key).get(id) as ExtendedFormArray).push(\n          new FormControl('')\n        );\n      }\n    } else {\n      // There is no id which means we want to duplicate the entire section\n      const target: ExtendedFormGroupArray = this.extendedFormGroup.get(\n        key\n      ) as ExtendedFormGroupArray;\n      const childControls: ExtendedFormGroupControls = this.formService.dynamicFormItemsToControls(\n        target.sectionItem.items\n      );\n      const formGroup: ExtendedFormGroup = new ExtendedFormGroup(\n        childControls,\n        target.sectionItem\n      );\n      target.push(formGroup);\n    }\n  }\n\n  /**\n   * REMOVE ITEM AT INDEX FROM FORM ARRAY WITH ID:\n   * Removes the whole section or a form item within a section\n   * @param key section key\n   * @param info the id of the form item which should be removed and the index of where to remove it\n   * @param sectionIndex if the formgroup is an array this is the index of the formgroup item\n   */\n  removeItemAtIndexFromFormArrayWithId(\n    key: string,\n    info?: { id: string; index: number },\n    sectionIndex?: number\n  ): void {\n    if (info && info.id) {\n      // There is info which means we want to remove a form item within a section\n      if (sectionIndex > -1) {\n        // the form control where the item to remove should be is an array\n        const target: ExtendedFormArray = (this.extendedFormGroup.get(\n          key\n        ) as ExtendedFormGroupArray).at(sectionIndex) as ExtendedFormArray;\n        (target.get(info.id) as ExtendedFormArray).removeAt(info.index);\n      } else {\n        // the form control is not an array since there is no section index\n        (this.extendedFormGroup\n          .get(key)\n          .get(info.id) as ExtendedFormArray).removeAt(info.index);\n      }\n    } else {\n      // there is no info indicating we should use the section index to remove the section itself\n      if (sectionIndex > -1) {\n        (this.extendedFormGroup.get(key) as ExtendedFormGroupArray).removeAt(\n          sectionIndex\n        );\n      } else {\n        console.warn(\n          'Error at removeItemAtIndexFromFormArrayWithId: Tried to remove section but no section index was provided'\n        );\n      }\n    }\n  }\n\n  removeItemFromParent(param: {\n    form: ExtendedFormControl;\n    index: number;\n  }): void {\n    const { form, index } = param;\n    (form.formGroup as ExtendedFormGroupArray).removeAt(index);\n    // reset parent control if the formGroup property doesn't have controls\n    if (!(form.formGroup as ExtendedFormGroupArray).controls?.length) {\n      form.reset();\n    }\n    this.followUpModalToggle = false;\n  }\n\n  editItemFromParent(param: {\n    formArray: ExtendedFormArray;\n    index: number;\n  }): void {\n    const { formArray, index } = param;\n    this.newFormGroup = {\n      form: new ExtendedFormGroup(\n        (formArray.at(index) as ExtendedFormGroup)\n          .controls as ExtendedFormGroupControls\n      ),\n      index,\n    };\n    this.followUpModalToggle = true;\n  }\n\n  orderForm = (\n    a: KeyValue<string, ExtendedFormGroup | ExtendedFormControl>,\n    b: KeyValue<string, ExtendedFormGroup | ExtendedFormControl>\n  ): number => {\n    if (a.value['sectionItem'] && b.value['sectionItem']) {\n      return (\n        (a.value as ExtendedFormGroup).sectionItem.order -\n        (b.value as ExtendedFormGroup).sectionItem.order\n      );\n    } else if (a.value['formItem'] && b.value['formItem']) {\n      return (\n        (a.value as ExtendedFormControl).formItem.order -\n        (b.value as ExtendedFormControl).formItem.order\n      );\n    }\n    return 0;\n  };\n\n  getFormArrayControls(\n    control: ExtendedFormGroupArray\n  ): Array<ExtendedFormGroup> {\n    if (control instanceof ExtendedFormGroupArray) {\n      return control.controls as Array<ExtendedFormGroup>;\n    } else {\n      console.warn(\n        'Error in getFormArrayControls: control is not an instance of ExtendedFormGroupArray'\n      );\n      return [];\n    }\n  }\n\n  getValidationErrorFor = (\n    key: string,\n    formItem: DynamicFormItem,\n    index?: number\n  ): string => {\n    let errorMessage: string;\n    if (\n      !this.validationErrors ||\n      (this.validationErrors && !this.validationErrors.length)\n    ) {\n      return null;\n    }\n\n    let sectionErrors: IDynamicFormValidationError[];\n    if (index) {\n      // check for sectionIndex\n      sectionErrors = this.validationErrors.filter(\n        (error) => error.sectionId === key && error.sectionIndex === index\n      );\n    } else {\n      sectionErrors = this.validationErrors.filter(\n        (error) => error.sectionId === key\n      );\n    }\n\n    sectionErrors?.length &&\n      sectionErrors.forEach((error) => {\n        if (error.key === formItem.key) {\n          errorMessage = error.errorMessage;\n        }\n      });\n\n    return errorMessage;\n  };\n\n  controlValueChanged(): void {\n    this.submitted &&= false;\n  }\n\n  get sectionList() {\n    if (this.activeStep !== null) {\n      return [\n        this.extendedFormGroup.controls[\n          Object.keys(this.extendedFormGroup.controls)[this.activeStep]\n        ],\n      ];\n    } else {\n      return this.extendedFormGroup.controls;\n    }\n  }\n\n  validate(): void {\n    console.log(this.extendedFormGroup);\n  }\n\n  cancel(): void {\n    this.cancelEvent.emit();\n  }\n\n  next(): void {\n    this.submitted = true;\n    if (this.formService.validateForm(this.extendedFormGroup)) {\n      this.nextEvent?.emit();\n      this.submitted = false;\n    }\n  }\n\n  previous(): void {\n    this.previousEvent.emit();\n  }\n}\n",
+            "sourceCode": "import {\n  ChangeDetectorRef,\n  Component,\n  EventEmitter,\n  Input,\n  Output,\n  TemplateRef,\n} from '@angular/core';\nimport { FormControl } from '@angular/forms';\nimport { KeyValue } from '@angular/common';\nimport { DynamicFormItem, DynamicFormOption } from './model/models';\nimport {\n  ExtendedFormGroup,\n  ExtendedFormGroupControls,\n} from './model/custom-classes/extended-form-group';\nimport { ExtendedFormControl } from './model/custom-classes/extended-form-control';\nimport { ExtendedFormArray } from './model/custom-classes/extended-form-array';\nimport { ExtendedFormGroupArray } from './model/custom-classes/extended-form-group-array';\nimport { FormService } from './form.service';\n\ninterface IDynamicFormValidationError {\n  key: string;\n  errorMessage: string;\n  sectionId: string;\n  sectionIndex: number;\n  formItem: Partial<DynamicFormItem>;\n}\n\nexport interface IFormAction {\n  hasAction: boolean;\n  label?: string;\n}\n/** some comment */\n@Component({\n  selector: 'app-dynamic-form',\n  templateUrl: './dynamic-form.component.html',\n  providers: [FormService],\n  styles: [\n    `\n      ::ng-deep .dynamic-form-section-item {\n        margin-bottom: 1.5rem;\n      }\n    `,\n  ],\n})\nexport class DynamicFormComponent {\n  @Input() extendedFormGroup: ExtendedFormGroup;\n  @Input() validationErrors: IDynamicFormValidationError[];\n  @Input() activeStep: number;\n  @Input() sectionTemplate: TemplateRef<any>;\n  @Input() itemTemplate: TemplateRef<any>;\n  @Input() actionsTemplate: TemplateRef<any>;\n  @Input() disclaimerTemplate: TemplateRef<any>;\n  @Input() itemCustomClass: string;\n  @Input() hasFormActions: boolean = true;\n  @Input() nextAction: IFormAction = {\n    hasAction: true,\n    label: 'Next',\n  };\n  @Input() previousAction: IFormAction = {\n    hasAction: true,\n    label: 'Previous',\n  };\n  @Input() cancelAction: IFormAction = {\n    hasAction: true,\n    label: 'Cancel',\n  };\n  @Output() previousEvent: EventEmitter<any> = new EventEmitter();\n  @Output() nextEvent: EventEmitter<any> = new EventEmitter();\n  @Output() cancelEvent: EventEmitter<any> = new EventEmitter();\n\n  submitted: boolean = false;\n\n  newFormGroup: { form: ExtendedFormGroup; index: number } = {\n    form: null,\n    index: null,\n  };\n\n  followUpModalToggle: boolean = false;\n\n  constructor(\n    private formService: FormService,\n    private cd: ChangeDetectorRef\n  ) {}\n\n  shouldRenderFollowUpControlsType(key: any): string {\n    if (key.value?.followUpItems) {\n      return key.value?.followUpItems.type;\n    }\n  }\n\n  dimissFollowUpModal(item: ExtendedFormControl): void {\n    this.followUpModalToggle = false;\n    !item.formGroup && item?.reset();\n  }\n\n  saveFollowUpModal(param: {\n    item: ExtendedFormGroup;\n    control: ExtendedFormControl;\n  }): void {\n    const { item, control } = param;\n    if (item.valid) {\n      if (this.newFormGroup.index !== null) {\n        (control.formGroup as ExtendedFormGroupArray).setControl(\n          this.newFormGroup.index,\n          item\n        );\n      } else {\n        if (!control.formGroup?.controls?.length) {\n          control.formGroup = new ExtendedFormGroupArray([item]);\n        } else {\n          (control.formGroup as ExtendedFormGroupArray).push(item);\n        }\n      }\n      this.followUpModalToggle = false;\n      this.cd.detectChanges();\n    }\n  }\n\n  createFormGroup(item: any) {\n    this.newFormGroup = {\n      form: this.formService.dynamicFormItemsToFormGroup(item),\n      index: null,\n    };\n    this.followUpModalToggle = true;\n  }\n\n  modalShouldBeRendered(control): boolean {\n    if (control.value?.followUpItems) {\n      return !!this.newFormGroup.form;\n    }\n  }\n\n  /**\n   * SHOULD RENDER CONTROL:\n   * Determines if the form control should be rendered or not.\n   * @param key section key\n   * @param formItem the target form item that should or should not be displayed\n   * @param index if the formgroup is an array this is the index of the formgroup item\n   */\n  shouldRenderControl(\n    key: string,\n    formItem: DynamicFormItem,\n    index?: number\n  ): boolean {\n    if (this.extendedFormGroup.controls)\n      if (formItem?.rulerKey) {\n        // It has a ruler key, trying to find the ruler and it's value\n        let ruler: ExtendedFormControl;\n        if (index > -1) {\n          // the form control where the ruler should be is an array\n          const target: ExtendedFormControl = (this.extendedFormGroup.get(\n            key\n          ) as ExtendedFormGroupArray)\n            .at(index)\n            .get(formItem.rulerKey) as ExtendedFormControl;\n          if (target) {\n            ruler = target;\n          }\n        } else {\n          // no array index: the form control where the ruler should be is a regular form\n          ruler = this.extendedFormGroup\n            ?.get(key)\n            ?.get(formItem.rulerKey) as ExtendedFormControl;\n        }\n        const rulerValue: any = ruler.value;\n        const { condition }: DynamicFormItem = formItem;\n        if (rulerValue === undefined || condition === undefined) {\n          console.warn(\n            'Something went wrong in shouldRenderControl: Ruler value or condition could not be found.'\n          );\n          return false;\n        }\n        if (\n          typeof rulerValue === 'string' &&\n          rulerValue === (condition as any)\n        ) {\n          return this.shouldRenderControl(key, ruler.formItem, index);\n        } else if (\n          rulerValue &&\n          condition &&\n          typeof condition === 'object' &&\n          Array.isArray(condition)\n        ) {\n          for (const conditionItem of condition as Array<any>) {\n            if (conditionItem) {\n              if (typeof rulerValue === 'object' && Array.isArray(rulerValue)) {\n                for (const rulerValueItem of rulerValue as Array<any>) {\n                  if (\n                    rulerValueItem &&\n                    rulerValueItem.value === conditionItem.value\n                  ) {\n                    return this.shouldRenderControl(key, ruler.formItem, index);\n                  }\n                }\n              } else if (\n                typeof rulerValue === 'object' &&\n                !Array.isArray(rulerValue)\n              ) {\n                if (rulerValue && rulerValue.value === conditionItem.value) {\n                  return this.shouldRenderControl(key, ruler.formItem, index);\n                }\n              }\n            }\n          }\n        } else if (\n          rulerValue &&\n          typeof rulerValue === 'object' &&\n          !Array.isArray(rulerValue) &&\n          rulerValue.value === (condition as DynamicFormOption).value\n        ) {\n          return this.shouldRenderControl(key, ruler.formItem, index);\n        } else if (\n          rulerValue &&\n          typeof rulerValue === 'boolean' &&\n          rulerValue === condition\n        ) {\n          return this.shouldRenderControl(key, ruler.formItem, index);\n        }\n        return false;\n      }\n    return true;\n  }\n\n  /**\n   * ADD NEW ITEM TO FORM ARRAY WITH ID:\n   * Duplicates the whole section or a form item within a section\n   * @param key section key\n   * @param id the id of the form item which should be duplicated\n   * @param sectionIndex if the formgroup is an array this is the index of the formgroup item\n   */\n  addNewItemToFormArrayWithId(\n    key: string,\n    id?: string,\n    sectionIndex?: number\n  ): void {\n    if (id) {\n      // There is an id which means we want to duplicate a form item within a section\n      if (sectionIndex > -1) {\n        // the form control where the item to duplicate should be is an array\n        const target: ExtendedFormArray = (this.extendedFormGroup.get(\n          key\n        ) as ExtendedFormGroupArray).at(sectionIndex) as ExtendedFormArray;\n        (target.get(id) as ExtendedFormArray).push(new FormControl(''));\n      } else {\n        // the form control is not an array since there is no section index\n        (this.extendedFormGroup.get(key).get(id) as ExtendedFormArray).push(\n          new FormControl('')\n        );\n      }\n    } else {\n      // There is no id which means we want to duplicate the entire section\n      const target: ExtendedFormGroupArray = this.extendedFormGroup.get(\n        key\n      ) as ExtendedFormGroupArray;\n      const childControls: ExtendedFormGroupControls = this.formService.dynamicFormItemsToControls(\n        target.sectionItem.items\n      );\n      const formGroup: ExtendedFormGroup = new ExtendedFormGroup(\n        childControls,\n        target.sectionItem\n      );\n      target.push(formGroup);\n    }\n  }\n\n  /**\n   * REMOVE ITEM AT INDEX FROM FORM ARRAY WITH ID:\n   * Removes the whole section or a form item within a section\n   * @param key section key\n   * @param info the id of the form item which should be removed and the index of where to remove it\n   * @param sectionIndex if the formgroup is an array this is the index of the formgroup item\n   */\n  removeItemAtIndexFromFormArrayWithId(\n    key: string,\n    info?: { id: string; index: number },\n    sectionIndex?: number\n  ): void {\n    if (info && info.id) {\n      // There is info which means we want to remove a form item within a section\n      if (sectionIndex > -1) {\n        // the form control where the item to remove should be is an array\n        const target: ExtendedFormArray = (this.extendedFormGroup.get(\n          key\n        ) as ExtendedFormGroupArray).at(sectionIndex) as ExtendedFormArray;\n        (target.get(info.id) as ExtendedFormArray).removeAt(info.index);\n      } else {\n        // the form control is not an array since there is no section index\n        (this.extendedFormGroup\n          .get(key)\n          .get(info.id) as ExtendedFormArray).removeAt(info.index);\n      }\n    } else {\n      // there is no info indicating we should use the section index to remove the section itself\n      if (sectionIndex > -1) {\n        (this.extendedFormGroup.get(key) as ExtendedFormGroupArray).removeAt(\n          sectionIndex\n        );\n      } else {\n        console.warn(\n          'Error at removeItemAtIndexFromFormArrayWithId: Tried to remove section but no section index was provided'\n        );\n      }\n    }\n  }\n\n  removeItemFromParent(param: {\n    form: ExtendedFormControl;\n    index: number;\n  }): void {\n    const { form, index } = param;\n    (form.formGroup as ExtendedFormGroupArray).removeAt(index);\n    // reset parent control if the formGroup property doesn't have controls\n    if (!(form.formGroup as ExtendedFormGroupArray).controls?.length) {\n      form.reset();\n    }\n    this.followUpModalToggle = false;\n  }\n\n  editItemFromParent(param: {\n    formArray: ExtendedFormArray;\n    index: number;\n  }): void {\n    const { formArray, index } = param;\n    this.newFormGroup = {\n      form: new ExtendedFormGroup(\n        (formArray.at(index) as ExtendedFormGroup)\n          .controls as ExtendedFormGroupControls\n      ),\n      index,\n    };\n    this.followUpModalToggle = true;\n  }\n\n  orderForm = (\n    a: KeyValue<string, ExtendedFormGroup | ExtendedFormControl>,\n    b: KeyValue<string, ExtendedFormGroup | ExtendedFormControl>\n  ): number => {\n    if (a.value['sectionItem'] && b.value['sectionItem']) {\n      return (\n        (a.value as ExtendedFormGroup).sectionItem.order -\n        (b.value as ExtendedFormGroup).sectionItem.order\n      );\n    } else if (a.value['formItem'] && b.value['formItem']) {\n      return (\n        (a.value as ExtendedFormControl).formItem.order -\n        (b.value as ExtendedFormControl).formItem.order\n      );\n    }\n    return 0;\n  };\n\n  getFormArrayControls(\n    control: ExtendedFormGroupArray\n  ): Array<ExtendedFormGroup> {\n    if (control instanceof ExtendedFormGroupArray) {\n      return control.controls as Array<ExtendedFormGroup>;\n    } else {\n      console.warn(\n        'Error in getFormArrayControls: control is not an instance of ExtendedFormGroupArray'\n      );\n      return [];\n    }\n  }\n\n  controlValueChanged(): void {\n    this.submitted &&= false;\n  }\n\n  get sectionList() {\n    if (this.activeStep !== null) {\n      return [\n        this.extendedFormGroup.controls[\n          Object.keys(this.extendedFormGroup.controls)[this.activeStep]\n        ],\n      ];\n    } else {\n      return this.extendedFormGroup.controls;\n    }\n  }\n\n  validate(): void {\n    console.log(this.extendedFormGroup);\n  }\n\n  cancel(): void {\n    this.cancelEvent.emit();\n  }\n\n  next(): void {\n    this.submitted = true;\n    if (this.formService.validateForm(this.sectionList[0])) {\n      this.nextEvent?.emit();\n      this.submitted = false;\n    }\n  }\n\n  previous(): void {\n    this.previousEvent.emit();\n  }\n}\n",
             "properties": [
                 {
                     "name": "hasAction",
                     "type": "boolean",
                     "optional": false,
                     "description": "",
-                    "line": 31
+                    "line": 30
                 },
                 {
                     "name": "label",
                     "type": "string",
                     "optional": true,
                     "description": "",
-                    "line": 32
+                    "line": 31
                 }
             ],
             "indexSignatures": [],
@@ -725,7 +725,7 @@
     "injectables": [
         {
             "name": "FormService",
-            "id": "injectable-FormService-4b9d39fd48b2f259c7c182a6a7ab337d",
+            "id": "injectable-FormService-d8e2392693d26c2d0f3dc74430386e83",
             "file": "projects/dynamic-form/src/lib/form.service.ts",
             "properties": [],
             "methods": [
@@ -748,7 +748,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 161,
+                    "line": 211,
                     "jsdoctags": [
                         {
                             "name": "control",
@@ -784,7 +784,7 @@
                     "optional": false,
                     "returnType": "ExtendedFormGroupArray",
                     "typeParameters": [],
-                    "line": 71,
+                    "line": 100,
                     "jsdoctags": [
                         {
                             "name": "items",
@@ -806,7 +806,7 @@
                     "optional": false,
                     "returnType": "ExtendedFormGroupControls",
                     "typeParameters": [],
-                    "line": 45,
+                    "line": 64,
                     "jsdoctags": [
                         {
                             "name": "items",
@@ -828,7 +828,7 @@
                     "optional": false,
                     "returnType": "ExtendedFormGroup",
                     "typeParameters": [],
-                    "line": 66,
+                    "line": 91,
                     "jsdoctags": [
                         {
                             "name": "items",
@@ -855,7 +855,7 @@
                     "optional": false,
                     "returnType": "ExtendedFormGroup",
                     "typeParameters": [],
-                    "line": 22,
+                    "line": 26,
                     "jsdoctags": [
                         {
                             "name": "items",
@@ -889,7 +889,7 @@
                     "optional": false,
                     "returnType": "ExtendedFormGroupControl",
                     "typeParameters": [],
-                    "line": 229,
+                    "line": 296,
                     "jsdoctags": [
                         {
                             "name": "forms",
@@ -922,7 +922,7 @@
                     "optional": false,
                     "returnType": "Array<DynamicFormResponseItem>",
                     "typeParameters": [],
-                    "line": 76,
+                    "line": 109,
                     "jsdoctags": [
                         {
                             "name": "data",
@@ -951,7 +951,7 @@
                     "optional": false,
                     "returnType": "ValidatorFn[]",
                     "typeParameters": [],
-                    "line": 182,
+                    "line": 244,
                     "jsdoctags": [
                         {
                             "name": "validators",
@@ -973,7 +973,7 @@
                     "optional": false,
                     "returnType": "literal type",
                     "typeParameters": [],
-                    "line": 118,
+                    "line": 168,
                     "jsdoctags": [
                         {
                             "name": "rules",
@@ -995,7 +995,7 @@
                     "optional": false,
                     "returnType": "boolean",
                     "typeParameters": [],
-                    "line": 211,
+                    "line": 273,
                     "jsdoctags": [
                         {
                             "name": "form",
@@ -1017,7 +1017,7 @@
                     "optional": false,
                     "returnType": "boolean",
                     "typeParameters": [],
-                    "line": 272,
+                    "line": 361,
                     "jsdoctags": [
                         {
                             "name": "form",
@@ -1030,12 +1030,12 @@
                 }
             ],
             "description": "",
-            "sourceCode": "import { Injectable } from \"@angular/core\";\nimport { FormControl, ValidatorFn, Validators } from \"@angular/forms\";\nimport {\n    DynamicFormItem,\n    DynamicFormSection,\n    DynamicFormResponseItem,\n    DynamicFormType,\n    formItemValidation,\n    Rule,\n    RuleType,\n} from \"./model/models\";\nimport { ExtendedFormGroup, ExtendedFormGroupControls, ExtendedFormGroupControl } from \"./model/custom-classes/extended-form-group\";\nimport { ExtendedFormControl } from \"./model/custom-classes/extended-form-control\";\nimport { ExtendedFormArray } from \"./model/custom-classes/extended-form-array\";\nimport { ExtendedFormGroupArray } from \"./model/custom-classes/extended-form-group-array\";\nimport { KeyValue } from \"@angular/common\";\n\n@Injectable()\nexport class FormService {\n    constructor() {}\n\n    dynamicFormSectionsToFormGroup(items: Array<DynamicFormSection>, original?: ExtendedFormGroup): ExtendedFormGroup {\n        const controls: ExtendedFormGroupControls = {};\n        const orderedItems = items.sort((a: DynamicFormSection, b: DynamicFormSection) => a.order - b.order);\n        orderedItems.forEach((item: DynamicFormSection) => {\n            if (!!item.multi) {\n                const childControls: ExtendedFormGroupControls = this.dynamicFormItemsToControls(item.items);\n                const formGroup: ExtendedFormGroup = new ExtendedFormGroup(childControls, item);\n                const controlsArray: ExtendedFormGroup[] = [formGroup];\n                controls[item.key] = new ExtendedFormGroupArray(controlsArray, item);\n            } else {\n                const childControls: ExtendedFormGroupControls = this.dynamicFormItemsToControls(item.items);\n                controls[item.key] = new ExtendedFormGroup(childControls, item);\n                if (original) {\n                    original.controls[item.key] = new ExtendedFormGroup(childControls, item);\n                }\n            }\n        });\n        if (original) {\n            return original;\n        }\n        return new ExtendedFormGroup(controls);\n    }\n\n    dynamicFormItemsToControls(items: Array<DynamicFormItem>): ExtendedFormGroupControls {\n        const controls: ExtendedFormGroupControls = {};\n        const orderedItems: Array<DynamicFormItem> = items?.sort((a: DynamicFormItem, b: DynamicFormItem) => a.order - b.order);\n\n        orderedItems?.forEach((item: DynamicFormItem) => {\n            if (item.controlType === DynamicFormType.Text && item.multi) {\n                const controlsArray: FormControl[] = item.value\n                    ? (item.value as Array<string>).map((val: string) => new FormControl(val))\n                    : [new FormControl(\"\")];\n                controls[item.key] = new ExtendedFormArray(item, controlsArray);\n            } else {\n                controls[item.key] = new ExtendedFormControl(\n                    item,\n                    item.value,\n                    this.generateControlValidator(this.generateValidations(item.rules))\n                );\n            }\n        });\n        return controls;\n    }\n\n    dynamicFormItemsToFormGroup(items: Array<DynamicFormItem>): ExtendedFormGroup {\n        const controls: ExtendedFormGroupControls = this.dynamicFormItemsToControls(items);\n        return new ExtendedFormGroup(controls);\n    }\n\n    dynamicFormItemsToArrayFormGroup(items: Array<DynamicFormItem>): ExtendedFormGroupArray {\n        const formGroup: ExtendedFormGroup = this.dynamicFormItemsToFormGroup(items);\n        return new ExtendedFormGroupArray([formGroup]);\n    }\n\n    formToDynamicFormResponseItems(\n        data: KeyValue<string, any> | Array<KeyValue<string, any>>,\n        formGroup: ExtendedFormGroup\n    ): Array<DynamicFormResponseItem> {\n        const dynamicFormSubmitValues: Array<DynamicFormResponseItem> = [];\n\n        for (const section of Object.keys(data)) {\n            const targetSection: ExtendedFormGroupControl = formGroup.get(section);\n            if (targetSection) {\n                if (targetSection instanceof ExtendedFormGroupArray) {\n                    (targetSection as ExtendedFormGroupArray).controls.map((item: ExtendedFormGroup, sectionIndex: number) => {\n                        for (const key of Object.keys(data[section][sectionIndex])) {\n                            const target: ExtendedFormControl | ExtendedFormArray =\n                                (item.get(key) as ExtendedFormControl | ExtendedFormArray) || null;\n                            if (target) {\n                                const { value, formItem }: ExtendedFormControl | ExtendedFormArray = target;\n                                dynamicFormSubmitValues.push({\n                                    key,\n                                    formItem,\n                                    value,\n                                    sectionId: section,\n                                    sectionIndex,\n                                });\n                            }\n                        }\n                    });\n                } else {\n                    for (const key of Object.keys(data[section])) {\n                        const target: ExtendedFormControl | ExtendedFormArray =\n                            (targetSection.get(key) as ExtendedFormControl | ExtendedFormArray) || null;\n                        if (target) {\n                            const { value, formItem }: ExtendedFormControl | ExtendedFormArray = target;\n                            dynamicFormSubmitValues.push({ key, formItem, value, sectionId: section, sectionIndex: 0 });\n                        }\n                    }\n                }\n            }\n        }\n\n        return dynamicFormSubmitValues;\n    }\n\n    generateValidations(rules: Rule[]): { [key: string]: any } {\n        let validations: { [key: string]: any } = {};\n        rules\n            ?.sort((a: Rule, b: Rule) => a.type - b.type)\n            .forEach((rule: Rule) => {\n                switch (rule.type) {\n                    case RuleType.required:\n                        validations = { ...validations, ...{ required: true } };\n                        break;\n                    case RuleType.min:\n                        validations = { ...validations, ...{ min: rule.value } };\n                        break;\n                    case RuleType.max:\n                        validations = { ...validations, ...{ max: rule.value } };\n                        break;\n                    case RuleType.maxLength:\n                        validations = { ...validations, ...{ maxLength: rule.value } };\n                        break;\n                    case RuleType.minLength:\n                        validations = { ...validations, ...{ minLength: rule.value } };\n                        break;\n                    case RuleType.pattern:\n                        validations = { ...validations, ...{ pattern: rule.value } };\n                        break;\n                    case RuleType.minThanEqualsReference:\n                        validations = { ...validations, ...{ min: rule.value } };\n                        break;\n                    case RuleType.minThanReference:\n                        validations = { ...validations, ...{ min: rule.value } };\n                        break;\n                    case RuleType.maxThanReference:\n                        validations = { ...validations, ...{ max: rule.value } };\n                        break;\n                    case RuleType.maxThanEqualReference:\n                        validations = { ...validations, ...{ max: rule.value } };\n                        break;\n                    default:\n                        break;\n                }\n            });\n        return validations;\n    }\n\n    appendValidations(control: ExtendedFormGroupControl, rule: Rule, referenceControl: ExtendedFormGroupControl): void {\n        let customRule: Rule;\n        switch (rule.type) {\n            case RuleType.maxThanReference:\n                customRule = { ...rule, ...{ value: Number(referenceControl.value) - 1 } };\n                break;\n            case RuleType.maxThanEqualReference:\n                customRule = { ...rule, ...{ value: referenceControl.value } };\n                break;\n            case RuleType.minThanReference:\n                customRule = { ...rule, ...{ value: Number(referenceControl.value) + 1 } };\n                break;\n            case RuleType.minThanEqualsReference:\n                customRule = { ...rule, ...{ value: referenceControl.value } };\n                break;\n            default:\n                break;\n        }\n        control.setValidators(this.generateControlValidator(this.generateValidations([customRule])));\n    }\n\n    generateControlValidator(validators: formItemValidation): ValidatorFn[] {\n        const validations: ValidatorFn[] = [];\n        Object.keys(validators).forEach((validator: string) => {\n            switch (validator) {\n                case \"min\":\n                    validations.push(Validators.min(Number(validators[validator])));\n                    break;\n                case \"max\":\n                    validations.push(Validators.max(Number(validators[validator])));\n                    break;\n                case \"minLength\":\n                    validations.push(Validators.minLength(Number(validators[validator])));\n                    break;\n                case \"maxLength\":\n                    validations.push(Validators.maxLength(Number(validators[validator])));\n                    break;\n                case \"required\":\n                    validators.required && validations.push(Validators.required);\n                    break;\n                case \"pattern\":\n                    validations.push(Validators.pattern(validators[validator]));\n                    break;\n                default:\n                    break;\n            }\n        });\n        return validations;\n    }\n\n    isNestedFormInvalid(form: ExtendedFormGroup): boolean {\n        return Object.keys(form.controls).some((key: string) => {\n            const formControl: ExtendedFormGroup = form.controls[key] as ExtendedFormGroup;\n\n            return Object.keys(formControl.controls).some((childControlKey: string) => {\n                if (formControl.controls[childControlKey]?.valid) {\n                    const formGroup: ExtendedFormGroup = (formControl.controls[childControlKey] as ExtendedFormControl)\n                        ?.formGroup as ExtendedFormGroup;\n                    if (formGroup && !formGroup.valid) {\n                        return true;\n                    }\n                } else {\n                    return true;\n                }\n            });\n        });\n    }\n\n    findNestedControl(forms: ExtendedFormGroup | ExtendedFormGroup[], controlKey: string): ExtendedFormGroupControl {\n        let existingControl: ExtendedFormGroupControl;\n\n        if (Array.isArray(forms)) {\n            forms.some((form: ExtendedFormGroup) => {\n                this.findNestedControl(form, controlKey);\n            });\n        } else {\n            if (forms.controls[controlKey]) {\n                existingControl = forms.controls[controlKey] as ExtendedFormGroupControl;\n            } else {\n                Object.keys(forms.controls).forEach((key: string) => {\n                    if ((forms.controls[key] as ExtendedFormGroup).controls) {\n                        if ((forms.controls[key] as ExtendedFormGroup).controls[controlKey]) {\n                            existingControl = (forms.controls[key] as ExtendedFormGroup).controls[controlKey] as ExtendedFormGroupControl;\n                        } else {\n                            Object.keys((forms.controls[key] as ExtendedFormGroup).controls).forEach((control: string) => {\n                                (forms.controls[key] as ExtendedFormGroup).controls[control];\n                                if (((forms.controls[key] as ExtendedFormGroup).controls[control] as ExtendedFormControl).formGroup) {\n                                    if (\n                                        ((forms.controls[key] as ExtendedFormGroup).controls[control] as ExtendedFormControl).formGroup\n                                            .controls[controlKey]\n                                    ) {\n                                        existingControl = (\n                                            (forms.controls[key] as ExtendedFormGroup).controls[control] as ExtendedFormControl\n                                        ).formGroup.controls[controlKey];\n                                    }\n                                }\n                            });\n                        }\n                    }\n                    if ((forms.controls[key] as ExtendedFormControl).formGroup) {\n                        if ((forms.controls[key] as ExtendedFormControl).formGroup.controls[controlKey]) {\n                            existingControl = (forms.controls[key] as ExtendedFormControl).formGroup.controls[controlKey];\n                        }\n                    }\n                });\n            }\n        }\n\n        return existingControl;\n    }\n\n    validateForm(form: ExtendedFormGroup): boolean {\n        form.updateValueAndValidity();\n        if (!form.valid) {\n            return form.valid;\n        } else {\n            return !this.isNestedFormInvalid(form);\n        }\n    }\n}\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\nimport { FormControl, ValidatorFn, Validators } from '@angular/forms';\nimport {\n  DynamicFormItem,\n  DynamicFormSection,\n  DynamicFormResponseItem,\n  DynamicFormType,\n  formItemValidation,\n  Rule,\n  RuleType,\n} from './model/models';\nimport {\n  ExtendedFormGroup,\n  ExtendedFormGroupControls,\n  ExtendedFormGroupControl,\n} from './model/custom-classes/extended-form-group';\nimport { ExtendedFormControl } from './model/custom-classes/extended-form-control';\nimport { ExtendedFormArray } from './model/custom-classes/extended-form-array';\nimport { ExtendedFormGroupArray } from './model/custom-classes/extended-form-group-array';\nimport { KeyValue } from '@angular/common';\n\n@Injectable()\nexport class FormService {\n  constructor() {}\n\n  dynamicFormSectionsToFormGroup(\n    items: Array<DynamicFormSection>,\n    original?: ExtendedFormGroup\n  ): ExtendedFormGroup {\n    const controls: ExtendedFormGroupControls = {};\n    const orderedItems = items.sort(\n      (a: DynamicFormSection, b: DynamicFormSection) => a.order - b.order\n    );\n    orderedItems.forEach((item: DynamicFormSection) => {\n      if (!!item.multi) {\n        const childControls: ExtendedFormGroupControls = this.dynamicFormItemsToControls(\n          item.items\n        );\n        const formGroup: ExtendedFormGroup = new ExtendedFormGroup(\n          childControls,\n          item\n        );\n        const controlsArray: ExtendedFormGroup[] = [formGroup];\n        controls[item.key] = new ExtendedFormGroupArray(controlsArray, item);\n      } else {\n        const childControls: ExtendedFormGroupControls = this.dynamicFormItemsToControls(\n          item.items\n        );\n        controls[item.key] = new ExtendedFormGroup(childControls, item);\n        if (original) {\n          original.controls[item.key] = new ExtendedFormGroup(\n            childControls,\n            item\n          );\n        }\n      }\n    });\n    if (original) {\n      return original;\n    }\n    return new ExtendedFormGroup(controls);\n  }\n\n  dynamicFormItemsToControls(\n    items: Array<DynamicFormItem>\n  ): ExtendedFormGroupControls {\n    const controls: ExtendedFormGroupControls = {};\n    const orderedItems: Array<DynamicFormItem> = items?.sort(\n      (a: DynamicFormItem, b: DynamicFormItem) => a.order - b.order\n    );\n\n    orderedItems?.forEach((item: DynamicFormItem) => {\n      if (item.controlType === DynamicFormType.Text && item.multi) {\n        const controlsArray: FormControl[] = item.value\n          ? (item.value as Array<string>).map(\n              (val: string) => new FormControl(val)\n            )\n          : [new FormControl('')];\n        controls[item.key] = new ExtendedFormArray(item, controlsArray);\n      } else {\n        controls[item.key] = new ExtendedFormControl(\n          item,\n          item.value,\n          this.generateControlValidator(this.generateValidations(item.rules))\n        );\n      }\n    });\n    return controls;\n  }\n\n  dynamicFormItemsToFormGroup(\n    items: Array<DynamicFormItem>\n  ): ExtendedFormGroup {\n    const controls: ExtendedFormGroupControls = this.dynamicFormItemsToControls(\n      items\n    );\n    return new ExtendedFormGroup(controls);\n  }\n\n  dynamicFormItemsToArrayFormGroup(\n    items: Array<DynamicFormItem>\n  ): ExtendedFormGroupArray {\n    const formGroup: ExtendedFormGroup = this.dynamicFormItemsToFormGroup(\n      items\n    );\n    return new ExtendedFormGroupArray([formGroup]);\n  }\n\n  formToDynamicFormResponseItems(\n    data: KeyValue<string, any> | Array<KeyValue<string, any>>,\n    formGroup: ExtendedFormGroup\n  ): Array<DynamicFormResponseItem> {\n    const dynamicFormSubmitValues: Array<DynamicFormResponseItem> = [];\n\n    for (const section of Object.keys(data)) {\n      const targetSection: ExtendedFormGroupControl = formGroup.get(section);\n      if (targetSection) {\n        if (targetSection instanceof ExtendedFormGroupArray) {\n          (targetSection as ExtendedFormGroupArray).controls.map(\n            (item: ExtendedFormGroup, sectionIndex: number) => {\n              for (const key of Object.keys(data[section][sectionIndex])) {\n                const target: ExtendedFormControl | ExtendedFormArray =\n                  (item.get(key) as ExtendedFormControl | ExtendedFormArray) ||\n                  null;\n                if (target) {\n                  const {\n                    value,\n                    formItem,\n                  }: ExtendedFormControl | ExtendedFormArray = target;\n                  dynamicFormSubmitValues.push({\n                    key,\n                    formItem,\n                    value,\n                    sectionId: section,\n                    sectionIndex,\n                  });\n                }\n              }\n            }\n          );\n        } else {\n          for (const key of Object.keys(data[section])) {\n            const target: ExtendedFormControl | ExtendedFormArray =\n              (targetSection.get(key) as\n                | ExtendedFormControl\n                | ExtendedFormArray) || null;\n            if (target) {\n              const {\n                value,\n                formItem,\n              }: ExtendedFormControl | ExtendedFormArray = target;\n              dynamicFormSubmitValues.push({\n                key,\n                formItem,\n                value,\n                sectionId: section,\n                sectionIndex: 0,\n              });\n            }\n          }\n        }\n      }\n    }\n\n    return dynamicFormSubmitValues;\n  }\n\n  generateValidations(rules: Rule[]): { [key: string]: any } {\n    let validations: { [key: string]: any } = {};\n    rules\n      ?.sort((a: Rule, b: Rule) => a.type - b.type)\n      .forEach((rule: Rule) => {\n        switch (rule.type) {\n          case RuleType.required:\n            validations = { ...validations, ...{ required: true } };\n            break;\n          case RuleType.min:\n            validations = { ...validations, ...{ min: rule.value } };\n            break;\n          case RuleType.max:\n            validations = { ...validations, ...{ max: rule.value } };\n            break;\n          case RuleType.maxLength:\n            validations = { ...validations, ...{ maxLength: rule.value } };\n            break;\n          case RuleType.minLength:\n            validations = { ...validations, ...{ minLength: rule.value } };\n            break;\n          case RuleType.pattern:\n            validations = { ...validations, ...{ pattern: rule.value } };\n            break;\n          case RuleType.minThanEqualsReference:\n            validations = { ...validations, ...{ min: rule.value } };\n            break;\n          case RuleType.minThanReference:\n            validations = { ...validations, ...{ min: rule.value } };\n            break;\n          case RuleType.maxThanReference:\n            validations = { ...validations, ...{ max: rule.value } };\n            break;\n          case RuleType.maxThanEqualReference:\n            validations = { ...validations, ...{ max: rule.value } };\n            break;\n          default:\n            break;\n        }\n      });\n    return validations;\n  }\n\n  appendValidations(\n    control: ExtendedFormGroupControl,\n    rule: Rule,\n    referenceControl: ExtendedFormGroupControl\n  ): void {\n    let customRule: Rule;\n    switch (rule.type) {\n      case RuleType.maxThanReference:\n        customRule = {\n          ...rule,\n          ...{ value: Number(referenceControl.value) - 1 },\n        };\n        break;\n      case RuleType.maxThanEqualReference:\n        customRule = { ...rule, ...{ value: referenceControl.value } };\n        break;\n      case RuleType.minThanReference:\n        customRule = {\n          ...rule,\n          ...{ value: Number(referenceControl.value) + 1 },\n        };\n        break;\n      case RuleType.minThanEqualsReference:\n        customRule = { ...rule, ...{ value: referenceControl.value } };\n        break;\n      default:\n        break;\n    }\n    control.setValidators(\n      this.generateControlValidator(this.generateValidations([customRule]))\n    );\n  }\n\n  generateControlValidator(validators: formItemValidation): ValidatorFn[] {\n    const validations: ValidatorFn[] = [];\n    Object.keys(validators).forEach((validator: string) => {\n      switch (validator) {\n        case 'min':\n          validations.push(Validators.min(Number(validators[validator])));\n          break;\n        case 'max':\n          validations.push(Validators.max(Number(validators[validator])));\n          break;\n        case 'minLength':\n          validations.push(Validators.minLength(Number(validators[validator])));\n          break;\n        case 'maxLength':\n          validations.push(Validators.maxLength(Number(validators[validator])));\n          break;\n        case 'required':\n          validators.required && validations.push(Validators.required);\n          break;\n        case 'pattern':\n          validations.push(Validators.pattern(validators[validator]));\n          break;\n        default:\n          break;\n      }\n    });\n    return validations;\n  }\n\n  isNestedFormInvalid(form: ExtendedFormGroup): boolean {\n    return Object.keys(form.controls).some((key: string) => {\n      const formControl: ExtendedFormGroup = form.controls[\n        key\n      ] as ExtendedFormGroup;\n\n      return Object.keys(formControl.controls).some(\n        (childControlKey: string) => {\n          if (formControl.controls[childControlKey]?.valid) {\n            const formGroup: ExtendedFormGroup = (formControl.controls[\n              childControlKey\n            ] as ExtendedFormControl)?.formGroup as ExtendedFormGroup;\n            if (formGroup && !formGroup.valid) {\n              return true;\n            }\n          } else {\n            return true;\n          }\n        }\n      );\n    });\n  }\n\n  findNestedControl(\n    forms: ExtendedFormGroup | ExtendedFormGroup[],\n    controlKey: string\n  ): ExtendedFormGroupControl {\n    let existingControl: ExtendedFormGroupControl;\n\n    if (Array.isArray(forms)) {\n      forms.some((form: ExtendedFormGroup) => {\n        this.findNestedControl(form, controlKey);\n      });\n    } else {\n      if (forms.controls[controlKey]) {\n        existingControl = forms.controls[\n          controlKey\n        ] as ExtendedFormGroupControl;\n      } else {\n        Object.keys(forms.controls).forEach((key: string) => {\n          if ((forms.controls[key] as ExtendedFormGroup).controls) {\n            if (\n              (forms.controls[key] as ExtendedFormGroup).controls[controlKey]\n            ) {\n              existingControl = (forms.controls[key] as ExtendedFormGroup)\n                .controls[controlKey] as ExtendedFormGroupControl;\n            } else {\n              Object.keys(\n                (forms.controls[key] as ExtendedFormGroup).controls\n              ).forEach((control: string) => {\n                (forms.controls[key] as ExtendedFormGroup).controls[control];\n                if (\n                  ((forms.controls[key] as ExtendedFormGroup).controls[\n                    control\n                  ] as ExtendedFormControl).formGroup\n                ) {\n                  if (\n                    ((forms.controls[key] as ExtendedFormGroup).controls[\n                      control\n                    ] as ExtendedFormControl).formGroup.controls[controlKey]\n                  ) {\n                    existingControl = ((forms.controls[\n                      key\n                    ] as ExtendedFormGroup).controls[\n                      control\n                    ] as ExtendedFormControl).formGroup.controls[controlKey];\n                  }\n                }\n              });\n            }\n          }\n          if ((forms.controls[key] as ExtendedFormControl).formGroup) {\n            if (\n              (forms.controls[key] as ExtendedFormControl).formGroup.controls[\n                controlKey\n              ]\n            ) {\n              existingControl = (forms.controls[key] as ExtendedFormControl)\n                .formGroup.controls[controlKey];\n            }\n          }\n        });\n      }\n    }\n\n    return existingControl;\n  }\n\n  validateForm(form: ExtendedFormGroup): boolean {\n    form.updateValueAndValidity();\n    if (!form.valid) {\n      return form.valid;\n    }\n    return !this.isNestedFormInvalid(form);\n  }\n}\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
                 "args": [],
-                "line": 19
+                "line": 23
             },
             "type": "injectable"
         }
@@ -1616,7 +1616,7 @@
         },
         {
             "name": "DynamicFormComponent",
-            "id": "component-DynamicFormComponent-a3f37b98cfa0296b294929229b8465d4",
+            "id": "component-DynamicFormComponent-99c9d4351e3ebf49636352d65e734eab",
             "file": "projects/dynamic-form/src/lib/dynamic-form.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1639,66 +1639,66 @@
             "inputsClass": [
                 {
                     "name": "actionsTemplate",
-                    "line": 53,
+                    "line": 52,
                     "type": "TemplateRef<any>"
                 },
                 {
                     "name": "activeStep",
-                    "line": 50,
+                    "line": 49,
                     "type": "number"
                 },
                 {
                     "name": "cancelAction",
                     "defaultValue": "{\n    hasAction: true,\n    label: 'Cancel',\n  }",
-                    "line": 65,
+                    "line": 64,
                     "type": "IFormAction"
                 },
                 {
                     "name": "disclaimerTemplate",
-                    "line": 54,
+                    "line": 53,
                     "type": "TemplateRef<any>"
                 },
                 {
                     "name": "extendedFormGroup",
-                    "line": 48,
+                    "line": 47,
                     "type": "ExtendedFormGroup"
                 },
                 {
                     "name": "hasFormActions",
                     "defaultValue": "true",
-                    "line": 56,
+                    "line": 55,
                     "type": "boolean"
                 },
                 {
                     "name": "itemCustomClass",
-                    "line": 55,
+                    "line": 54,
                     "type": "string"
                 },
                 {
                     "name": "itemTemplate",
-                    "line": 52,
+                    "line": 51,
                     "type": "TemplateRef<any>"
                 },
                 {
                     "name": "nextAction",
                     "defaultValue": "{\n    hasAction: true,\n    label: 'Next',\n  }",
-                    "line": 57,
+                    "line": 56,
                     "type": "IFormAction"
                 },
                 {
                     "name": "previousAction",
                     "defaultValue": "{\n    hasAction: true,\n    label: 'Previous',\n  }",
-                    "line": 61,
+                    "line": 60,
                     "type": "IFormAction"
                 },
                 {
                     "name": "sectionTemplate",
-                    "line": 51,
+                    "line": 50,
                     "type": "TemplateRef<any>"
                 },
                 {
                     "name": "validationErrors",
-                    "line": 49,
+                    "line": 48,
                     "type": "IDynamicFormValidationError[]"
                 }
             ],
@@ -1706,19 +1706,19 @@
                 {
                     "name": "cancelEvent",
                     "defaultValue": "new EventEmitter()",
-                    "line": 71,
+                    "line": 70,
                     "type": "EventEmitter<any>"
                 },
                 {
                     "name": "nextEvent",
                     "defaultValue": "new EventEmitter()",
-                    "line": 70,
+                    "line": 69,
                     "type": "EventEmitter<any>"
                 },
                 {
                     "name": "previousEvent",
                     "defaultValue": "new EventEmitter()",
-                    "line": 69,
+                    "line": 68,
                     "type": "EventEmitter<any>"
                 }
             ],
@@ -1729,15 +1729,7 @@
                     "type": "boolean",
                     "optional": false,
                     "description": "",
-                    "line": 80
-                },
-                {
-                    "name": "getValidationErrorFor",
-                    "defaultValue": "() => {...}",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 367
+                    "line": 79
                 },
                 {
                     "name": "newFormGroup",
@@ -1745,7 +1737,7 @@
                     "type": "literal type",
                     "optional": false,
                     "description": "",
-                    "line": 75
+                    "line": 74
                 },
                 {
                     "name": "orderForm",
@@ -1753,7 +1745,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 336
+                    "line": 335
                 },
                 {
                     "name": "submitted",
@@ -1761,7 +1753,7 @@
                     "type": "boolean",
                     "optional": false,
                     "description": "",
-                    "line": 73
+                    "line": 72
                 }
             ],
             "methodsClass": [
@@ -1786,20 +1778,20 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 233,
+                    "line": 232,
                     "description": "<p>ADD NEW ITEM TO FORM ARRAY WITH ID:\nDuplicates the whole section or a form item within a section</p>\n",
                     "jsdoctags": [
                         {
                             "name": {
-                                "pos": 7066,
-                                "end": 7069,
+                                "pos": 7050,
+                                "end": 7053,
                                 "flags": 0,
                                 "escapedText": "key"
                             },
                             "type": "string",
                             "tagName": {
-                                "pos": 7060,
-                                "end": 7065,
+                                "pos": 7044,
+                                "end": 7049,
                                 "flags": 0,
                                 "escapedText": "param"
                             },
@@ -1807,16 +1799,16 @@
                         },
                         {
                             "name": {
-                                "pos": 7094,
-                                "end": 7096,
+                                "pos": 7078,
+                                "end": 7080,
                                 "flags": 0,
                                 "escapedText": "id"
                             },
                             "type": "string",
                             "optional": true,
                             "tagName": {
-                                "pos": 7088,
-                                "end": 7093,
+                                "pos": 7072,
+                                "end": 7077,
                                 "flags": 0,
                                 "escapedText": "param"
                             },
@@ -1824,16 +1816,16 @@
                         },
                         {
                             "name": {
-                                "pos": 7160,
-                                "end": 7172,
+                                "pos": 7144,
+                                "end": 7156,
                                 "flags": 0,
                                 "escapedText": "sectionIndex"
                             },
                             "type": "number",
                             "optional": true,
                             "tagName": {
-                                "pos": 7154,
-                                "end": 7159,
+                                "pos": 7138,
+                                "end": 7143,
                                 "flags": 0,
                                 "escapedText": "param"
                             },
@@ -1847,7 +1839,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 422
+                    "line": 386
                 },
                 {
                     "name": "controlValueChanged",
@@ -1855,7 +1847,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 402
+                    "line": 366
                 },
                 {
                     "name": "createFormGroup",
@@ -1868,7 +1860,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 121,
+                    "line": 120,
                     "jsdoctags": [
                         {
                             "name": "item",
@@ -1890,7 +1882,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 93,
+                    "line": 92,
                     "jsdoctags": [
                         {
                             "name": "item",
@@ -1912,7 +1904,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 321,
+                    "line": 320,
                     "jsdoctags": [
                         {
                             "name": "param",
@@ -1934,7 +1926,7 @@
                     "optional": false,
                     "returnType": "Array<ExtendedFormGroup>",
                     "typeParameters": [],
-                    "line": 354,
+                    "line": 353,
                     "jsdoctags": [
                         {
                             "name": "control",
@@ -1956,7 +1948,7 @@
                     "optional": false,
                     "returnType": "boolean",
                     "typeParameters": [],
-                    "line": 129,
+                    "line": 128,
                     "jsdoctags": [
                         {
                             "name": "control",
@@ -1973,7 +1965,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 426
+                    "line": 390
                 },
                 {
                     "name": "previous",
@@ -1981,7 +1973,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 434
+                    "line": 398
                 },
                 {
                     "name": "removeItemAtIndexFromFormArrayWithId",
@@ -2004,20 +1996,20 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 275,
+                    "line": 274,
                     "description": "<p>REMOVE ITEM AT INDEX FROM FORM ARRAY WITH ID:\nRemoves the whole section or a form item within a section</p>\n",
                     "jsdoctags": [
                         {
                             "name": {
-                                "pos": 8660,
-                                "end": 8663,
+                                "pos": 8644,
+                                "end": 8647,
                                 "flags": 0,
                                 "escapedText": "key"
                             },
                             "type": "string",
                             "tagName": {
-                                "pos": 8654,
-                                "end": 8659,
+                                "pos": 8638,
+                                "end": 8643,
                                 "flags": 0,
                                 "escapedText": "param"
                             },
@@ -2025,16 +2017,16 @@
                         },
                         {
                             "name": {
-                                "pos": 8688,
-                                "end": 8692,
+                                "pos": 8672,
+                                "end": 8676,
                                 "flags": 0,
                                 "escapedText": "info"
                             },
                             "type": "literal type",
                             "optional": true,
                             "tagName": {
-                                "pos": 8682,
-                                "end": 8687,
+                                "pos": 8666,
+                                "end": 8671,
                                 "flags": 0,
                                 "escapedText": "param"
                             },
@@ -2042,16 +2034,16 @@
                         },
                         {
                             "name": {
-                                "pos": 8789,
-                                "end": 8801,
+                                "pos": 8773,
+                                "end": 8785,
                                 "flags": 0,
                                 "escapedText": "sectionIndex"
                             },
                             "type": "number",
                             "optional": true,
                             "tagName": {
-                                "pos": 8783,
-                                "end": 8788,
+                                "pos": 8767,
+                                "end": 8772,
                                 "flags": 0,
                                 "escapedText": "param"
                             },
@@ -2070,7 +2062,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 308,
+                    "line": 307,
                     "jsdoctags": [
                         {
                             "name": "param",
@@ -2092,7 +2084,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 98,
+                    "line": 97,
                     "jsdoctags": [
                         {
                             "name": "param",
@@ -2123,20 +2115,20 @@
                     "optional": false,
                     "returnType": "boolean",
                     "typeParameters": [],
-                    "line": 142,
+                    "line": 141,
                     "description": "<p>SHOULD RENDER CONTROL:\nDetermines if the form control should be rendered or not.</p>\n",
                     "jsdoctags": [
                         {
                             "name": {
-                                "pos": 3741,
-                                "end": 3744,
+                                "pos": 3725,
+                                "end": 3728,
                                 "flags": 0,
                                 "escapedText": "key"
                             },
                             "type": "string",
                             "tagName": {
-                                "pos": 3735,
-                                "end": 3740,
+                                "pos": 3719,
+                                "end": 3724,
                                 "flags": 0,
                                 "escapedText": "param"
                             },
@@ -2144,15 +2136,15 @@
                         },
                         {
                             "name": {
-                                "pos": 3769,
-                                "end": 3777,
+                                "pos": 3753,
+                                "end": 3761,
                                 "flags": 0,
                                 "escapedText": "formItem"
                             },
                             "type": "DynamicFormItem",
                             "tagName": {
-                                "pos": 3763,
-                                "end": 3768,
+                                "pos": 3747,
+                                "end": 3752,
                                 "flags": 0,
                                 "escapedText": "param"
                             },
@@ -2160,16 +2152,16 @@
                         },
                         {
                             "name": {
-                                "pos": 3850,
-                                "end": 3855,
+                                "pos": 3834,
+                                "end": 3839,
                                 "flags": 0,
                                 "escapedText": "index"
                             },
                             "type": "number",
                             "optional": true,
                             "tagName": {
-                                "pos": 3844,
-                                "end": 3849,
+                                "pos": 3828,
+                                "end": 3833,
                                 "flags": 0,
                                 "escapedText": "param"
                             },
@@ -2188,7 +2180,7 @@
                     "optional": false,
                     "returnType": "string",
                     "typeParameters": [],
-                    "line": 87,
+                    "line": 86,
                     "jsdoctags": [
                         {
                             "name": "key",
@@ -2205,7 +2197,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 418
+                    "line": 382
                 }
             ],
             "hostBindings": [],
@@ -2213,7 +2205,7 @@
             "description": "<p>some comment </p>\n",
             "rawdescription": "some comment ",
             "type": "component",
-            "sourceCode": "import {\n  ChangeDetectorRef,\n  Component,\n  ContentChild,\n  EventEmitter,\n  Input,\n  Output,\n  TemplateRef,\n} from '@angular/core';\nimport { FormControl } from '@angular/forms';\nimport { KeyValue } from '@angular/common';\nimport { DynamicFormItem, DynamicFormOption } from './model/models';\nimport {\n  ExtendedFormGroup,\n  ExtendedFormGroupControls,\n} from './model/custom-classes/extended-form-group';\nimport { ExtendedFormControl } from './model/custom-classes/extended-form-control';\nimport { ExtendedFormArray } from './model/custom-classes/extended-form-array';\nimport { ExtendedFormGroupArray } from './model/custom-classes/extended-form-group-array';\nimport { FormService } from './form.service';\n\ninterface IDynamicFormValidationError {\n  key: string;\n  errorMessage: string;\n  sectionId: string;\n  sectionIndex: number;\n  formItem: Partial<DynamicFormItem>;\n}\n\nexport interface IFormAction {\n  hasAction: boolean;\n  label?: string;\n}\n/** some comment */\n@Component({\n  selector: 'app-dynamic-form',\n  templateUrl: './dynamic-form.component.html',\n  providers: [FormService],\n  styles: [\n    `\n      ::ng-deep .dynamic-form-section-item {\n        margin-bottom: 1.5rem;\n      }\n    `,\n  ],\n})\nexport class DynamicFormComponent {\n  @Input() extendedFormGroup: ExtendedFormGroup;\n  @Input() validationErrors: IDynamicFormValidationError[];\n  @Input() activeStep: number;\n  @Input() sectionTemplate: TemplateRef<any>;\n  @Input() itemTemplate: TemplateRef<any>;\n  @Input() actionsTemplate: TemplateRef<any>;\n  @Input() disclaimerTemplate: TemplateRef<any>;\n  @Input() itemCustomClass: string;\n  @Input() hasFormActions: boolean = true;\n  @Input() nextAction: IFormAction = {\n    hasAction: true,\n    label: 'Next',\n  };\n  @Input() previousAction: IFormAction = {\n    hasAction: true,\n    label: 'Previous',\n  };\n  @Input() cancelAction: IFormAction = {\n    hasAction: true,\n    label: 'Cancel',\n  };\n  @Output() previousEvent: EventEmitter<any> = new EventEmitter();\n  @Output() nextEvent: EventEmitter<any> = new EventEmitter();\n  @Output() cancelEvent: EventEmitter<any> = new EventEmitter();\n\n  submitted: boolean = false;\n\n  newFormGroup: { form: ExtendedFormGroup; index: number } = {\n    form: null,\n    index: null,\n  };\n\n  followUpModalToggle: boolean = false;\n\n  constructor(\n    private formService: FormService,\n    private cd: ChangeDetectorRef\n  ) {}\n\n  shouldRenderFollowUpControlsType(key: any): string {\n    if (key.value?.followUpItems) {\n      return key.value?.followUpItems.type;\n    }\n  }\n\n  dimissFollowUpModal(item: ExtendedFormControl): void {\n    this.followUpModalToggle = false;\n    !item.formGroup && item?.reset();\n  }\n\n  saveFollowUpModal(param: {\n    item: ExtendedFormGroup;\n    control: ExtendedFormControl;\n  }): void {\n    const { item, control } = param;\n    if (item.valid) {\n      if (this.newFormGroup.index !== null) {\n        (control.formGroup as ExtendedFormGroupArray).setControl(\n          this.newFormGroup.index,\n          item\n        );\n      } else {\n        if (!control.formGroup?.controls?.length) {\n          control.formGroup = new ExtendedFormGroupArray([item]);\n        } else {\n          (control.formGroup as ExtendedFormGroupArray).push(item);\n        }\n      }\n      this.followUpModalToggle = false;\n      this.cd.detectChanges();\n    }\n  }\n\n  createFormGroup(item: any) {\n    this.newFormGroup = {\n      form: this.formService.dynamicFormItemsToFormGroup(item),\n      index: null,\n    };\n    this.followUpModalToggle = true;\n  }\n\n  modalShouldBeRendered(control): boolean {\n    if (control.value?.followUpItems) {\n      return !!this.newFormGroup.form;\n    }\n  }\n\n  /**\n   * SHOULD RENDER CONTROL:\n   * Determines if the form control should be rendered or not.\n   * @param key section key\n   * @param formItem the target form item that should or should not be displayed\n   * @param index if the formgroup is an array this is the index of the formgroup item\n   */\n  shouldRenderControl(\n    key: string,\n    formItem: DynamicFormItem,\n    index?: number\n  ): boolean {\n    if (this.extendedFormGroup.controls)\n      if (formItem?.rulerKey) {\n        // It has a ruler key, trying to find the ruler and it's value\n        let ruler: ExtendedFormControl;\n        if (index > -1) {\n          // the form control where the ruler should be is an array\n          const target: ExtendedFormControl = (this.extendedFormGroup.get(\n            key\n          ) as ExtendedFormGroupArray)\n            .at(index)\n            .get(formItem.rulerKey) as ExtendedFormControl;\n          if (target) {\n            ruler = target;\n          }\n        } else {\n          // no array index: the form control where the ruler should be is a regular form\n          ruler = this.extendedFormGroup\n            ?.get(key)\n            ?.get(formItem.rulerKey) as ExtendedFormControl;\n        }\n        const rulerValue: any = ruler.value;\n        const { condition }: DynamicFormItem = formItem;\n        if (rulerValue === undefined || condition === undefined) {\n          console.warn(\n            'Something went wrong in shouldRenderControl: Ruler value or condition could not be found.'\n          );\n          return false;\n        }\n        if (\n          typeof rulerValue === 'string' &&\n          rulerValue === (condition as any)\n        ) {\n          return this.shouldRenderControl(key, ruler.formItem, index);\n        } else if (\n          rulerValue &&\n          condition &&\n          typeof condition === 'object' &&\n          Array.isArray(condition)\n        ) {\n          for (const conditionItem of condition as Array<any>) {\n            if (conditionItem) {\n              if (typeof rulerValue === 'object' && Array.isArray(rulerValue)) {\n                for (const rulerValueItem of rulerValue as Array<any>) {\n                  if (\n                    rulerValueItem &&\n                    rulerValueItem.value === conditionItem.value\n                  ) {\n                    return this.shouldRenderControl(key, ruler.formItem, index);\n                  }\n                }\n              } else if (\n                typeof rulerValue === 'object' &&\n                !Array.isArray(rulerValue)\n              ) {\n                if (rulerValue && rulerValue.value === conditionItem.value) {\n                  return this.shouldRenderControl(key, ruler.formItem, index);\n                }\n              }\n            }\n          }\n        } else if (\n          rulerValue &&\n          typeof rulerValue === 'object' &&\n          !Array.isArray(rulerValue) &&\n          rulerValue.value === (condition as DynamicFormOption).value\n        ) {\n          return this.shouldRenderControl(key, ruler.formItem, index);\n        } else if (\n          rulerValue &&\n          typeof rulerValue === 'boolean' &&\n          rulerValue === condition\n        ) {\n          return this.shouldRenderControl(key, ruler.formItem, index);\n        }\n        return false;\n      }\n    return true;\n  }\n\n  /**\n   * ADD NEW ITEM TO FORM ARRAY WITH ID:\n   * Duplicates the whole section or a form item within a section\n   * @param key section key\n   * @param id the id of the form item which should be duplicated\n   * @param sectionIndex if the formgroup is an array this is the index of the formgroup item\n   */\n  addNewItemToFormArrayWithId(\n    key: string,\n    id?: string,\n    sectionIndex?: number\n  ): void {\n    if (id) {\n      // There is an id which means we want to duplicate a form item within a section\n      if (sectionIndex > -1) {\n        // the form control where the item to duplicate should be is an array\n        const target: ExtendedFormArray = (this.extendedFormGroup.get(\n          key\n        ) as ExtendedFormGroupArray).at(sectionIndex) as ExtendedFormArray;\n        (target.get(id) as ExtendedFormArray).push(new FormControl(''));\n      } else {\n        // the form control is not an array since there is no section index\n        (this.extendedFormGroup.get(key).get(id) as ExtendedFormArray).push(\n          new FormControl('')\n        );\n      }\n    } else {\n      // There is no id which means we want to duplicate the entire section\n      const target: ExtendedFormGroupArray = this.extendedFormGroup.get(\n        key\n      ) as ExtendedFormGroupArray;\n      const childControls: ExtendedFormGroupControls = this.formService.dynamicFormItemsToControls(\n        target.sectionItem.items\n      );\n      const formGroup: ExtendedFormGroup = new ExtendedFormGroup(\n        childControls,\n        target.sectionItem\n      );\n      target.push(formGroup);\n    }\n  }\n\n  /**\n   * REMOVE ITEM AT INDEX FROM FORM ARRAY WITH ID:\n   * Removes the whole section or a form item within a section\n   * @param key section key\n   * @param info the id of the form item which should be removed and the index of where to remove it\n   * @param sectionIndex if the formgroup is an array this is the index of the formgroup item\n   */\n  removeItemAtIndexFromFormArrayWithId(\n    key: string,\n    info?: { id: string; index: number },\n    sectionIndex?: number\n  ): void {\n    if (info && info.id) {\n      // There is info which means we want to remove a form item within a section\n      if (sectionIndex > -1) {\n        // the form control where the item to remove should be is an array\n        const target: ExtendedFormArray = (this.extendedFormGroup.get(\n          key\n        ) as ExtendedFormGroupArray).at(sectionIndex) as ExtendedFormArray;\n        (target.get(info.id) as ExtendedFormArray).removeAt(info.index);\n      } else {\n        // the form control is not an array since there is no section index\n        (this.extendedFormGroup\n          .get(key)\n          .get(info.id) as ExtendedFormArray).removeAt(info.index);\n      }\n    } else {\n      // there is no info indicating we should use the section index to remove the section itself\n      if (sectionIndex > -1) {\n        (this.extendedFormGroup.get(key) as ExtendedFormGroupArray).removeAt(\n          sectionIndex\n        );\n      } else {\n        console.warn(\n          'Error at removeItemAtIndexFromFormArrayWithId: Tried to remove section but no section index was provided'\n        );\n      }\n    }\n  }\n\n  removeItemFromParent(param: {\n    form: ExtendedFormControl;\n    index: number;\n  }): void {\n    const { form, index } = param;\n    (form.formGroup as ExtendedFormGroupArray).removeAt(index);\n    // reset parent control if the formGroup property doesn't have controls\n    if (!(form.formGroup as ExtendedFormGroupArray).controls?.length) {\n      form.reset();\n    }\n    this.followUpModalToggle = false;\n  }\n\n  editItemFromParent(param: {\n    formArray: ExtendedFormArray;\n    index: number;\n  }): void {\n    const { formArray, index } = param;\n    this.newFormGroup = {\n      form: new ExtendedFormGroup(\n        (formArray.at(index) as ExtendedFormGroup)\n          .controls as ExtendedFormGroupControls\n      ),\n      index,\n    };\n    this.followUpModalToggle = true;\n  }\n\n  orderForm = (\n    a: KeyValue<string, ExtendedFormGroup | ExtendedFormControl>,\n    b: KeyValue<string, ExtendedFormGroup | ExtendedFormControl>\n  ): number => {\n    if (a.value['sectionItem'] && b.value['sectionItem']) {\n      return (\n        (a.value as ExtendedFormGroup).sectionItem.order -\n        (b.value as ExtendedFormGroup).sectionItem.order\n      );\n    } else if (a.value['formItem'] && b.value['formItem']) {\n      return (\n        (a.value as ExtendedFormControl).formItem.order -\n        (b.value as ExtendedFormControl).formItem.order\n      );\n    }\n    return 0;\n  };\n\n  getFormArrayControls(\n    control: ExtendedFormGroupArray\n  ): Array<ExtendedFormGroup> {\n    if (control instanceof ExtendedFormGroupArray) {\n      return control.controls as Array<ExtendedFormGroup>;\n    } else {\n      console.warn(\n        'Error in getFormArrayControls: control is not an instance of ExtendedFormGroupArray'\n      );\n      return [];\n    }\n  }\n\n  getValidationErrorFor = (\n    key: string,\n    formItem: DynamicFormItem,\n    index?: number\n  ): string => {\n    let errorMessage: string;\n    if (\n      !this.validationErrors ||\n      (this.validationErrors && !this.validationErrors.length)\n    ) {\n      return null;\n    }\n\n    let sectionErrors: IDynamicFormValidationError[];\n    if (index) {\n      // check for sectionIndex\n      sectionErrors = this.validationErrors.filter(\n        (error) => error.sectionId === key && error.sectionIndex === index\n      );\n    } else {\n      sectionErrors = this.validationErrors.filter(\n        (error) => error.sectionId === key\n      );\n    }\n\n    sectionErrors?.length &&\n      sectionErrors.forEach((error) => {\n        if (error.key === formItem.key) {\n          errorMessage = error.errorMessage;\n        }\n      });\n\n    return errorMessage;\n  };\n\n  controlValueChanged(): void {\n    this.submitted &&= false;\n  }\n\n  get sectionList() {\n    if (this.activeStep !== null) {\n      return [\n        this.extendedFormGroup.controls[\n          Object.keys(this.extendedFormGroup.controls)[this.activeStep]\n        ],\n      ];\n    } else {\n      return this.extendedFormGroup.controls;\n    }\n  }\n\n  validate(): void {\n    console.log(this.extendedFormGroup);\n  }\n\n  cancel(): void {\n    this.cancelEvent.emit();\n  }\n\n  next(): void {\n    this.submitted = true;\n    if (this.formService.validateForm(this.extendedFormGroup)) {\n      this.nextEvent?.emit();\n      this.submitted = false;\n    }\n  }\n\n  previous(): void {\n    this.previousEvent.emit();\n  }\n}\n",
+            "sourceCode": "import {\n  ChangeDetectorRef,\n  Component,\n  EventEmitter,\n  Input,\n  Output,\n  TemplateRef,\n} from '@angular/core';\nimport { FormControl } from '@angular/forms';\nimport { KeyValue } from '@angular/common';\nimport { DynamicFormItem, DynamicFormOption } from './model/models';\nimport {\n  ExtendedFormGroup,\n  ExtendedFormGroupControls,\n} from './model/custom-classes/extended-form-group';\nimport { ExtendedFormControl } from './model/custom-classes/extended-form-control';\nimport { ExtendedFormArray } from './model/custom-classes/extended-form-array';\nimport { ExtendedFormGroupArray } from './model/custom-classes/extended-form-group-array';\nimport { FormService } from './form.service';\n\ninterface IDynamicFormValidationError {\n  key: string;\n  errorMessage: string;\n  sectionId: string;\n  sectionIndex: number;\n  formItem: Partial<DynamicFormItem>;\n}\n\nexport interface IFormAction {\n  hasAction: boolean;\n  label?: string;\n}\n/** some comment */\n@Component({\n  selector: 'app-dynamic-form',\n  templateUrl: './dynamic-form.component.html',\n  providers: [FormService],\n  styles: [\n    `\n      ::ng-deep .dynamic-form-section-item {\n        margin-bottom: 1.5rem;\n      }\n    `,\n  ],\n})\nexport class DynamicFormComponent {\n  @Input() extendedFormGroup: ExtendedFormGroup;\n  @Input() validationErrors: IDynamicFormValidationError[];\n  @Input() activeStep: number;\n  @Input() sectionTemplate: TemplateRef<any>;\n  @Input() itemTemplate: TemplateRef<any>;\n  @Input() actionsTemplate: TemplateRef<any>;\n  @Input() disclaimerTemplate: TemplateRef<any>;\n  @Input() itemCustomClass: string;\n  @Input() hasFormActions: boolean = true;\n  @Input() nextAction: IFormAction = {\n    hasAction: true,\n    label: 'Next',\n  };\n  @Input() previousAction: IFormAction = {\n    hasAction: true,\n    label: 'Previous',\n  };\n  @Input() cancelAction: IFormAction = {\n    hasAction: true,\n    label: 'Cancel',\n  };\n  @Output() previousEvent: EventEmitter<any> = new EventEmitter();\n  @Output() nextEvent: EventEmitter<any> = new EventEmitter();\n  @Output() cancelEvent: EventEmitter<any> = new EventEmitter();\n\n  submitted: boolean = false;\n\n  newFormGroup: { form: ExtendedFormGroup; index: number } = {\n    form: null,\n    index: null,\n  };\n\n  followUpModalToggle: boolean = false;\n\n  constructor(\n    private formService: FormService,\n    private cd: ChangeDetectorRef\n  ) {}\n\n  shouldRenderFollowUpControlsType(key: any): string {\n    if (key.value?.followUpItems) {\n      return key.value?.followUpItems.type;\n    }\n  }\n\n  dimissFollowUpModal(item: ExtendedFormControl): void {\n    this.followUpModalToggle = false;\n    !item.formGroup && item?.reset();\n  }\n\n  saveFollowUpModal(param: {\n    item: ExtendedFormGroup;\n    control: ExtendedFormControl;\n  }): void {\n    const { item, control } = param;\n    if (item.valid) {\n      if (this.newFormGroup.index !== null) {\n        (control.formGroup as ExtendedFormGroupArray).setControl(\n          this.newFormGroup.index,\n          item\n        );\n      } else {\n        if (!control.formGroup?.controls?.length) {\n          control.formGroup = new ExtendedFormGroupArray([item]);\n        } else {\n          (control.formGroup as ExtendedFormGroupArray).push(item);\n        }\n      }\n      this.followUpModalToggle = false;\n      this.cd.detectChanges();\n    }\n  }\n\n  createFormGroup(item: any) {\n    this.newFormGroup = {\n      form: this.formService.dynamicFormItemsToFormGroup(item),\n      index: null,\n    };\n    this.followUpModalToggle = true;\n  }\n\n  modalShouldBeRendered(control): boolean {\n    if (control.value?.followUpItems) {\n      return !!this.newFormGroup.form;\n    }\n  }\n\n  /**\n   * SHOULD RENDER CONTROL:\n   * Determines if the form control should be rendered or not.\n   * @param key section key\n   * @param formItem the target form item that should or should not be displayed\n   * @param index if the formgroup is an array this is the index of the formgroup item\n   */\n  shouldRenderControl(\n    key: string,\n    formItem: DynamicFormItem,\n    index?: number\n  ): boolean {\n    if (this.extendedFormGroup.controls)\n      if (formItem?.rulerKey) {\n        // It has a ruler key, trying to find the ruler and it's value\n        let ruler: ExtendedFormControl;\n        if (index > -1) {\n          // the form control where the ruler should be is an array\n          const target: ExtendedFormControl = (this.extendedFormGroup.get(\n            key\n          ) as ExtendedFormGroupArray)\n            .at(index)\n            .get(formItem.rulerKey) as ExtendedFormControl;\n          if (target) {\n            ruler = target;\n          }\n        } else {\n          // no array index: the form control where the ruler should be is a regular form\n          ruler = this.extendedFormGroup\n            ?.get(key)\n            ?.get(formItem.rulerKey) as ExtendedFormControl;\n        }\n        const rulerValue: any = ruler.value;\n        const { condition }: DynamicFormItem = formItem;\n        if (rulerValue === undefined || condition === undefined) {\n          console.warn(\n            'Something went wrong in shouldRenderControl: Ruler value or condition could not be found.'\n          );\n          return false;\n        }\n        if (\n          typeof rulerValue === 'string' &&\n          rulerValue === (condition as any)\n        ) {\n          return this.shouldRenderControl(key, ruler.formItem, index);\n        } else if (\n          rulerValue &&\n          condition &&\n          typeof condition === 'object' &&\n          Array.isArray(condition)\n        ) {\n          for (const conditionItem of condition as Array<any>) {\n            if (conditionItem) {\n              if (typeof rulerValue === 'object' && Array.isArray(rulerValue)) {\n                for (const rulerValueItem of rulerValue as Array<any>) {\n                  if (\n                    rulerValueItem &&\n                    rulerValueItem.value === conditionItem.value\n                  ) {\n                    return this.shouldRenderControl(key, ruler.formItem, index);\n                  }\n                }\n              } else if (\n                typeof rulerValue === 'object' &&\n                !Array.isArray(rulerValue)\n              ) {\n                if (rulerValue && rulerValue.value === conditionItem.value) {\n                  return this.shouldRenderControl(key, ruler.formItem, index);\n                }\n              }\n            }\n          }\n        } else if (\n          rulerValue &&\n          typeof rulerValue === 'object' &&\n          !Array.isArray(rulerValue) &&\n          rulerValue.value === (condition as DynamicFormOption).value\n        ) {\n          return this.shouldRenderControl(key, ruler.formItem, index);\n        } else if (\n          rulerValue &&\n          typeof rulerValue === 'boolean' &&\n          rulerValue === condition\n        ) {\n          return this.shouldRenderControl(key, ruler.formItem, index);\n        }\n        return false;\n      }\n    return true;\n  }\n\n  /**\n   * ADD NEW ITEM TO FORM ARRAY WITH ID:\n   * Duplicates the whole section or a form item within a section\n   * @param key section key\n   * @param id the id of the form item which should be duplicated\n   * @param sectionIndex if the formgroup is an array this is the index of the formgroup item\n   */\n  addNewItemToFormArrayWithId(\n    key: string,\n    id?: string,\n    sectionIndex?: number\n  ): void {\n    if (id) {\n      // There is an id which means we want to duplicate a form item within a section\n      if (sectionIndex > -1) {\n        // the form control where the item to duplicate should be is an array\n        const target: ExtendedFormArray = (this.extendedFormGroup.get(\n          key\n        ) as ExtendedFormGroupArray).at(sectionIndex) as ExtendedFormArray;\n        (target.get(id) as ExtendedFormArray).push(new FormControl(''));\n      } else {\n        // the form control is not an array since there is no section index\n        (this.extendedFormGroup.get(key).get(id) as ExtendedFormArray).push(\n          new FormControl('')\n        );\n      }\n    } else {\n      // There is no id which means we want to duplicate the entire section\n      const target: ExtendedFormGroupArray = this.extendedFormGroup.get(\n        key\n      ) as ExtendedFormGroupArray;\n      const childControls: ExtendedFormGroupControls = this.formService.dynamicFormItemsToControls(\n        target.sectionItem.items\n      );\n      const formGroup: ExtendedFormGroup = new ExtendedFormGroup(\n        childControls,\n        target.sectionItem\n      );\n      target.push(formGroup);\n    }\n  }\n\n  /**\n   * REMOVE ITEM AT INDEX FROM FORM ARRAY WITH ID:\n   * Removes the whole section or a form item within a section\n   * @param key section key\n   * @param info the id of the form item which should be removed and the index of where to remove it\n   * @param sectionIndex if the formgroup is an array this is the index of the formgroup item\n   */\n  removeItemAtIndexFromFormArrayWithId(\n    key: string,\n    info?: { id: string; index: number },\n    sectionIndex?: number\n  ): void {\n    if (info && info.id) {\n      // There is info which means we want to remove a form item within a section\n      if (sectionIndex > -1) {\n        // the form control where the item to remove should be is an array\n        const target: ExtendedFormArray = (this.extendedFormGroup.get(\n          key\n        ) as ExtendedFormGroupArray).at(sectionIndex) as ExtendedFormArray;\n        (target.get(info.id) as ExtendedFormArray).removeAt(info.index);\n      } else {\n        // the form control is not an array since there is no section index\n        (this.extendedFormGroup\n          .get(key)\n          .get(info.id) as ExtendedFormArray).removeAt(info.index);\n      }\n    } else {\n      // there is no info indicating we should use the section index to remove the section itself\n      if (sectionIndex > -1) {\n        (this.extendedFormGroup.get(key) as ExtendedFormGroupArray).removeAt(\n          sectionIndex\n        );\n      } else {\n        console.warn(\n          'Error at removeItemAtIndexFromFormArrayWithId: Tried to remove section but no section index was provided'\n        );\n      }\n    }\n  }\n\n  removeItemFromParent(param: {\n    form: ExtendedFormControl;\n    index: number;\n  }): void {\n    const { form, index } = param;\n    (form.formGroup as ExtendedFormGroupArray).removeAt(index);\n    // reset parent control if the formGroup property doesn't have controls\n    if (!(form.formGroup as ExtendedFormGroupArray).controls?.length) {\n      form.reset();\n    }\n    this.followUpModalToggle = false;\n  }\n\n  editItemFromParent(param: {\n    formArray: ExtendedFormArray;\n    index: number;\n  }): void {\n    const { formArray, index } = param;\n    this.newFormGroup = {\n      form: new ExtendedFormGroup(\n        (formArray.at(index) as ExtendedFormGroup)\n          .controls as ExtendedFormGroupControls\n      ),\n      index,\n    };\n    this.followUpModalToggle = true;\n  }\n\n  orderForm = (\n    a: KeyValue<string, ExtendedFormGroup | ExtendedFormControl>,\n    b: KeyValue<string, ExtendedFormGroup | ExtendedFormControl>\n  ): number => {\n    if (a.value['sectionItem'] && b.value['sectionItem']) {\n      return (\n        (a.value as ExtendedFormGroup).sectionItem.order -\n        (b.value as ExtendedFormGroup).sectionItem.order\n      );\n    } else if (a.value['formItem'] && b.value['formItem']) {\n      return (\n        (a.value as ExtendedFormControl).formItem.order -\n        (b.value as ExtendedFormControl).formItem.order\n      );\n    }\n    return 0;\n  };\n\n  getFormArrayControls(\n    control: ExtendedFormGroupArray\n  ): Array<ExtendedFormGroup> {\n    if (control instanceof ExtendedFormGroupArray) {\n      return control.controls as Array<ExtendedFormGroup>;\n    } else {\n      console.warn(\n        'Error in getFormArrayControls: control is not an instance of ExtendedFormGroupArray'\n      );\n      return [];\n    }\n  }\n\n  controlValueChanged(): void {\n    this.submitted &&= false;\n  }\n\n  get sectionList() {\n    if (this.activeStep !== null) {\n      return [\n        this.extendedFormGroup.controls[\n          Object.keys(this.extendedFormGroup.controls)[this.activeStep]\n        ],\n      ];\n    } else {\n      return this.extendedFormGroup.controls;\n    }\n  }\n\n  validate(): void {\n    console.log(this.extendedFormGroup);\n  }\n\n  cancel(): void {\n    this.cancelEvent.emit();\n  }\n\n  next(): void {\n    this.submitted = true;\n    if (this.formService.validateForm(this.sectionList[0])) {\n      this.nextEvent?.emit();\n      this.submitted = false;\n    }\n  }\n\n  previous(): void {\n    this.previousEvent.emit();\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "\n      ::ng-deep .dynamic-form-section-item {\n        margin-bottom: 1.5rem;\n      }\n    \n",
@@ -2230,7 +2222,7 @@
                         "type": "ChangeDetectorRef"
                     }
                 ],
-                "line": 80,
+                "line": 79,
                 "jsdoctags": [
                     {
                         "name": "formService",
@@ -2255,11 +2247,11 @@
                         "name": "sectionList",
                         "type": "",
                         "returnType": "",
-                        "line": 406
+                        "line": 370
                     }
                 }
             },
-            "templateData": "<form\n  *ngIf=\"extendedFormGroup\"\n  #ngForm=\"ngForm\"\n  [formGroup]=\"extendedFormGroup\"\n>\n  <div\n    class=\"dynamic-form-section-item\"\n    *ngFor=\"let section of sectionList | keyvalue: orderForm\"\n  >\n    <ng-container\n      [ngTemplateOutlet]=\"sectionTemplate || internalSectionTemplate\"\n      [ngTemplateOutletContext]=\"{ context: section.value.sectionItem }\"\n    ></ng-container>\n\n    <div\n      [class]=\"section.value.sectionItem?.className\"\n      *ngIf=\"!section.value.sectionItem?.multi; else multi\"\n    >\n      <ng-container\n        *ngFor=\"let control of section.value.controls | keyvalue: orderForm\"\n      >\n        <ng-container\n          [ngTemplateOutlet]=\"itemTemplate\"\n          [ngTemplateOutletContext]=\"{ context: control.value.formItem }\"\n        ></ng-container>\n        <div\n          [class]=\"control.value.formItem?.className\"\n          *ngIf=\"shouldRenderControl(section.key, control.value.formItem)\"\n        >\n          <ng-container *ngIf=\"control.value.formGroup; else singleItem\">\n            <app-dynamic-form-item\n              [parentFormGroup]=\"extendedFormGroup\"\n              [control]=\"control.value\"\n              [submitted]=\"submitted\"\n              (createFormGroup)=\"createFormGroup($event)\"\n              (controlValueChanged)=\"controlValueChanged()\"\n            ></app-dynamic-form-item>\n            <ng-container\n              [ngSwitch]=\"shouldRenderFollowUpControlsType(control.value)\"\n            >\n              <ng-container *ngSwitchCase=\"'inline'\">\n                <div\n                  *ngFor=\"\n                    let item of control.value.formGroup.controls\n                      | keyvalue: orderForm\n                  \"\n                >\n                  <app-dynamic-form-item\n                    [parentFormGroup]=\"extendedFormGroup\"\n                    [control]=\"item.value\"\n                    [submitted]=\"submitted\"\n                    (controlValueChanged)=\"controlValueChanged()\"\n                  ></app-dynamic-form-item>\n                </div>\n              </ng-container>\n              <ng-container *ngSwitchDefault>\n                <app-dynamic-form-data\n                  [control]=\"control\"\n                  (editControl)=\"editItemFromParent($event)\"\n                  (deleteControl)=\"removeItemFromParent($event)\"\n                ></app-dynamic-form-data>\n                <ng-container *ngIf=\"control.value.value?.followUpItems?.multi\">\n                  <button\n                    class=\"btn btn-sm btn-secondary\"\n                    type=\"button\"\n                    (click)=\"\n                      createFormGroup(control.value.value.followUpItems?.items)\n                    \"\n                  >\n                    + Add new\n                  </button>\n                  <ng-container\n                    [ngTemplateOutlet]=\"modalTemplate\"\n                    [ngTemplateOutletContext]=\"{ context: control }\"\n                  ></ng-container>\n                </ng-container>\n              </ng-container>\n            </ng-container>\n          </ng-container>\n          <ng-template #singleItem>\n            <app-dynamic-form-item\n              [parentFormGroup]=\"extendedFormGroup\"\n              [control]=\"control.value\"\n              [sectionId]=\"section.value.sectionItem.key\"\n              [itemCustomClass]=\"itemCustomClass\"\n              [submitted]=\"submitted\"\n              (createFormGroup)=\"createFormGroup($event)\"\n              (itemAddedClicked)=\"\n                addNewItemToFormArrayWithId(section.key, $event)\n              \"\n              (itemRemovedClicked)=\"\n                removeItemAtIndexFromFormArrayWithId(section.key, $event)\n              \"\n              (controlValueChanged)=\"controlValueChanged()\"\n            ></app-dynamic-form-item>\n            <ng-container\n              [ngTemplateOutlet]=\"modalTemplate\"\n              [ngTemplateOutletContext]=\"{ context: control }\"\n            ></ng-container>\n          </ng-template>\n        </div>\n      </ng-container>\n    </div>\n\n    <ng-template #multi>\n      <div\n        class=\"dynamic-form-section-item\"\n        [class]=\"section.value.sectionItem.className\"\n        *ngFor=\"\n          let arrayControl of getFormArrayControls(section.value);\n          let i = index\n        \"\n      >\n        <ng-container\n          *ngFor=\"let control of arrayControl.controls | keyvalue: orderForm\"\n        >\n          <div\n            class=\"form-group\"\n            [class]=\"control.value.formItem.className\"\n            *ngIf=\"\n              shouldRenderControl(\n                section.value.sectionItem.key,\n                control.value.formItem,\n                i\n              )\n            \"\n          >\n            <app-dynamic-form-item\n              [formGroup]=\"extendedFormGroup\"\n              [control]=\"control.value\"\n              [sectionId]=\"section.value.sectionItem.key + control.key + i\"\n              [submitted]=\"submitted\"\n              (createFormGroup)=\"createFormGroup($event)\"\n              (itemAddedClicked)=\"\n                addNewItemToFormArrayWithId(section.key, $event, i)\n              \"\n              (itemRemovedClicked)=\"\n                removeItemAtIndexFromFormArrayWithId(section.key, $event, i)\n              \"\n              (controlValueChanged)=\"controlValueChanged()\"\n            ></app-dynamic-form-item>\n            <ng-container\n              [ngSwitch]=\"shouldRenderFollowUpControlsType(control.value)\"\n            >\n              <ng-container *ngSwitchCase=\"'inline'\">\n                <div\n                  *ngFor=\"\n                    let item of control.value.formGroup.controls\n                      | keyvalue: orderForm\n                  \"\n                >\n                  <app-dynamic-form-item\n                    [parentFormGroup]=\"extendedFormGroup\"\n                    [control]=\"item.value\"\n                    [submitted]=\"submitted\"\n                    (createFormGroup)=\"createFormGroup($event)\"\n                    (controlValueChanged)=\"controlValueChanged()\"\n                  ></app-dynamic-form-item>\n                </div>\n              </ng-container>\n              <ng-container *ngSwitchDefault>\n                <app-dynamic-form-data\n                  [control]=\"control\"\n                  (editControl)=\"editItemFromParent($event)\"\n                  (deleteControl)=\"removeItemFromParent($event)\"\n                ></app-dynamic-form-data>\n                <ng-container *ngIf=\"control.value.value?.followUpItems?.multi\">\n                  <button\n                    class=\"btn btn-sm btn-secondary\"\n                    type=\"button\"\n                    (click)=\"\n                      createFormGroup(control.value.value.followUpItems?.items)\n                    \"\n                  >\n                    + Add new\n                  </button>\n                  <ng-container\n                    [ngTemplateOutlet]=\"modalTemplate\"\n                    [ngTemplateOutletContext]=\"{ context: control }\"\n                  ></ng-container>\n                </ng-container>\n              </ng-container>\n            </ng-container>\n          </div>\n        </ng-container>\n        <button\n          *ngIf=\"getFormArrayControls(section.value).length > 1\"\n          [id]=\"section.value.sectionItem.key + i + '-remove'\"\n          class=\"btn btn-sm btn-outline-danger\"\n          type=\"button\"\n          (click)=\"\n            removeItemAtIndexFromFormArrayWithId(\n              section.value.sectionItem.key,\n              null,\n              i\n            )\n          \"\n        >\n          - Remove {{ section.value.sectionItem.title }}\n        </button>\n      </div>\n\n      <button\n        [id]=\"section.value.sectionItem.key + '-add'\"\n        class=\"btn btn-sm btn-secondary\"\n        type=\"button\"\n        (click)=\"addNewItemToFormArrayWithId(section.value.sectionItem.key)\"\n      >\n        + Add new {{ section.value.sectionItem.title }}\n      </button>\n    </ng-template>\n  </div>\n  <ng-template let-context=\"context\" #modalTemplate>\n    <app-dynamic-form-modal\n      *ngIf=\"modalShouldBeRendered(context?.value)\"\n      [modalToggle]=\"followUpModalToggle\"\n      [control]=\"context\"\n      [form]=\"newFormGroup.form\"\n      [controlIndex]=\"newFormGroup.index\"\n      (saveControl)=\"saveFollowUpModal($event)\"\n      (cancelControl)=\"dimissFollowUpModal($event)\"\n      (deleteControl)=\"removeItemFromParent($event)\"\n    ></app-dynamic-form-modal>\n  </ng-template>\n  <ng-container\n    *ngIf=\"hasFormActions && actionsTemplate; else internalActionsTemplate\"\n    [ngTemplateOutlet]=\"actionsTemplate\"\n  ></ng-container>\n  <ng-template #internalActionsTemplate>\n    <div *ngIf=\"hasFormActions\" class=\"d-flex justify-content-between\">\n      <div>\n        <button\n          *ngIf=\"cancelAction.hasAction\"\n          class=\"btn btn-secondary\"\n          (click)=\"cancel()\"\n        >\n          {{ cancelAction.label }}\n        </button>\n        <button\n          *ngIf=\"previousAction.hasAction\"\n          class=\"btn btn-outline-primary\"\n          (click)=\"previous()\"\n        >\n          {{ previousAction.label }}\n        </button>\n      </div>\n      <button\n        *ngIf=\"nextAction.hasAction\"\n        class=\"btn btn-primary\"\n        (click)=\"next()\"\n      >\n        {{ nextAction.label }}\n      </button>\n    </div>\n  </ng-template>\n\n  <ng-template let-context=\"context\" #internalSectionTemplate>\n    <span *ngIf=\"context?.category\">{{ context.category }}</span>\n    <h3 *ngIf=\"context?.title\">{{ context.title }}</h3>\n  </ng-template>\n</form>\n"
+            "templateData": "<form\n  *ngIf=\"extendedFormGroup\"\n  #ngForm=\"ngForm\"\n  [formGroup]=\"extendedFormGroup\"\n>\n  <div\n    class=\"dynamic-form-section-item\"\n    *ngFor=\"let section of sectionList | keyvalue: orderForm\"\n  >\n    <ng-container\n      [ngTemplateOutlet]=\"sectionTemplate || internalSectionTemplate\"\n      [ngTemplateOutletContext]=\"{ context: section.value.sectionItem }\"\n    ></ng-container>\n\n    <div\n      [class]=\"section.value.sectionItem?.className\"\n      *ngIf=\"!section.value.sectionItem?.multi; else multi\"\n    >\n      <ng-container\n        *ngFor=\"let control of section.value.controls | keyvalue: orderForm\"\n      >\n        <ng-container\n          [ngTemplateOutlet]=\"itemTemplate\"\n          [ngTemplateOutletContext]=\"{ context: control.value.formItem }\"\n        ></ng-container>\n        <div\n          [class]=\"control.value.formItem?.className\"\n          *ngIf=\"shouldRenderControl(section.key, control.value.formItem)\"\n        >\n          <ng-container *ngIf=\"control.value.formGroup; else singleItem\">\n            <app-dynamic-form-item\n              [parentFormGroup]=\"extendedFormGroup\"\n              [control]=\"control.value\"\n              [submitted]=\"submitted\"\n              (createFormGroup)=\"createFormGroup($event)\"\n              (controlValueChanged)=\"controlValueChanged()\"\n            ></app-dynamic-form-item>\n            <ng-container\n              [ngSwitch]=\"shouldRenderFollowUpControlsType(control.value)\"\n            >\n              <ng-container *ngSwitchCase=\"'inline'\">\n                <div\n                  *ngFor=\"\n                    let item of control.value.formGroup.controls\n                      | keyvalue: orderForm\n                  \"\n                >\n                  <app-dynamic-form-item\n                    [parentFormGroup]=\"extendedFormGroup\"\n                    [control]=\"item.value\"\n                    [submitted]=\"submitted\"\n                    (controlValueChanged)=\"controlValueChanged()\"\n                  ></app-dynamic-form-item>\n                </div>\n              </ng-container>\n              <ng-container *ngSwitchDefault>\n                <app-dynamic-form-data\n                  [control]=\"control\"\n                  (editControl)=\"editItemFromParent($event)\"\n                  (deleteControl)=\"removeItemFromParent($event)\"\n                ></app-dynamic-form-data>\n                <ng-container *ngIf=\"control.value.value?.followUpItems?.multi\">\n                  <button\n                    class=\"btn btn-sm btn-secondary\"\n                    type=\"button\"\n                    (click)=\"\n                      createFormGroup(control.value.value.followUpItems?.items)\n                    \"\n                  >\n                    + Add new\n                  </button>\n                </ng-container>\n                <ng-container\n                  [ngTemplateOutlet]=\"modalTemplate\"\n                  [ngTemplateOutletContext]=\"{ context: control }\"\n                ></ng-container>\n              </ng-container>\n            </ng-container>\n          </ng-container>\n          <ng-template #singleItem>\n            <app-dynamic-form-item\n              [parentFormGroup]=\"extendedFormGroup\"\n              [control]=\"control.value\"\n              [sectionId]=\"section.value.sectionItem.key\"\n              [itemCustomClass]=\"itemCustomClass\"\n              [submitted]=\"submitted\"\n              (createFormGroup)=\"createFormGroup($event)\"\n              (itemAddedClicked)=\"\n                addNewItemToFormArrayWithId(section.key, $event)\n              \"\n              (itemRemovedClicked)=\"\n                removeItemAtIndexFromFormArrayWithId(section.key, $event)\n              \"\n              (controlValueChanged)=\"controlValueChanged()\"\n            ></app-dynamic-form-item>\n            <ng-container\n              [ngTemplateOutlet]=\"modalTemplate\"\n              [ngTemplateOutletContext]=\"{ context: control }\"\n            ></ng-container>\n          </ng-template>\n        </div>\n      </ng-container>\n    </div>\n\n    <ng-template #multi>\n      <div\n        class=\"dynamic-form-section-item\"\n        [class]=\"section.value.sectionItem.className\"\n        *ngFor=\"\n          let arrayControl of getFormArrayControls(section.value);\n          let i = index\n        \"\n      >\n        <ng-container\n          *ngFor=\"let control of arrayControl.controls | keyvalue: orderForm\"\n        >\n          <div\n            class=\"form-group\"\n            [class]=\"control.value.formItem.className\"\n            *ngIf=\"\n              shouldRenderControl(\n                section.value.sectionItem.key,\n                control.value.formItem,\n                i\n              )\n            \"\n          >\n            <app-dynamic-form-item\n              [formGroup]=\"extendedFormGroup\"\n              [control]=\"control.value\"\n              [sectionId]=\"section.value.sectionItem.key + control.key + i\"\n              [submitted]=\"submitted\"\n              (createFormGroup)=\"createFormGroup($event)\"\n              (itemAddedClicked)=\"\n                addNewItemToFormArrayWithId(section.key, $event, i)\n              \"\n              (itemRemovedClicked)=\"\n                removeItemAtIndexFromFormArrayWithId(section.key, $event, i)\n              \"\n              (controlValueChanged)=\"controlValueChanged()\"\n            ></app-dynamic-form-item>\n            <ng-container\n              [ngSwitch]=\"shouldRenderFollowUpControlsType(control.value)\"\n            >\n              <ng-container *ngSwitchCase=\"'inline'\">\n                <div\n                  *ngFor=\"\n                    let item of control.value.formGroup.controls\n                      | keyvalue: orderForm\n                  \"\n                >\n                  <app-dynamic-form-item\n                    [parentFormGroup]=\"extendedFormGroup\"\n                    [control]=\"item.value\"\n                    [submitted]=\"submitted\"\n                    (createFormGroup)=\"createFormGroup($event)\"\n                    (controlValueChanged)=\"controlValueChanged()\"\n                  ></app-dynamic-form-item>\n                </div>\n              </ng-container>\n              <ng-container *ngSwitchDefault>\n                <app-dynamic-form-data\n                  [control]=\"control\"\n                  (editControl)=\"editItemFromParent($event)\"\n                  (deleteControl)=\"removeItemFromParent($event)\"\n                ></app-dynamic-form-data>\n                <ng-container *ngIf=\"control.value.value?.followUpItems?.multi\">\n                  <button\n                    class=\"btn btn-sm btn-secondary\"\n                    type=\"button\"\n                    (click)=\"\n                      createFormGroup(control.value.value.followUpItems?.items)\n                    \"\n                  >\n                    + Add new\n                  </button>\n                  <ng-container\n                    [ngTemplateOutlet]=\"modalTemplate\"\n                    [ngTemplateOutletContext]=\"{ context: control }\"\n                  ></ng-container>\n                </ng-container>\n              </ng-container>\n            </ng-container>\n          </div>\n        </ng-container>\n        <button\n          *ngIf=\"getFormArrayControls(section.value).length > 1\"\n          [id]=\"section.value.sectionItem.key + i + '-remove'\"\n          class=\"btn btn-sm btn-outline-danger\"\n          type=\"button\"\n          (click)=\"\n            removeItemAtIndexFromFormArrayWithId(\n              section.value.sectionItem.key,\n              null,\n              i\n            )\n          \"\n        >\n          - Remove {{ section.value.sectionItem.title }}\n        </button>\n      </div>\n\n      <button\n        [id]=\"section.value.sectionItem.key + '-add'\"\n        class=\"btn btn-sm btn-secondary\"\n        type=\"button\"\n        (click)=\"addNewItemToFormArrayWithId(section.value.sectionItem.key)\"\n      >\n        + Add new {{ section.value.sectionItem.title }}\n      </button>\n    </ng-template>\n  </div>\n  <ng-template let-context=\"context\" #modalTemplate>\n    <app-dynamic-form-modal\n      *ngIf=\"modalShouldBeRendered(context?.value)\"\n      [modalToggle]=\"followUpModalToggle\"\n      [control]=\"context\"\n      [form]=\"newFormGroup.form\"\n      [controlIndex]=\"newFormGroup.index\"\n      (saveControl)=\"saveFollowUpModal($event)\"\n      (cancelControl)=\"dimissFollowUpModal($event)\"\n      (deleteControl)=\"removeItemFromParent($event)\"\n    ></app-dynamic-form-modal>\n  </ng-template>\n  <ng-container\n    *ngIf=\"hasFormActions && actionsTemplate; else internalActionsTemplate\"\n    [ngTemplateOutlet]=\"actionsTemplate\"\n  ></ng-container>\n  <ng-template #internalActionsTemplate>\n    <div *ngIf=\"hasFormActions\" class=\"d-flex justify-content-between\">\n      <div>\n        <button\n          *ngIf=\"cancelAction.hasAction\"\n          class=\"btn btn-secondary\"\n          (click)=\"cancel()\"\n        >\n          {{ cancelAction.label }}\n        </button>\n        <button\n          *ngIf=\"previousAction.hasAction\"\n          class=\"btn btn-outline-primary\"\n          (click)=\"previous()\"\n        >\n          {{ previousAction.label }}\n        </button>\n      </div>\n      <button\n        *ngIf=\"nextAction.hasAction\"\n        class=\"btn btn-primary\"\n        (click)=\"next()\"\n      >\n        {{ nextAction.label }}\n      </button>\n    </div>\n  </ng-template>\n\n  <ng-template let-context=\"context\" #internalSectionTemplate>\n    <span *ngIf=\"context?.category\">{{ context.category }}</span>\n    <h3 *ngIf=\"context?.title\">{{ context.title }}</h3>\n  </ng-template>\n</form>\n"
         },
         {
             "name": "DynamicFormDataComponent",
@@ -2777,7 +2769,7 @@
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
-            "templateData": "<sebng-modal [toggle]=\"modalToggle\" [centered]=\"centered\" [position]=\"position\" [size]=\"size\" (dismiss)=\"dismiss()\">\n    <ng-container body>\n        <div *ngFor=\"let item of form.controls | keyvalue: orderForm\">\n            <app-dynamic-form-item\n                [control]=\"item.value\"\n                [submitted]=\"submitted\"\n                (controlValueChanged)=\"controlValueChanged()\"\n            ></app-dynamic-form-item>\n        </div>\n    </ng-container>\n    <ng-container footer>\n        <button *ngIf=\"controlIndex !== null\" class=\"btn btn-danger\" (click)=\"remove()\">Delete</button>\n        <button class=\"btn btn-primary\" (click)=\"save()\">Save</button>\n    </ng-container>\n</sebng-modal>\n"
+            "templateData": "<sebng-modal\n  [toggle]=\"modalToggle\"\n  [centered]=\"centered\"\n  [position]=\"position\"\n  [size]=\"size\"\n  (dismiss)=\"dismiss()\"\n>\n  <ng-container body>\n    <div *ngFor=\"let item of form.controls | keyvalue: orderForm\">\n      <app-dynamic-form-item\n        [control]=\"item.value\"\n        [submitted]=\"submitted\"\n        (controlValueChanged)=\"controlValueChanged()\"\n      ></app-dynamic-form-item>\n    </div>\n  </ng-container>\n  <ng-container footer>\n    <button\n      *ngIf=\"controlIndex !== null\"\n      class=\"btn btn-danger\"\n      (click)=\"remove()\"\n    >\n      Delete\n    </button>\n    <button class=\"btn btn-primary\" (click)=\"save()\">Save</button>\n  </ng-container>\n</sebng-modal>\n"
         }
     ],
     "modules": [
@@ -2944,7 +2936,7 @@
                 "subtype": "variable",
                 "file": "projects/dynamic-form/src/lib/model/dynamicFormOption.ts",
                 "type": "AttributeTypeMap[]",
-                "defaultValue": "[\n    { name: \"value\", type: \"object\" },\n    { name: \"label\", type: \"string\" },\n    { name: \"disabled\", type: \"boolean\" },\n]"
+                "defaultValue": "[\n  { name: 'value', type: 'object' },\n  { name: 'label', type: 'string' },\n  { name: 'disabled', type: 'boolean' },\n]"
             },
             {
                 "name": "attributeTypeMapDynamicFormResponseItem",
@@ -2971,7 +2963,7 @@
                 "defaultValue": "Template.bind({})"
             },
             {
-                "name": "ConditionalRendering",
+                "name": "ComplexForm",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "stories/Demo.stories.ts",
@@ -3012,6 +3004,30 @@
             },
             {
                 "name": "FormValidation",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/Demo.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "InlineConditionalRendering",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/Demo.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "ModalConditionalRendering",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/Demo.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "MultipleRecords",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "stories/Demo.stories.ts",
@@ -3140,7 +3156,7 @@
                     "subtype": "variable",
                     "file": "projects/dynamic-form/src/lib/model/dynamicFormOption.ts",
                     "type": "AttributeTypeMap[]",
-                    "defaultValue": "[\n    { name: \"value\", type: \"object\" },\n    { name: \"label\", type: \"string\" },\n    { name: \"disabled\", type: \"boolean\" },\n]"
+                    "defaultValue": "[\n  { name: 'value', type: 'object' },\n  { name: 'label', type: 'string' },\n  { name: 'disabled', type: 'boolean' },\n]"
                 }
             ],
             "projects/dynamic-form/src/lib/model/dynamicFormResponseItem.ts": [
@@ -3173,7 +3189,7 @@
                     "defaultValue": "Template.bind({})"
                 },
                 {
-                    "name": "ConditionalRendering",
+                    "name": "ComplexForm",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "stories/Demo.stories.ts",
@@ -3198,6 +3214,30 @@
                 },
                 {
                     "name": "FormValidation",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/Demo.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "InlineConditionalRendering",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/Demo.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "ModalConditionalRendering",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/Demo.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "MultipleRecords",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "stories/Demo.stories.ts",
@@ -3383,7 +3423,7 @@
                 "linktype": "component",
                 "name": "DynamicFormComponent",
                 "coveragePercent": 10,
-                "coverageCount": "4/38",
+                "coverageCount": "4/37",
                 "status": "low"
             },
             {
@@ -3651,7 +3691,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "ConditionalRendering",
+                "name": "ComplexForm",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -3682,6 +3722,36 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "FormValidation",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/Demo.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "InlineConditionalRendering",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/Demo.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ModalConditionalRendering",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/Demo.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "MultipleRecords",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
