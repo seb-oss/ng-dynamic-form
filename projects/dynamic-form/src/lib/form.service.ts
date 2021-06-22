@@ -272,24 +272,24 @@ export class FormService {
 
   isNestedFormInvalid(form: ExtendedFormGroup): boolean {
     return Object.keys(form.controls).some((key: string) => {
-      const formControl: ExtendedFormGroup = form.controls[
-        key
-      ] as ExtendedFormGroup;
+      // const formControl: ExtendedFormGroup = form.controls[
+      //   key
+      // ] as ExtendedFormGroup;
 
-      return Object.keys(formControl.controls).some(
-        (childControlKey: string) => {
-          if (formControl.controls[childControlKey]?.valid) {
-            const formGroup: ExtendedFormGroup = (formControl.controls[
-              childControlKey
-            ] as ExtendedFormControl)?.formGroup as ExtendedFormGroup;
-            if (formGroup && !formGroup.valid) {
-              return true;
-            }
-          } else {
-            return true;
-          }
+      // return Object.keys(formControl.controls).some(
+      //   (childControlKey: string) => {
+      if (form.controls[key]?.valid) {
+        const formGroup: ExtendedFormGroup = (form.controls[
+          key
+        ] as ExtendedFormControl)?.formGroup as ExtendedFormGroup;
+        if (formGroup && !formGroup.valid) {
+          return true;
         }
-      );
+      } else {
+        return true;
+      }
+      //   }
+      // );
     });
   }
 

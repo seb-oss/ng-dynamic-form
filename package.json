@@ -26,7 +26,7 @@
     "@angular/router": "~11.0.5",
     "@sebgroup/ng-components": "^1.0.0-beta.17",
     "@storybook/addon-a11y": "^6.2.9",
-    "dynamic-form": "file:dynamic-form-0.0.1.tgz",
+    "dynamic-form": "file:dist/dynamic-form/dynamic-form-0.0.1.tgz",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"

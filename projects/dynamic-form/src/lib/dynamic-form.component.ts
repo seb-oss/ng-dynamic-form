@@ -45,7 +45,6 @@ export interface IFormAction {
 })
 export class DynamicFormComponent {
   @Input() extendedFormGroup: ExtendedFormGroup;
-  @Input() validationErrors: IDynamicFormValidationError[];
   @Input() activeStep: number;
   @Input() sectionTemplate: TemplateRef<any>;
   @Input() itemTemplate: TemplateRef<any>;
