@@ -1,0 +1,25 @@
+<sebng-modal
+  *ngIf="confirmationData"
+  [toggle]="confirmationToggle"
+  [centered]="true"
+  [closeButton]="false"
+  (dismiss)="denyConfirmation()"
+>
+  <h3 header>{{ confirmationData?.title }}</h3>
+  <ng-container body>{{ confirmationData?.message }}</ng-container>
+  <ng-container footer>
+    <sebng-button
+      *ngIf="confirmationData?.deny"
+      [theme]="confirmationData?.accept ? 'outline-primary' : 'primary'"
+      (click)="denyConfirmation()"
+    >
+      {{ confirmationData.deny }}
+    </sebng-button>
+    <sebng-button
+      *ngIf="confirmationData?.accept"
+      (click)="acceptConfirmation()"
+    >
+      {{ confirmationData.accept }}
+    </sebng-button>
+  </ng-container>
+</sebng-modal>

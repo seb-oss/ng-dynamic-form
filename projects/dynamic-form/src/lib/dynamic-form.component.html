@@ -19,10 +19,6 @@
       <ng-container
         *ngFor="let control of section.value.controls | keyvalue: orderForm"
       >
-        <ng-container
-          [ngTemplateOutlet]="itemTemplate"
-          [ngTemplateOutletContext]="{ context: control.value.formItem }"
-        ></ng-container>
         <div
           [class]="control.value.formItem?.className"
           *ngIf="shouldRenderControl(section.key, control.value.formItem)"
@@ -32,6 +28,7 @@
               [parentFormGroup]="extendedFormGroup"
               [control]="control.value"
               [submitted]="submitted"
+              [itemTemplate]="itemTemplate"
               (createFormGroup)="createFormGroup($event)"
               (controlValueChanged)="controlValueChanged()"
             ></app-dynamic-form-item>
@@ -49,6 +46,7 @@
                     [parentFormGroup]="extendedFormGroup"
                     [control]="item.value"
                     [submitted]="submitted"
+                    [itemTemplate]="itemTemplate"
                     (controlValueChanged)="controlValueChanged()"
                   ></app-dynamic-form-item>
                 </div>
@@ -84,6 +82,7 @@
               [sectionId]="section.value.sectionItem.key"
               [itemCustomClass]="itemCustomClass"
               [submitted]="submitted"
+              [itemTemplate]="itemTemplate"
               (createFormGroup)="createFormGroup($event)"
               (itemAddedClicked)="
                 addNewItemToFormArrayWithId(section.key, $event)
@@ -130,6 +129,7 @@
               [control]="control.value"
               [sectionId]="section.value.sectionItem.key + control.key + i"
               [submitted]="submitted"
+              [itemTemplate]="itemTemplate"
               (createFormGroup)="createFormGroup($event)"
               (itemAddedClicked)="
                 addNewItemToFormArrayWithId(section.key, $event, i)
@@ -153,6 +153,7 @@
                     [parentFormGroup]="extendedFormGroup"
                     [control]="item.value"
                     [submitted]="submitted"
+                    [itemTemplate]="itemTemplate"
                     (createFormGroup)="createFormGroup($event)"
                     (controlValueChanged)="controlValueChanged()"
                   ></app-dynamic-form-item>
@@ -258,4 +259,12 @@
     <span *ngIf="context?.category">{{ context.category }}</span>
     <h3 *ngIf="context?.title">{{ context.title }}</h3>
   </ng-template>
+
+  <app-dynamic-form-confirmation
+    *ngIf="confirmationData"
+    [confirmationToggle]="confirmationToggle"
+    [confirmationData]="confirmationData"
+    (acceptConfirmationEvent)="acceptConfirmation()"
+    (denyConfirmationEvent)="denyConfirmation()"
+  ></app-dynamic-form-confirmation>
 </form>

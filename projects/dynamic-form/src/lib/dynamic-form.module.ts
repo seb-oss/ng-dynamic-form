@@ -12,6 +12,7 @@ import {
   ModalModule,
   ToggleSelectorModule,
   VideoModule,
+  ButtonModule,
 } from '@sebgroup/ng-components';
 import { DynamicFormComponent } from './dynamic-form.component';
 import { DynamicFormItemComponent } from './dynamic-form-item/dynamic-form-item.component';
@@ -21,6 +22,7 @@ import { DynamicFormMediaComponent } from './dynamic-form-media/dynamic-form-med
 import { SafePipeModule } from './safe.pipe';
 import { DigitOnlyModule } from './digit-only/digit-only.directive';
 import localeSe from '@angular/common/locales/se';
+import { DynamicFormConfirmationComponent } from './dynamic-form-confirmation/dynamic-form-confirmation.component';
 
 registerLocaleData(localeSe);
 
@@ -31,6 +33,7 @@ registerLocaleData(localeSe);
     DynamicFormModalComponent,
     DynamicFormDataComponent,
     DynamicFormMediaComponent,
+    DynamicFormConfirmationComponent,
   ],
   imports: [
     CommonModule,
@@ -46,6 +49,7 @@ registerLocaleData(localeSe);
     ModalModule,
     ToggleSelectorModule,
     VideoModule,
+    ButtonModule,
     SafePipeModule,
     DigitOnlyModule,
   ],
@@ -56,6 +60,7 @@ registerLocaleData(localeSe);
     DynamicFormModalComponent,
     DynamicFormDataComponent,
     DynamicFormMediaComponent,
+    DynamicFormConfirmationComponent,
     // MODULES
     DropdownModule,
     CheckboxModule,
@@ -66,6 +71,7 @@ registerLocaleData(localeSe);
     ModalModule,
     ToggleSelectorModule,
     VideoModule,
+    ButtonModule,
     DigitOnlyModule,
   ],
   bootstrap: [DynamicFormItemComponent],
