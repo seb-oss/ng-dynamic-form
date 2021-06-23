@@ -8,7 +8,11 @@ import {
 } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { KeyValue } from '@angular/common';
-import { DynamicFormItem, DynamicFormOption } from './model/models';
+import {
+  DynamicFormItem,
+  DynamicFormOption,
+  ConfirmInformation,
+} from './model/models';
 import {
   ExtendedFormGroup,
   ExtendedFormGroupControls,
@@ -69,6 +73,8 @@ export class DynamicFormComponent {
   @Output() cancelEvent: EventEmitter<any> = new EventEmitter();
 
   submitted: boolean = false;
+  confirmationToggle: boolean = false;
+  confirmationData: ConfirmInformation = null;
 
   newFormGroup: { form: ExtendedFormGroup; index: number } = {
     form: null,
@@ -389,9 +395,31 @@ export class DynamicFormComponent {
   next(): void {
     this.submitted = true;
     if (this.formService.validateForm(this.sectionList[0])) {
-      this.nextEvent?.emit();
-      this.submitted = false;
+      if (typeof this.sectionList[0].value === 'object') {
+        Object.keys(this.sectionList[0].value).forEach((key: string) => {
+          if (this.sectionList[0].value[key].confirm) {
+            this.confirmationData = this.sectionList[0].value[key].confirm;
+          }
+        });
+      }
+      if (this.confirmationData) {
+        this.confirmationToggle = true;
+      } else {
+        this.nextEvent?.emit();
+        this.submitted = false;
+      }
     }
+  }
+
+  denyConfirmation(): void {
+    this.confirmationToggle = false;
+    this.confirmationData = null;
+  }
+
+  acceptConfirmation(): void {
+    this.denyConfirmation();
+    this.submitted = false;
+    this.nextEvent?.emit();
   }
 
   previous(): void {
