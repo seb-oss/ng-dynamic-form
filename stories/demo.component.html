@@ -6,7 +6,17 @@
     [nextAction]="nextAction"
     [previousAction]="previousAction"
     [cancelAction]="cancelAction"
+    [disclaimerTemplate]="disclaimerTmpl"
+    [itemTemplate]="itemTmpl"
     (nextEvent)="goToNextStep()"
     (previousEvent)="gotToPreviousStep()"
   ></app-dynamic-form>
 </ng-container>
+<ng-template #disclaimerTmpl let-context="context">
+  {{ context | json }}
+</ng-template>
+
+<ng-template #itemTmpl let-context="context">
+  <h3>{{ context?.descriptionHeader }}</h3>
+  <p>{{ context?.description }}</p>
+</ng-template>
