@@ -397,7 +397,7 @@ export class DynamicFormComponent {
     if (this.formService.validateForm(this.sectionList[0])) {
       if (typeof this.sectionList[0].value === 'object') {
         Object.keys(this.sectionList[0].value).forEach((key: string) => {
-          if (this.sectionList[0].value[key].confirm) {
+          if (this.sectionList[0].value[key]?.confirm) {
             this.confirmationData = this.sectionList[0].value[key].confirm;
           }
         });

@@ -155,6 +155,7 @@ export function mapToDynamicForm(arr): DynamicFormSection[] {
       ...section,
       items: items,
     });
+    section = {};
   });
 
   return mappedArray;
