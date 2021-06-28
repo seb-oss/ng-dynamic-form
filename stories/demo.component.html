@@ -6,17 +6,79 @@
     [nextAction]="nextAction"
     [previousAction]="previousAction"
     [cancelAction]="cancelAction"
-    [disclaimerTemplate]="disclaimerTmpl"
-    [itemTemplate]="itemTmpl"
     (nextEvent)="goToNextStep()"
     (previousEvent)="gotToPreviousStep()"
   ></app-dynamic-form>
 </ng-container>
-<ng-template #disclaimerTmpl let-context="context">
-  {{ context | json }}
+
+<ng-template #numberTmpl let-context="context" let-error="error">
+  <div class="card px-3 py-4" [formGroup]="extendedFormGroup">
+    <div class="input-metadata mb-3" style="max-width: 75%">
+      <h3>{{ context?.formItem?.descriptionHeader }}</h3>
+      <p class="mt-3">{{ context?.formItem?.description }}</p>
+    </div>
+    <div class="input" style="max-width: 75%">
+      <span class="font-weight-bold d-block">{{
+        context?.formItem?.controlMetaData?.description
+      }}</span>
+      <span>{{ context?.formItem?.controlMetaData?.label }}</span>
+      <sebng-textbox
+        className="dynamic-form-item"
+        pattern="[0-9]*"
+        inputmode="numeric"
+        type="text"
+        digitsOnly
+        [rightText]="context?.formItem?.controlMetaData?.inputGroupLabel"
+        [formControl]="context"
+        [error]="error"
+      ></sebng-textbox>
+    </div>
+  </div>
 </ng-template>
 
-<ng-template #itemTmpl let-context="context">
+<ng-template #disclaimerTmpl let-context="context">
+  <div class="card px-3 py-4">
+    <h3>{{ context?.formItem?.descriptionHeader }}</h3>
+    <p>{{ context?.formItem?.description }}</p>
+  </div>
+</ng-template>
+
+<ng-template #itemTmpl>
   <h3>{{ context?.descriptionHeader }}</h3>
   <p>{{ context?.description }}</p>
+</ng-template>
+
+<ng-template #radioTmpl let-context="context" let-error="error">
+  <div class="d-flex" [formGroup]="extendedFormGroup">
+    <div class="col-sm-12 col-md-5 col-lg-5">
+      <label>{{ context?.formItem?.controlMetaData?.label }}</label>
+    </div>
+    <div class="col-auto p-0">
+      <sebng-radio-group
+        className="dynamic-form-item"
+        [condensed]="true"
+        [inline]="true"
+        [formControl]="context"
+        [list]="context.formItem.options"
+        [error]="error"
+      ></sebng-radio-group>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #cardTmpl let-context="context" let-error="error">
+  <div class="card px-3 py-4">
+    <h3>{{ context?.formItem?.descriptionHeader }}</h3>
+    <p>{{ context?.formItem?.description }}</p>
+    <div class="row" [formGroup]="extendedFormGroup">
+      <div class="col-6">
+        <sebng-toggle-selector
+          [formControl]="context"
+          [list]="context.formItem.options"
+          [error]="!!error"
+          [errorMessage]="error"
+        ></sebng-toggle-selector>
+      </div>
+    </div>
+  </div>
 </ng-template>

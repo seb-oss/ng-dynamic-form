@@ -11,6 +11,9 @@ export interface ConfirmInformation {
 
 export interface FollowUpItem {
   type: string;
+  title?: string;
+  subTitle?: string;
+  description?: string;
   items: DynamicFormItem[];
   multi?: boolean;
 }

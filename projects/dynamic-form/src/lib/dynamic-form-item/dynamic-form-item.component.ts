@@ -39,6 +39,15 @@ export class DynamicFormItemComponent implements OnInit {
   @Input() itemCustomClass: string = '';
   @Input() submitted: boolean = false;
   @Input() itemTemplate: TemplateRef<any>;
+  @Input() textAreaTemplate: TemplateRef<any>;
+  @Input() numberTemplate: TemplateRef<any>;
+  @Input() checkboxTemplate: TemplateRef<any>;
+  @Input() dropdownTemplate: TemplateRef<any>;
+  @Input() datePickerTemplate: TemplateRef<any>;
+  @Input() radioTemplate: TemplateRef<any>;
+  @Input() toggleSelectorTemplate: TemplateRef<any>;
+  @Input() cardTemplate: TemplateRef<any>;
+  @Input() disclaimerTemplate: TemplateRef<any>;
   @Output() createFormGroup: EventEmitter<any> = new EventEmitter();
   @Output() itemAddedClicked: EventEmitter<string> = new EventEmitter();
   @Output() itemRemovedClicked: EventEmitter<{
@@ -148,5 +157,28 @@ export class DynamicFormItemComponent implements OnInit {
       }
     }
     return '';
+  }
+
+  get hasTemplate(): boolean {
+    switch (this.control?.formItem.controlType) {
+      case this.controlType.TextArea:
+        return !!this.textAreaTemplate;
+      case this.controlType.Number:
+        return !!this.numberTemplate;
+      case this.controlType.Checkbox:
+        return !!this.checkboxTemplate;
+      case this.controlType.Dropdown:
+        return !!this.dropdownTemplate;
+      case this.controlType.Datepicker:
+        return !!this.datePickerTemplate;
+      case this.controlType.Card:
+        return !!this.cardTemplate;
+      case this.controlType.Radio:
+        return !!this.radioTemplate;
+      case this.controlType.Disclaimer:
+        return !!this.disclaimerTemplate;
+      default:
+        return false;
+    }
   }
 }

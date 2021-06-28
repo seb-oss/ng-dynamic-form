@@ -33,10 +33,9 @@ export function mapToDynamicForm(arr): DynamicFormSection[] {
   arr.forEach((obj) => {
     switch (obj.optionType) {
       case QuestionOptionType.Card:
-        section = {
-          className: 'card p-3',
-          required: true,
-        };
+        // section = {
+        //   className: 'card p-3',
+        // };
         const options: DynamicFormOption[] = obj.answerAlternatives.map(
           (alternative) => {
             return {
@@ -72,13 +71,14 @@ export function mapToDynamicForm(arr): DynamicFormSection[] {
         items = obj.answerAlternatives.map((alternative) => {
           return {
             key: alternative.id,
-            descriptionHeader: alternative.text,
-            description: alternative.description,
+            descriptionHeader: obj.text,
+            description: obj.description,
             controlType: mapControlType(alternative.type),
             media: alternative.media,
             rules: mapRules(alternative.rules),
             controlMetaData: {
               label: alternative.reasonLabel,
+              description: alternative.text,
               inputGroupLabel: 'kr/mån',
               inputGroupPosition: 'right',
             },
@@ -89,13 +89,14 @@ export function mapToDynamicForm(arr): DynamicFormSection[] {
         items = obj.answerAlternatives.map((alternative) => {
           return {
             key: alternative.id,
-            descriptionHeader: alternative.text,
-            description: alternative.description,
+            descriptionHeader: '',
+            description: '',
+            className: 'item-container card p-3 mb-3',
             controlType: mapControlType(alternative.type),
             media: alternative.media,
             rules: mapRules(alternative.rules),
             controlMetaData: {
-              label: alternative.reasonLabel,
+              label: alternative.text,
               inputGroupLabel: 'kr/mån',
               inputGroupPosition: 'right',
             },
@@ -106,6 +107,10 @@ export function mapToDynamicForm(arr): DynamicFormSection[] {
                 label: 'Ja',
                 followUpItems: {
                   type: 'modal',
+                  title: parseConfiguration(alternative.configuration)?.Modal
+                    ?.Title,
+                  description: parseConfiguration(alternative.configuration)
+                    ?.Modal?.Description,
                   items: mapToDynamicItem(
                     alternative.followupQuestions[0]?.answerAlternatives
                   ),
@@ -119,6 +124,7 @@ export function mapToDynamicForm(arr): DynamicFormSection[] {
             ],
           };
         });
+        section = { description: obj.text };
         break;
       case QuestionOptionType.None:
         items = [
@@ -156,6 +162,7 @@ export function mapToDynamicForm(arr): DynamicFormSection[] {
       items: items,
     });
     section = {};
+    items = [];
   });
 
   return mappedArray;
@@ -177,6 +184,16 @@ const mapToDynamicItem = (obj): DynamicFormItem[] => {
       },
     };
   });
+};
+
+const parseConfiguration = (configuration: string): { [key: string]: any } => {
+  let parsedConfig: { [key: string]: any } = {};
+  if (configuration) {
+    try {
+      parsedConfig = JSON.parse(configuration);
+    } catch (e) {}
+  }
+  return parsedConfig;
 };
 
 const mapRules = (rules): Rule[] => {

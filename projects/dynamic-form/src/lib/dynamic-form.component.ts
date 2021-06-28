@@ -54,6 +54,15 @@ export class DynamicFormComponent {
   @Input() itemTemplate: TemplateRef<any>;
   @Input() actionsTemplate: TemplateRef<any>;
   @Input() disclaimerTemplate: TemplateRef<any>;
+  @Input() inputMetadataTemplate: TemplateRef<any>;
+  @Input() textAreaTemplate: TemplateRef<any>;
+  @Input() numberTemplate: TemplateRef<any>;
+  @Input() checkboxTemplate: TemplateRef<any>;
+  @Input() dropdownTemplate: TemplateRef<any>;
+  @Input() datePickerTemplate: TemplateRef<any>;
+  @Input() radioTemplate: TemplateRef<any>;
+  @Input() toggleSelectorTemplate: TemplateRef<any>;
+  @Input() cardTemplate: TemplateRef<any>;
   @Input() itemCustomClass: string;
   @Input() hasFormActions: boolean = true;
   @Input() nextAction: IFormAction = {
@@ -395,13 +404,7 @@ export class DynamicFormComponent {
   next(): void {
     this.submitted = true;
     if (this.formService.validateForm(this.sectionList[0])) {
-      if (typeof this.sectionList[0].value === 'object') {
-        Object.keys(this.sectionList[0].value).forEach((key: string) => {
-          if (this.sectionList[0].value[key]?.confirm) {
-            this.confirmationData = this.sectionList[0].value[key].confirm;
-          }
-        });
-      }
+      this.confirmationData = this.hasConfirmation(this.sectionList[0].value);
       if (this.confirmationData) {
         this.confirmationToggle = true;
       } else {
@@ -409,6 +412,22 @@ export class DynamicFormComponent {
         this.submitted = false;
       }
     }
+  }
+
+  /**
+   * Find if the current selected values have a confirmation required
+   * @param value the property value of formGroup
+   */
+  hasConfirmation(value: any): ConfirmInformation {
+    let confirmation: ConfirmInformation = null;
+    if (typeof value === 'object') {
+      Object.keys(value).forEach((key: string) => {
+        if (value[key]?.confirm) {
+          confirmation = value[key].confirm;
+        }
+      });
+    }
+    return confirmation;
   }
 
   denyConfirmation(): void {

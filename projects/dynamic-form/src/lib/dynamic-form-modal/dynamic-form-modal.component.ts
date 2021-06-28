@@ -27,6 +27,10 @@ export class DynamicFormModalComponent {
 
   submitted: boolean = false;
 
+  log(x) {
+    console.log('=====', x);
+  }
+
   dismiss(): void {
     this.cancelControl.emit(this.control.value);
   }

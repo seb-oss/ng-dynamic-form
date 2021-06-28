@@ -11,6 +11,9 @@ import {
 } from 'dynamic-form';
 import { DemoComponent } from './demo.component';
 import { mapToDynamicForm } from './map';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DigitOnlyModule } from 'projects/dynamic-form/src/lib';
+import { TextboxModule } from '@sebgroup/ng-components';
 
 export default {
   title: 'Example/DynamicForm',
@@ -18,7 +21,13 @@ export default {
   decorators: [
     moduleMetadata({
       declarations: [DemoComponent],
-      imports: [DynamicFormModule],
+      imports: [
+        DynamicFormModule,
+        FormsModule,
+        ReactiveFormsModule,
+        DigitOnlyModule,
+        TextboxModule,
+      ],
       providers: [FormService],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }),
@@ -179,350 +188,6 @@ const familyFollowup: FollowUpItem = {
     },
   ],
 };
-
-const formGroup: DynamicFormSection[] = [
-  {
-    key: 'form1',
-    title: 'Familj',
-    items: [
-      {
-        key: 'relation',
-        title: 'Relation',
-        controlType: 'ToggleSelector',
-        options: [
-          {
-            id: '1',
-            value: '1',
-            label: 'Gift',
-            followUpItems: familyFollowup,
-          },
-          {
-            id: '2',
-            value: '2',
-            label: 'Sambo',
-            followUpItems: familyFollowup,
-          },
-          {
-            id: '3',
-            value: '3',
-            label: 'Sarbo',
-            followUpItems: familyFollowup,
-          },
-          {
-            id: '4',
-            value: '4',
-            label: 'Singel',
-          },
-        ],
-        rules: [
-          {
-            type: RuleType.required,
-            message: 'please select one item',
-            value: '',
-          },
-        ],
-      },
-      {
-        key: 'extra-information',
-        controlType: 'Checkbox',
-        title: 'Har du och din partner något av nedstående?',
-        label: 'Äktenskapsförord',
-        value: '',
-      },
-      {
-        key: 'deed-of-gift',
-        controlType: 'Checkbox',
-        label: 'Gåvobrev',
-        value: '',
-      },
-      {
-        key: 'testament',
-        controlType: 'Checkbox',
-        label: 'Testamente',
-        value: '',
-      },
-      {
-        key: 'none-of-the-above',
-        controlType: 'Checkbox',
-        label: 'Inget av ovanstående',
-        value: '',
-      },
-      {
-        key: 'barn',
-        controlType: 'Radio',
-        title: 'Barn',
-        description: 'Har du eller din partner barn?',
-        value: '',
-        options: [
-          {
-            id: '1',
-            value: '1',
-            label: 'Ja',
-            followUpItems: {
-              type: 'modal',
-              items: [
-                {
-                  key: 'child-name',
-                  controlType: 'Text',
-                  value: '',
-                  controlMetaData: {
-                    label: 'Barnets namn',
-                  },
-                  rules: [
-                    {
-                      message: 'field is required',
-                      type: RuleType.required,
-                    },
-                  ],
-                },
-                {
-                  key: 'child-to',
-                  controlType: 'Text',
-                  value: '',
-                  controlMetaData: {
-                    label: 'Barn till',
-                  },
-                  rules: [
-                    {
-                      message: 'field is required',
-                      type: RuleType.required,
-                    },
-                  ],
-                },
-                {
-                  key: 'accomodation',
-                  controlType: 'Text',
-                  value: '',
-                  controlMetaData: {
-                    label: 'Boende',
-                  },
-                  rules: [
-                    {
-                      message: 'field is required',
-                      type: RuleType.required,
-                    },
-                  ],
-                },
-                {
-                  key: 'child-birthday',
-                  controlType: 'Datepicker',
-                  value: '',
-                  controlMetaData: {
-                    label: 'Barnets födelsedag:',
-                  },
-                  rules: [
-                    {
-                      message: 'field is required',
-                      type: RuleType.required,
-                    },
-                  ],
-                },
-                {
-                  key: 'is-child-with-partner',
-                  controlType: 'Radio',
-                  value: '',
-                  controlMetaData: {
-                    label: 'Är barnet gemensamt med din partner',
-                  },
-                  rules: [
-                    {
-                      message: 'field is required',
-                      type: RuleType.required,
-                    },
-                  ],
-                  options: [
-                    {
-                      id: '1',
-                      value: '1',
-                      label: 'Ja',
-                    },
-                    {
-                      id: '2',
-                      value: '2',
-                      label: 'Nej',
-                    },
-                  ],
-                },
-                {
-                  key: 'whos-child',
-                  controlType: 'Radio',
-                  value: '',
-                  rules: [
-                    {
-                      message: 'field is required',
-                      type: RuleType.required,
-                    },
-                  ],
-                  options: [
-                    {
-                      id: '1',
-                      value: '1',
-                      label: 'Barnet är mitt barn',
-                    },
-                    {
-                      id: '2',
-                      value: '2',
-                      label: 'Barnet är min partners barn',
-                    },
-                  ],
-                },
-              ],
-              multi: true,
-            },
-          },
-          {
-            id: '2',
-            value: '2',
-            label: 'Nej',
-          },
-        ],
-        rules: [
-          {
-            type: RuleType.required,
-            message: 'value is required',
-            value: '',
-          },
-        ],
-      },
-    ],
-    multi: true,
-  },
-  {
-    key: 'form2',
-    title: 'Sysselsättning',
-    items: [
-      {
-        key: 'occupation',
-        title: 'Välj din huvudsaklig sysselsättning',
-        controlType: 'ToggleSelector',
-        options: [
-          {
-            id: '1',
-            value: '1',
-            label: 'Anställd',
-          },
-          {
-            id: '2',
-            value: '2',
-            label: 'Företagare',
-          },
-          {
-            id: '3',
-            value: '3',
-            label: 'Pensionär',
-          },
-          {
-            id: '4',
-            value: '4',
-            label: 'Student',
-          },
-          {
-            id: '5',
-            value: '5',
-            label: 'Annat',
-          },
-        ],
-      },
-      {
-        key: 'profession',
-        controlType: 'Text',
-        label: 'Ditt yrke',
-        value: '',
-        rules: [
-          {
-            message: 'field is required',
-            type: RuleType.required,
-          },
-        ],
-      },
-      {
-        key: 'kind-of-employment',
-        controlType: 'Text',
-        label: 'Vilken slags anställning/tjänsterpension',
-        value: '',
-        rules: [
-          {
-            message: 'field is required',
-            type: RuleType.required,
-          },
-        ],
-      },
-      {
-        key: 'worked-since',
-        controlType: 'Text',
-        label: 'Har arbetat sedan',
-        value: '',
-        rules: [
-          {
-            message: 'field is required',
-            type: RuleType.required,
-          },
-        ],
-      },
-      {
-        key: 'monthly-income',
-        controlType: 'Text',
-        value: '',
-        controlMetaData: {
-          label: 'Din månadsinkomst',
-          inputGroupLabel: 'kr',
-          inputGroupPosition: 'right',
-        },
-        rules: [
-          {
-            message: 'field is required',
-            type: RuleType.required,
-          },
-        ],
-      },
-      {
-        key: 'estimated-income-after-tax',
-        controlType: 'Text',
-        value: '',
-        controlMetaData: {
-          label: 'Beräknad inkonst efterskatt',
-          inputGroupLabel: 'kr',
-          inputGroupPosition: 'right',
-        },
-        rules: [
-          {
-            message: 'field is required',
-            type: RuleType.required,
-          },
-        ],
-      },
-      {
-        key: 'professional-experience',
-        title: 'Yrekeserfarenhet av värdepapper eller försäkring',
-        description:
-          'Vi behöver veta om du har haft ett yrke där du lärt dig om värdepapper och finansiella marknader eftersom vi anpassar våra råd efter din kunskapsnivå och erfarenheta',
-        controlType: 'Radio',
-        value: '',
-        options: [
-          {
-            id: '1',
-            value: '1',
-            label: 'Ja, det har jag',
-          },
-          {
-            id: '2',
-            value: '2',
-            label: 'Nej, det har jag inte',
-          },
-        ],
-      },
-      {
-        key: 'other-comments',
-        controlType: 'TextArea',
-        controlMetaData: {
-          label: 'Beräknad inkonst efterskatt',
-          inputGroupLabel: 'kr',
-          inputGroupPosition: 'right',
-        },
-      },
-    ],
-  },
-];
 
 export const Basic = Template.bind({});
 Basic.args = {
@@ -967,7 +632,7 @@ ComplexForm.args = {
           key: 'barn',
           controlType: 'Radio',
           title: 'Barn',
-          description: 'Har du eller din partner barn?',
+          description: '',
           value: '',
           options: [
             {
@@ -1099,6 +764,9 @@ ComplexForm.args = {
               value: '',
             },
           ],
+          controlMetaData: {
+            description: 'Har du eller din partner barn?',
+          },
         },
       ],
     },
@@ -1598,8 +1266,8 @@ const acqFormData = [
     answerAlternatives: [
       {
         id: 'a6e8eabd-2f14-4b23-8a6d-8cb40b9f8a14',
-        text: '',
-        reasonLabel: 'Kvar i månaden',
+        text: 'Kvar i månaden',
+        reasonLabel: '',
         category: 'MONTHLY_AMOUNT_LEFT',
         value: null,
         order: 1,
@@ -1648,6 +1316,8 @@ const acqFormData = [
         text: 'Har du pengar på konton?',
         reasonLabel: null,
         category: 'SAVING_AMOUNT',
+        configuration:
+          '{"Modal":{"Title": "Pengar Pa Konton", "Description": "some long long long description"}}',
         value: null,
         order: 1,
         type: 3,

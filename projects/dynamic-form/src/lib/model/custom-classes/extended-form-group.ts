@@ -1,28 +1,37 @@
-import { FormGroup, ValidatorFn, AbstractControlOptions, AsyncValidatorFn } from "@angular/forms";
-import { DynamicFormSection } from "../../model/dynamicFormSection";
-import { ExtendedFormControl } from "./extended-form-control";
-import { ExtendedFormArray } from "./extended-form-array";
-import { ExtendedFormGroupArray } from "./extended-form-group-array";
+import {
+  FormGroup,
+  ValidatorFn,
+  AbstractControlOptions,
+  AsyncValidatorFn,
+} from '@angular/forms';
+import { DynamicFormSection } from '../../model/dynamicFormSection';
+import { ExtendedFormControl } from './extended-form-control';
+import { ExtendedFormArray } from './extended-form-array';
+import { ExtendedFormGroupArray } from './extended-form-group-array';
 export interface ExtendedFormGroupControls {
-    [key: string]: ExtendedFormGroupControl | ExtendedFormGroup;
+  [key: string]: ExtendedFormGroupControl | ExtendedFormGroup;
 }
 
-export type ExtendedFormGroupControl = ExtendedFormControl | ExtendedFormArray | ExtendedFormGroup | ExtendedFormGroupArray;
+export type ExtendedFormGroupControl =
+  | ExtendedFormControl
+  | ExtendedFormArray
+  | ExtendedFormGroup
+  | ExtendedFormGroupArray;
 
 export class ExtendedFormGroup extends FormGroup {
-    sectionItem: DynamicFormSection;
+  sectionItem: DynamicFormSection;
 
-    constructor(
-        controls: ExtendedFormGroupControls,
-        item?: DynamicFormSection,
-        validatorOrOpts?: ValidatorFn | ValidatorFn[] | AbstractControlOptions,
-        asyncValidator?: AsyncValidatorFn | AsyncValidatorFn[]
-    ) {
-        super(controls, validatorOrOpts, asyncValidator);
-        this.sectionItem = item;
-    }
+  constructor(
+    controls: ExtendedFormGroupControls,
+    item?: DynamicFormSection,
+    validatorOrOpts?: ValidatorFn | ValidatorFn[] | AbstractControlOptions,
+    asyncValidator?: AsyncValidatorFn | AsyncValidatorFn[]
+  ) {
+    super(controls, validatorOrOpts, asyncValidator);
+    this.sectionItem = item;
+  }
 
-    get(path: string | (string | number)[]): ExtendedFormGroupControl {
-        return super.get(path) as ExtendedFormGroupControl;
-    }
+  get(path: string | (string | number)[]): ExtendedFormGroupControl {
+    return super.get(path) as ExtendedFormGroupControl;
+  }
 }
