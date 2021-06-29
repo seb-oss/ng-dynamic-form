@@ -71,11 +71,19 @@
                 </div>
               </ng-container>
               <ng-container *ngSwitchDefault>
-                <app-dynamic-form-data
-                  [control]="control"
-                  (editControl)="editItemFromParent($event)"
-                  (deleteControl)="removeItemFromParent($event)"
-                ></app-dynamic-form-data>
+                <ng-container
+                  *ngIf="radioTableTemplate; else internalRadioTemplate"
+                  [ngTemplateOutlet]="radioTableTemplate"
+                  [ngTemplateOutletContext]="{ context: control }"
+                ></ng-container>
+                <ng-template #internalRadioTemplate>
+                  <app-dynamic-form-data
+                    [control]="control"
+                    (editControl)="editItemFromParent($event)"
+                    (deleteControl)="removeItemFromParent($event)"
+                  ></app-dynamic-form-data>
+                </ng-template>
+
                 <ng-container *ngIf="control.value.value?.followUpItems?.multi">
                   <button
                     class="btn btn-sm btn-secondary"

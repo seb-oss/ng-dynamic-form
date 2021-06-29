@@ -63,6 +63,7 @@ export class DynamicFormComponent {
   @Input() dropdownTemplate: TemplateRef<any>;
   @Input() datePickerTemplate: TemplateRef<any>;
   @Input() radioTemplate: TemplateRef<any>;
+  @Input() radioTableTemplate: TemplateRef<any>;
   @Input() toggleSelectorTemplate: TemplateRef<any>;
   @Input() cardTemplate: TemplateRef<any>;
   @Input() itemCustomClass: string;
