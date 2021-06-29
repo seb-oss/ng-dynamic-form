@@ -88,7 +88,10 @@ export class DynamicFormItemComponent implements OnInit {
       if (valueChange?.followUpItems?.items?.length) {
         if (valueChange.followUpItems.type === 'modal') {
           delete (this.control as ExtendedFormControl).formGroup;
-          this.createFormGroup.emit(valueChange?.followUpItems?.items);
+          this.createFormGroup.emit({
+            items: valueChange?.followUpItems?.items,
+            key: this.control.formItem.key,
+          });
         } else {
           (this
             .control as ExtendedFormControl).formGroup = this.formService.dynamicFormItemsToFormGroup(

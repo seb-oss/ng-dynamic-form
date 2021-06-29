@@ -97,9 +97,14 @@ export class DynamicFormComponent {
   confirmationToggle: boolean = false;
   confirmationData: ConfirmInformation = null;
 
-  newFormGroup: { form: ExtendedFormGroup; index: number } = {
+  newFormGroup: {
+    form: ExtendedFormGroup;
+    index: number;
+    parentKey: string;
+  } = {
     form: null,
     index: null,
+    parentKey: null,
   };
 
   followUpModalToggle: boolean = false;
@@ -143,16 +148,20 @@ export class DynamicFormComponent {
     }
   }
 
-  createFormGroup(item: any) {
+  createFormGroup(param: { items: any; key: string }) {
     this.newFormGroup = {
-      form: this.formService.dynamicFormItemsToFormGroup(item),
+      form: this.formService.dynamicFormItemsToFormGroup(param.items),
       index: null,
+      parentKey: param.key,
     };
     this.followUpModalToggle = true;
   }
 
   modalShouldBeRendered(control): boolean {
-    if (control.value?.followUpItems) {
+    if (
+      control.value?.followUpItems &&
+      control.formItem.key === this.newFormGroup.parentKey
+    ) {
       return !!this.newFormGroup.form;
     }
   }
@@ -346,14 +355,16 @@ export class DynamicFormComponent {
   editItemFromParent(param: {
     formArray: ExtendedFormArray;
     index: number;
+    parentKey: string;
   }): void {
-    const { formArray, index } = param;
+    const { formArray, index, parentKey } = param;
     this.newFormGroup = {
       form: new ExtendedFormGroup(
         (formArray.at(index) as ExtendedFormGroup)
           .controls as ExtendedFormGroupControls
       ),
       index,
+      parentKey,
     };
     this.followUpModalToggle = true;
   }
