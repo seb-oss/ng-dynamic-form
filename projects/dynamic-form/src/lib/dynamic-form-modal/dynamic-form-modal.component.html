@@ -6,7 +6,7 @@
   (dismiss)="dismiss()"
 >
   <ng-container header>
-    <h2>{{ control?.value?.value?.followUpItems?.title }}</h2>
+    <h3 class="p-3">{{ control?.value?.value?.followUpItems?.title }}</h3>
   </ng-container>
   <ng-container body>
     <p>{{ control?.value?.value?.followUpItems?.description }}</p>
@@ -19,13 +19,26 @@
     </div>
   </ng-container>
   <ng-container footer>
-    <button
-      *ngIf="controlIndex !== null"
-      class="btn btn-danger"
-      (click)="remove()"
-    >
-      Delete
-    </button>
-    <button class="btn btn-primary" (click)="save()">Save</button>
+    <div class="actions">
+      <sebng-button
+        *ngIf="controlIndex !== null"
+        theme="outline-danger"
+        className="border-transparent"
+        class="remove-action"
+        (click)="remove()"
+      >
+        {{ deleteAction.label }}
+      </sebng-button>
+      <sebng-button
+        theme="outline-primary"
+        class="cancel-action"
+        (click)="dismiss()"
+      >
+        {{ cancelAction?.label }}
+      </sebng-button>
+      <sebng-button theme="primary" class="save-action" (click)="save()">
+        {{ saveAction.label }}
+      </sebng-button>
+    </div>
   </ng-container>
 </sebng-modal>

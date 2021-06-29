@@ -47,13 +47,16 @@ export class DemoComponent implements OnInit, OnChanges {
   hasFormActions: boolean;
 
   @Input()
-  nextAction: IFormAction = { hasAction: false };
+  nextAction: IFormAction = { hasAction: false, label: 'Next' };
 
   @Input()
-  previousAction: IFormAction = { hasAction: false };
+  previousAction: IFormAction = { hasAction: false, label: 'Previous' };
 
   @Input()
-  cancelAction: IFormAction = { hasAction: false };
+  cancelAction: IFormAction = { hasAction: false, label: 'Cancel' };
+
+  @Input()
+  saveAction: IFormAction = { hasAction: false, label: 'Save' };
 
   goToNextStep(): void {
     this.activeStep += 1;

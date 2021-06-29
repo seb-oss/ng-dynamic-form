@@ -7,10 +7,12 @@ import {
   ExtendedFormGroup,
   ExtendedFormGroupControl,
 } from '../model/custom-classes/extended-form-group';
+import { IFormAction } from '../dynamic-form.component';
 
 @Component({
   selector: 'app-dynamic-form-modal',
   templateUrl: './dynamic-form-modal.component.html',
+  styleUrls: ['./dynamic-form-modal.component.scss'],
 })
 export class DynamicFormModalComponent {
   @Input() control: ExtendedFormGroupControl;
@@ -20,16 +22,15 @@ export class DynamicFormModalComponent {
   @Input() centered: boolean = false;
   @Input() position: ModalPosition = 'right';
   @Input() size: ModalSize;
+  @Input() cancelAction: IFormAction;
+  @Input() saveAction: IFormAction;
+  @Input() deleteAction: IFormAction;
 
   @Output() saveControl: EventEmitter<any> = new EventEmitter();
   @Output() cancelControl: EventEmitter<any> = new EventEmitter();
   @Output() deleteControl: EventEmitter<any> = new EventEmitter();
 
   submitted: boolean = false;
-
-  log(x) {
-    console.log('=====', x);
-  }
 
   dismiss(): void {
     this.cancelControl.emit(this.control.value);

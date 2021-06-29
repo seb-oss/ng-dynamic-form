@@ -33,6 +33,8 @@ interface IDynamicFormValidationError {
 export interface IFormAction {
   hasAction: boolean;
   label?: string;
+  theme?: string;
+  icon?: string;
 }
 /** some comment */
 @Component({
@@ -76,6 +78,15 @@ export class DynamicFormComponent {
   @Input() cancelAction: IFormAction = {
     hasAction: true,
     label: 'Cancel',
+  };
+
+  @Input() saveAction: IFormAction = {
+    hasAction: true,
+    label: 'Save',
+  };
+  @Input() deleteAction: IFormAction = {
+    hasAction: true,
+    label: 'Delete',
   };
   @Output() previousEvent: EventEmitter<any> = new EventEmitter();
   @Output() nextEvent: EventEmitter<any> = new EventEmitter();
