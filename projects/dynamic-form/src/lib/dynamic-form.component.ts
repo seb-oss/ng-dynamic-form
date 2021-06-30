@@ -150,7 +150,7 @@ export class DynamicFormComponent {
 
   createFormGroup(param: { items: any; key: string }) {
     this.newFormGroup = {
-      form: this.formService.dynamicFormItemsToFormGroup(param.items),
+      form: this.formService.dynamicFormSectionsToFormGroup(param.items),
       index: null,
       parentKey: param.key,
     };

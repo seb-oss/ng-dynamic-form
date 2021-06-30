@@ -1,21 +1,18 @@
-<sebng-modal
-  [toggle]="modalToggle"
-  [centered]="centered"
-  [position]="position"
-  [size]="size"
-  (dismiss)="dismiss()"
->
+<sebng-modal [toggle]="modalToggle" [centered]="centered" [position]="position" [size]="size" (dismiss)="dismiss()">
   <ng-container header>
     <h3 class="p-3">{{ control?.value?.value?.followUpItems?.title }}</h3>
   </ng-container>
   <ng-container body>
     <p>{{ control?.value?.value?.followUpItems?.description }}</p>
-    <div *ngFor="let item of form.controls | keyvalue: orderForm">
-      <app-dynamic-form-item
-        [control]="item.value"
-        [submitted]="submitted"
-        (controlValueChanged)="controlValueChanged()"
-      ></app-dynamic-form-item>
+    <div *ngFor="let control of form.controls | keyvalue: orderForm">
+      
+      <div *ngFor="let item of control.value.controls | keyvalue: orderForm">
+        <app-dynamic-form-item
+          [control]="item.value"
+          [submitted]="submitted"
+          (controlValueChanged)="controlValueChanged()"
+        ></app-dynamic-form-item>
+      </div>
     </div>
     <div class="actions">
       <sebng-button
@@ -27,11 +24,7 @@
       >
         {{ deleteAction.label }}
       </sebng-button>
-      <sebng-button
-        theme="outline-primary"
-        class="cancel-action"
-        (click)="dismiss()"
-      >
+      <sebng-button theme="outline-primary" class="cancel-action" (click)="dismiss()">
         {{ cancelAction?.label }}
       </sebng-button>
       <sebng-button theme="primary" class="save-action" (click)="save()">

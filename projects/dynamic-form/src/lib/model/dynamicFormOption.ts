@@ -14,7 +14,7 @@ export interface FollowUpItem {
   title?: string;
   subTitle?: string;
   description?: string;
-  items: DynamicFormItem[];
+  items: DynamicFormItem[] | DynamicFormSection[];
   multi?: boolean;
 }
 
