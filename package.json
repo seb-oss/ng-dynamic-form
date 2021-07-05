@@ -1,5 +1,5 @@
 {
-  "name": "@sebgroup/ng-dynamic-form",
+  "name": "ng-dynamic-form",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -10,7 +10,7 @@
     "lint": "ng lint",
     "pack": "cd dist/dynamic-form && npm pack",
     "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
-    "build-pack-install": "npm run build:lib && npm run pack && npm i dist/dynamic-form/dynamic-form-0.0.1.tgz",
+    "build-pack-install": "npm run build:lib && npm run pack && npm i dist/dynamic-form/sebgroup-ng-dynamic-form-0.0.1.tgz",
     "storybook": "npm run docs:json && start-storybook -p 6006 --no-manager-cache",
     "build-storybook": "build-storybook -o docs-build -s ./stories/assets"
   },
@@ -25,7 +25,7 @@
     "@angular/router": "~11.0.5",
     "@sebgroup/ng-components": "^1.0.0-beta.17",
     "@storybook/addon-a11y": "^6.2.9",
-    "dynamic-form": "file:dynamic-form-0.0.1.tgz",
+    "dynamic-form": "file:sebgroup-ng-dynamic-form-0.0.1.tgz",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
