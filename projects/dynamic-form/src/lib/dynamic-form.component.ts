@@ -68,6 +68,8 @@ export class DynamicFormComponent {
   @Input() cardTemplate: TemplateRef<any>;
   @Input() itemCustomClass: string;
   @Input() hasFormActions: boolean = true;
+  // used to compare current rules with saved data
+  @Input() savedFormData: { key: string; value: string | number | boolean }[] = [];
   @Input() nextAction: IFormAction = {
     hasAction: true,
     label: 'Next',
@@ -358,6 +360,7 @@ export class DynamicFormComponent {
     parentKey: string;
   }): void {
     const { formArray, index, parentKey } = param;
+    
     this.newFormGroup = {
       form: new ExtendedFormGroup(
         (formArray.at(index) as ExtendedFormGroup)
@@ -366,6 +369,7 @@ export class DynamicFormComponent {
       index,
       parentKey,
     };
+    
     this.followUpModalToggle = true;
   }
 

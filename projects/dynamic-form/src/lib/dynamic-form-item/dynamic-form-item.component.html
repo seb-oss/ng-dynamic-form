@@ -5,19 +5,6 @@
     [ngTemplateOutletContext]="{ context: control.formItem }"
   ></ng-container>
 
-  <!-- <div class="row p-0" *ngIf="control.formItem.media?.length; else formItem">
-    <div class="col-6">
-      <ng-container [ngTemplateOutlet]="formItem"></ng-container>
-    </div>
-    <div class="col-6">
-      <app-dynamic-form-media
-        [media]="control.formItem.media[0]"
-      ></app-dynamic-form-media>
-    </div>
-  </div> -->
-
-  <!-- <ng-template #formItem> -->
-
   <div *ngIf="!hasTemplate" class="item-wrapper" [ngClass]="itemCustomClass">
     <ng-container
       [ngTemplateOutlet]="metadata"
@@ -102,7 +89,6 @@
         [formControl]="control"
         [error]="error"
       ></sebng-textbox>
-      <!-- <sebng-stepper className="dynamic-form-item" [id]="makeId()" [formControl]="control"></sebng-stepper> -->
     </ng-container>
 
     <ng-container *ngSwitchCase="controlType.Checkbox.toString()">
@@ -173,7 +159,6 @@
     <ng-container *ngSwitchCase="controlType.Disclaimer.toString()">
     </ng-container>
   </div>
-  <!-- </ng-template> -->
 
   <ng-container *ngIf="hasTemplate">
     <ng-container
