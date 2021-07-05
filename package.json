@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "build:lib": "ng build dynamic-form --prod",
-    "test": "ng test",
+    "test": "ng test dynamic-form --watch=false",
     "lint": "ng lint",
     "pack": "cd dist/dynamic-form && npm pack",
     "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
