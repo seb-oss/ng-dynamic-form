@@ -4,13 +4,12 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
-    "build:lib": "ng build dynamic-form --prod",
+    "build": "ng build dynamic-form --prod",
     "test": "ng test dynamic-form --watch=false",
     "lint": "ng lint",
     "pack": "cd dist/dynamic-form && npm pack",
     "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
-    "build-pack-install": "npm run build:lib && npm run pack && npm i dist/dynamic-form/sebgroup-ng-dynamic-form-0.0.1.tgz",
+    "build-pack-install": "npm run build && npm run pack && npm i dist/dynamic-form/sebgroup-ng-dynamic-form-0.0.1.tgz",
     "storybook": "npm run docs:json && start-storybook -p 6006 --no-manager-cache",
     "build-storybook": "build-storybook -o docs-build -s ./stories/assets",
     "semantic-release": "semantic-release"
