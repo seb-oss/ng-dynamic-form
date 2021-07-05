@@ -1,8 +1,6 @@
 import {
   Component,
   Input,
-  Output,
-  EventEmitter,
   OnInit,
   OnChanges,
   SimpleChanges,
@@ -11,8 +9,8 @@ import {
   DynamicFormSection,
   FormService,
   ExtendedFormGroup,
-} from 'dynamic-form';
-import { IFormAction } from 'projects/dynamic-form/src/lib';
+  IFormAction,
+} from 'projects/dynamic-form/src/lib';
 
 @Component({
   selector: 'storybook-dynamic-form',
