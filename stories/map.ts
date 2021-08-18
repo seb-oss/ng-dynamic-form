@@ -94,7 +94,13 @@ export function mapToDynamicForm(arr): DynamicFormSection[] {
             className: 'item-container card p-3 mb-3',
             controlType: mapControlType(alternative.type),
             media: alternative.media,
-            rules: mapRules(alternative.rules),
+            rules: [
+              {
+                type: RuleType.required,
+                message: '',
+                value: '',
+              },
+            ],
             controlMetaData: {
               label: alternative.text,
               inputGroupLabel: 'kr/mån',
