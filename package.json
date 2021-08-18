@@ -71,6 +71,9 @@
       "@semantic-release/github"
     ]
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "browser": {
     "fs": false,
     "path": false,
