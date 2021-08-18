@@ -11,7 +11,7 @@ import {
 } from '../projects/dynamic-form/src/lib/index';
 import { DemoComponent } from './demo.component';
 import { mapToDynamicForm } from './map';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { DigitOnlyModule } from 'projects/dynamic-form/src/lib';
 import { TextboxModule } from '@sebgroup/ng-components';
 
@@ -23,7 +23,6 @@ export default {
       declarations: [DemoComponent],
       imports: [
         DynamicFormModule,
-        FormsModule,
         ReactiveFormsModule,
         DigitOnlyModule,
         TextboxModule,
