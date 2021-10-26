@@ -4,14 +4,26 @@
   </ng-container>
   <ng-container body>
     <p>{{ control?.value?.value?.followUpItems?.description }}</p>
+
     <div *ngFor="let control of form.controls | keyvalue: orderForm">
       
       <div *ngFor="let item of control.value.controls | keyvalue: orderForm">
-        <app-dynamic-form-item
-          [control]="item.value"
-          [submitted]="submitted"
-          (controlValueChanged)="controlValueChanged()"
-        ></app-dynamic-form-item>
+        <ng-container *ngIf="item.value.formItem; else controlWrapper">
+          <app-dynamic-form-item
+            [control]="item.value"
+            [submitted]="submitted"
+            (controlValueChanged)="controlValueChanged()"
+          ></app-dynamic-form-item>
+        </ng-container>
+        <ng-template #controlWrapper>
+          <ng-container *ngFor="let key of getObjectKeys(item.value.controls)">
+            <app-dynamic-form-item
+              [control]="item.value.controls[key]"
+              [submitted]="submitted"
+              (controlValueChanged)="controlValueChanged()"
+            ></app-dynamic-form-item>
+          </ng-container>
+        </ng-template>
       </div>
     </div>
     <div class="actions">
