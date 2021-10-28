@@ -112,7 +112,9 @@ export function mapToDynamicForm(arr): DynamicFormSection[] {
                   title: parseConfiguration(alternative.configuration)?.Modal?.Title,
                   description: parseConfiguration(alternative.configuration)?.Modal?.Description,
                   items: mapToDynamicForm(alternative.followupQuestions),
-                  multi: true
+                  ...(!!alternative.followupQuestions.find(
+                    (followUpQuestion) => followUpQuestion.optionType === QuestionOptionType.Table
+                  ) && { multi: true }),
                 },
               };
             }),
