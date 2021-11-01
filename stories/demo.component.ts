@@ -1,18 +1,19 @@
+import { formatNumber } from '@angular/common';
 import {
   Component,
   Input,
-  Output,
-  EventEmitter,
   OnInit,
   OnChanges,
   SimpleChanges,
+  ViewChild,
 } from '@angular/core';
 import {
   DynamicFormSection,
   FormService,
   ExtendedFormGroup,
-} from 'dynamic-form';
-import { IFormAction } from 'projects/dynamic-form/src/lib';
+  IFormAction,
+  DynamicFormComponent
+} from 'projects/dynamic-form/src/lib';
 
 @Component({
   selector: 'storybook-dynamic-form',
@@ -21,6 +22,7 @@ import { IFormAction } from 'projects/dynamic-form/src/lib';
 })
 export class DemoComponent implements OnInit, OnChanges {
   extendedFormGroup: ExtendedFormGroup;
+  @ViewChild('dynamicForm') dynamicForm: DynamicFormComponent;
   constructor(private formService: FormService) {}
 
   ngOnInit(): void {
@@ -68,5 +70,25 @@ export class DemoComponent implements OnInit, OnChanges {
 
   gotToPreviousStep(): void {
     this.activeStep -= 1;
+  }
+
+  getObjectKeys(obj: {[key: string]: any}): string[] {
+    return Object.keys(obj)
+  }
+
+  edit(param): void {
+    this.dynamicForm.editItemFromParent(param);
+  }
+
+  delete(param): void {
+    this.dynamicForm.removeItemFromParent(param);
+  }
+  
+  getNestedControlValue(control): string[] {
+    return Object.values(Object.values(control)[0]);
+  }
+
+  formatNumberLocale(value): string {
+    return Number(value) ? formatNumber(value, 'se') : value;
   }
 }

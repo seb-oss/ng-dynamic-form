@@ -161,7 +161,7 @@ export class DynamicFormComponent {
 
   modalShouldBeRendered(control): boolean {
     if (
-      control.value?.followUpItems &&
+      control.value?.followUpItems?.items?.length &&
       control.formItem.key === this.newFormGroup.parentKey
     ) {
       return !!this.newFormGroup.form;

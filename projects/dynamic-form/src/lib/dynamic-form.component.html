@@ -91,7 +91,7 @@
                     class="btn btn-sm btn-secondary"
                     type="button"
                     (click)="
-                      createFormGroup(control.value.value.followUpItems?.items)
+                      createFormGroup({items: control.value.value.followUpItems?.items, key: control.key})
                     "
                   >
                     + Add new
