@@ -23,6 +23,7 @@ import { SafePipeModule } from './safe.pipe';
 import { DigitOnlyModule } from './digit-only/digit-only.directive';
 import localeSe from '@angular/common/locales/se';
 import { DynamicFormConfirmationComponent } from './dynamic-form-confirmation/dynamic-form-confirmation.component';
+import { ObjectKeysPipe } from './object-keys.pipe';
 
 registerLocaleData(localeSe);
 
@@ -34,6 +35,7 @@ registerLocaleData(localeSe);
     DynamicFormDataComponent,
     DynamicFormMediaComponent,
     DynamicFormConfirmationComponent,
+    ObjectKeysPipe,
   ],
   imports: [
     CommonModule,

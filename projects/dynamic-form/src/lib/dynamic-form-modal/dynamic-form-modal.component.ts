@@ -72,8 +72,4 @@ export class DynamicFormModalComponent {
   controlValueChanged(): void {
     this.submitted &&= false;
   }
-
-  getObjectKeys(obj: { [key: string]: any }): string[] {
-    return Object.keys(obj);
-  }
 }

@@ -16,7 +16,7 @@
           ></app-dynamic-form-item>
         </ng-container>
         <ng-template #controlWrapper>
-          <ng-container *ngFor="let key of getObjectKeys(item.value.controls)">
+          <ng-container *ngFor="let key of item.value.controls | objectKeys">
             <app-dynamic-form-item
               [control]="item.value.controls[key]"
               [submitted]="submitted"
