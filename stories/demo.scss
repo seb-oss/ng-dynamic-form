@@ -1,3 +1,93 @@
 ::ng-deep {
   @import "~@sebgroup/bootstrap/scss/bootstrap";
+  .radio.card {
+    margin-bottom: 1rem;
+    display: flex;
+    padding: 0.75rem 1rem;
+    flex-direction: column;
+    min-height: 68px;
+    flex-wrap: wrap;
+    .title {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      white-space: nowrap;
+    }
+    .options {
+      padding: 0;
+    }
+    &.error {
+      outline: 1px solid $danger;
+    }
+    sebng-radio-group {
+      ::ng-deep {
+        .radio-group {
+          margin-bottom: 0;
+        }
+        .custom-radio {
+          margin-left: 0.25rem;
+          .row {
+            .col {
+              min-width: 80px;
+            }
+          }
+        }
+      }
+    }
+    label {
+      margin-bottom: 0;
+      margin-right: 0.25rem;
+    }
+    span {
+      font-size: $font-size-sm;
+      font-weight: $font-weight-normal;
+    }
+    &.data {
+      padding: 0 1rem;
+      flex-direction: column;
+      align-items: flex-start;
+      .title {
+        width: 100%;
+        border-bottom: 1px solid $gray-200;
+        padding: 1.5rem 1rem 1rem;
+      }
+  
+      table.radio-group-data {
+        width: 35%;
+        margin: 1rem 0;
+        tr {
+          padding-left: 1rem;
+          td {
+            height: 3rem;
+            vertical-align: middle;
+            padding-left: 1rem;
+            &:nth-child(2) {
+              text-align: right;
+              font-weight: $font-weight-medium;
+              padding-right: 1rem;
+            }
+            &:last-child {
+              width: 6%;
+              padding: 0;
+              &.picto {
+                ::ng-deep {
+                  svg,
+                  img {
+                    width: 1.5rem;
+                    height: 1.5rem;
+                    fill: $primary;
+                  }
+                }
+              }
+            }
+          }
+        }
+        @include media-breakpoint-down(md) {
+          width: 100%;
+        }
+      }
+    }
+  }
+  
 }
+

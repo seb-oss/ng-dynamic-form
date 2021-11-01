@@ -14,6 +14,7 @@ export enum QuestionOptionType {
   Radio,
   CheckBox,
   Group,
+  Table
 }
 
 export enum ComponentType {
@@ -27,7 +28,7 @@ export enum ComponentType {
 }
 
 export function mapToDynamicForm(arr): DynamicFormSection[] {
-  let mappedArray: DynamicFormSection[] = [];
+  const mappedArray: DynamicFormSection[] = [];
   let items: DynamicFormItem[] = [];
   let section: DynamicFormSection = {};
   arr.forEach((obj) => {
@@ -79,57 +80,46 @@ export function mapToDynamicForm(arr): DynamicFormSection[] {
             controlMetaData: {
               label: alternative.reasonLabel,
               description: alternative.text,
-              inputGroupLabel: 'kr/mån',
+              inputGroupLabel: parseConfiguration(alternative.configuration)?.GroupLabel,
               inputGroupPosition: 'right',
             },
           };
         });
         break;
       case QuestionOptionType.Radio:
-        items = obj.answerAlternatives.map((alternative) => {
-          return {
-            key: alternative.id,
-            descriptionHeader: '',
-            description: '',
-            className: 'item-container card p-3 mb-3',
-            controlType: mapControlType(alternative.type),
-            media: alternative.media,
-            rules: [
-              {
-                type: RuleType.required,
-                message: '',
-                value: '',
-              },
-            ],
+        items = [
+          {
+            key: obj.id,
+            descriptionHeader: obj.descritpion,
+            description: obj.text,
+            controlType: DynamicFormType.Radio,
+            media: obj.media,
+            rules: [{
+              type: RuleType.required,
+              message: 'some message error',
+              value: ''
+            }],
             controlMetaData: {
-              label: alternative.text,
-              inputGroupLabel: 'kr/mån',
-              inputGroupPosition: 'right',
+              label: obj.text,
             },
-            options: [
-              {
-                id: '1',
-                value: '1',
-                label: 'Ja',
+            options: obj.answerAlternatives.map((alternative) => {
+              return {
+                id: alternative.id,
+                value: alternative.id,
+                label: alternative.text,
                 followUpItems: {
                   type: 'modal',
-                  title: parseConfiguration(alternative.configuration)?.Modal
-                    ?.Title,
-                  description: parseConfiguration(alternative.configuration)
-                    ?.Modal?.Description,
-                  items: mapToDynamicItem(
-                    alternative.followupQuestions[0]?.answerAlternatives
-                  ),
+                  title: parseConfiguration(alternative.configuration)?.Modal?.Title,
+                  description: parseConfiguration(alternative.configuration)?.Modal?.Description,
+                  items: mapToDynamicForm(alternative.followupQuestions),
+                  ...(!!alternative.followupQuestions.find(
+                    (followUpQuestion) => followUpQuestion.optionType === QuestionOptionType.Table
+                  ) && { multi: true }),
                 },
-              },
-              {
-                id: '2',
-                value: '2',
-                label: 'Nej',
-              },
-            ],
-          };
-        });
+              };
+            }),
+          },
+        ];
         section = { description: obj.text };
         break;
       case QuestionOptionType.None:
@@ -142,6 +132,17 @@ export function mapToDynamicForm(arr): DynamicFormSection[] {
             media: obj.media,
           },
         ];
+        break;
+      case QuestionOptionType.Table:
+        mapToDynamicForm(obj.groupQuestionItems).map((sec: DynamicFormSection) => {
+          const sections = [sec, ...section.sections ?? []];
+          section = {sections, items: [...items, ...sec.items]}
+        });
+        break;
+      case QuestionOptionType.Group:
+        mapToDynamicForm(obj.groupQuestionItems).map((sec: DynamicFormSection) => {
+          items = [...items, ...sec.items];
+        });
         break;
       default:
         items = obj.answerAlternatives.map((alternative) => {
@@ -170,27 +171,8 @@ export function mapToDynamicForm(arr): DynamicFormSection[] {
     section = {};
     items = [];
   });
-
   return mappedArray;
 }
-
-const mapToDynamicItem = (obj): DynamicFormItem[] => {
-  return obj?.map((o) => {
-    return {
-      key: o.id,
-      descriptionHeader: o.text,
-      description: o.description,
-      controlType: mapControlType(o.type),
-      media: o.media,
-      rules: mapRules(o.rules),
-      controlMetaData: {
-        label: o.reasonLabel,
-        inputGroupLabel: 'kr/mån',
-        inputGroupPosition: 'right',
-      },
-    };
-  });
-};
 
 const parseConfiguration = (configuration: string): { [key: string]: any } => {
   let parsedConfig: { [key: string]: any } = {};

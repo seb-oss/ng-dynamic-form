@@ -11,6 +11,7 @@ export interface DynamicFormSection {
   order?: number;
   multi?: boolean;
   sectionType?: any;
+  sections?: DynamicFormSection[];
   items?: DynamicFormItem[] | null;
 }
 

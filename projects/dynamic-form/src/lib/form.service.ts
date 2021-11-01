@@ -46,11 +46,17 @@ export class FormService {
         const controlsArray: ExtendedFormGroup[] = [formGroup];
         controls[item.key] = new ExtendedFormGroupArray(controlsArray, item);
       } else {
-        const childControls: ExtendedFormGroupControls = this.dynamicFormItemsToControls(item.items);
-        controls[item.key] = new ExtendedFormGroup(childControls, item);
-        if (original) {
-          original.controls[item.key] = new ExtendedFormGroup(childControls, item);
+        // if section has an inner section call dynamicFormSectionsToFormGroup recursively
+        if(item.sections) {
+          controls[item.key] = this.dynamicFormSectionsToFormGroup(item.sections);
+        } else {
+          const childControls: ExtendedFormGroupControls = this.dynamicFormItemsToControls(item.items);
+          controls[item.key] = new ExtendedFormGroup(childControls, item);
+          if (original) {
+            original.controls[item.key] = new ExtendedFormGroup(childControls, item);
+          }
         }
+       
       }
     });
     if (original) {
