@@ -5,7 +5,7 @@ import {
   DynamicFormType,
   Rule,
   RuleType,
-} from 'dynamic-form';
+} from 'projects/dynamic-form/src/lib';
 
 export enum QuestionOptionType {
   None,
