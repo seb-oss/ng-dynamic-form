@@ -1,11 +1,11 @@
 import { FormArray } from "@angular/forms";
-import { DynamicFormSection } from "../../model/dynamicFormSection";
+import { DynamicFormSectionO } from "../../model/dynamicFormSection";
 import { ExtendedFormGroup } from "./extended-form-group";
 
 export class ExtendedFormGroupArray extends FormArray {
-    sectionItem: DynamicFormSection;
+    sectionItem: DynamicFormSectionO;
 
-    constructor(controls: Array<ExtendedFormGroup>, item?: DynamicFormSection) {
+    constructor(controls: Array<ExtendedFormGroup>, item?: DynamicFormSectionO) {
         super(controls);
         this.sectionItem = item;
     }

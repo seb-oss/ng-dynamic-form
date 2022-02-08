@@ -1,6 +1,8 @@
 import { DynamicFormType } from "./dynamicFormType";
 import { DynamicFormOption } from "./dynamicFormOption";
 import { AttributeTypeMap } from "./models";
+import { DatepickerComponent, RadioGroupComponent, TextareaComponent, TextboxComponent, ToggleComponent } from "@sebgroup/ng-components";
+import { DynamicFormSectionComponent } from "../dynamic-form-section/dynamic-form-section.component";
 
 export enum RuleType {
     required,
@@ -69,6 +71,40 @@ export interface DynamicFormItem {
         inputGroupPosition?: "left" | "right";
     };
 }
+
+export interface DynamicFormTextbox extends TextboxComponent {
+    controlType: "Text";
+}
+
+export interface DynamicFormTextarea extends TextareaComponent {
+    controlType: "TextArea";
+}
+
+export interface DynamicFormRadioGroup extends RadioGroupComponent {
+    controlType: "Radio";
+}
+
+export interface DynamicFormToggle extends ToggleComponent {
+    controlType: "ToggleSelector";
+}
+
+export interface DynamicDatepicker extends DatepickerComponent {
+    controlType: "Datepicker";
+}
+
+export interface DynamicFormSection<T> extends Omit<DynamicFormSectionComponent<T>, 'name'>, CommonFieldProp<T> {
+    controlType: "Section";
+}
+
+export type CommonFieldProp<T> = {
+    validations?: any;
+    name: keyof T;
+    multi?: boolean;
+};
+
+export type FieldWithValue<T> = CommonFieldProp<T> & (DynamicFormTextbox | DynamicFormTextarea | DynamicFormToggle);
+
+export type DynamicFormField<T> = FieldWithValue<T> | DynamicFormSection<T>;
 
 export const attributeTypeMapDynamicFormItem: AttributeTypeMap[] = [
     { name: "key", type: "string" },

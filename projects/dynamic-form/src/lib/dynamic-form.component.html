@@ -1,9 +1,31 @@
-<form
-  *ngIf="extendedFormGroup"
-  #ngForm="ngForm"
-  [formGroup]="extendedFormGroup"
->
-  <div
+<div *ngIf="parentFormGroup && isSubForm" [formGroup]="parentFormGroup">
+  <div [formGroupName]="groupName">
+    <ng-container *ngFor="let field of fields">
+      <ng-template
+        dynamicField
+        [field]="field"
+        [group]="form"
+        (eventEm)="fieldOutputEv($event)"
+      >
+      </ng-template>
+    </ng-container>
+  </div>
+</div>
+<form *ngIf="!isSubForm" [formGroup]="form" (submit)="onSubmit($event)">
+  <ng-container *ngFor="let field of fields">
+    <ng-template
+      dynamicField
+      [field]="field"
+      [group]="form"
+      (eventEm)="fieldOutputEv($event)"
+    >
+    </ng-template>
+  </ng-container>
+  <button type="submit">subtmo</button>
+  
+</form>
+
+<!-- <div
     class="dynamic-form-section-item"
     *ngFor="let section of sectionList | keyvalue: orderForm"
   >
@@ -21,7 +43,10 @@
       >
         <div
           [class]="control.value.formItem?.className"
-          *ngIf="shouldRenderControl(section.key, control.value.formItem)"
+          *ngIf="
+            extendedFormGroup
+              | controlRender: section.key : control.value.formItem
+          "
         >
           <ng-container *ngIf="control.value.formGroup; else singleItem">
             <app-dynamic-form-item
@@ -44,7 +69,7 @@
               (controlValueChanged)="controlValueChanged()"
             ></app-dynamic-form-item>
             <ng-container
-              [ngSwitch]="shouldRenderFollowUpControlsType(control.value)"
+              [ngSwitch]="control.value | followUpControlType"
             >
               <ng-container *ngSwitchCase="'inline'">
                 <div
@@ -91,7 +116,10 @@
                     class="btn btn-sm btn-secondary"
                     type="button"
                     (click)="
-                      createFormGroup({items: control.value.value.followUpItems?.items, key: control.key})
+                      createFormGroup({
+                        items: control.value.value.followUpItems?.items,
+                        key: control.key
+                      })
                     "
                   >
                     + Add new
@@ -156,11 +184,11 @@
             class="form-group"
             [class]="control.value.formItem.className"
             *ngIf="
-              shouldRenderControl(
-                section.value.sectionItem.key,
-                control.value.formItem,
-                i
-              )
+              extendedFormGroup
+                | controlRender
+                  : section.value.sectionItem.key
+                  : control.value.formItem
+                  : i
             "
           >
             <app-dynamic-form-item
@@ -189,7 +217,7 @@
               (controlValueChanged)="controlValueChanged()"
             ></app-dynamic-form-item>
             <ng-container
-              [ngSwitch]="shouldRenderFollowUpControlsType(control.value)"
+              [ngSwitch]="control.value | followUpControlType"
             >
               <ng-container *ngSwitchCase="'inline'">
                 <div
@@ -315,19 +343,18 @@
         {{ nextAction.label }}
       </button>
     </div>
-  </ng-template>
+  </ng-template> -->
 
-  <ng-template let-context="context" #internalSectionTemplate>
+  <!-- <ng-template let-context="context" #internalSectionTemplate>
     <span *ngIf="context?.category">{{ context.category }}</span>
-    <h3 *ngIf="context?.title">{{ context.title }}</h3>
-    <!-- <p *ngIf="context?.description">{{ context.description }}</p> -->
-  </ng-template>
+    <h3 *ngIf="context?.title">{{ context.title }}</h3> -->
+  <!-- <p *ngIf="context?.description">{{ context.description }}</p> -->
+  <!-- </ng-template> -->
 
-  <app-dynamic-form-confirmation
+  <!-- <app-dynamic-form-confirmation
     *ngIf="confirmationData"
     [confirmationToggle]="confirmationToggle"
     [confirmationData]="confirmationData"
     (acceptConfirmationEvent)="acceptConfirmation()"
     (denyConfirmationEvent)="denyConfirmation()"
-  ></app-dynamic-form-confirmation>
-</form>
+  ></app-dynamic-form-confirmation> -->

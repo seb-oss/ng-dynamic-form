@@ -1,6 +1,7 @@
 <ng-container *ngIf="extendedFormGroup">
   <app-dynamic-form
     #dynamicForm
+    [fields]="fields"
     [extendedFormGroup]="extendedFormGroup"
     [radioTableTemplate]="radioTableTmpl"
     [radioTemplate]="radioTmpl"
@@ -13,6 +14,7 @@
     [cancelAction]="cancelAction"
     (nextEvent)="goToNextStep()"
     (previousEvent)="gotToPreviousStep()"
+    (submit)="testsubmit($event)"
   ></app-dynamic-form>
 </ng-container>
 

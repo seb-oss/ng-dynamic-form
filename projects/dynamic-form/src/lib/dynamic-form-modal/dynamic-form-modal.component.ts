@@ -7,7 +7,7 @@ import {
   ExtendedFormGroup,
   ExtendedFormGroupControl,
 } from '../model/custom-classes/extended-form-group';
-import { IFormAction } from '../dynamic-form.component';
+import { IFormAction } from '../dynamic-form.component_o';
 
 @Component({
   selector: 'app-dynamic-form-modal',

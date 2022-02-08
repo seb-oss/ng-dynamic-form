@@ -1,5 +1,5 @@
 import {
-  DynamicFormSection,
+  DynamicFormSectionO,
   DynamicFormItem,
   DynamicFormOption,
   DynamicFormType,
@@ -27,10 +27,10 @@ export enum ComponentType {
   Date,
 }
 
-export function mapToDynamicForm(arr): DynamicFormSection[] {
-  const mappedArray: DynamicFormSection[] = [];
+export function mapToDynamicForm(arr): DynamicFormSectionO[] {
+  const mappedArray: DynamicFormSectionO[] = [];
   let items: DynamicFormItem[] = [];
-  let section: DynamicFormSection = {};
+  let section: DynamicFormSectionO = {};
   arr.forEach((obj) => {
     switch (obj.optionType) {
       case QuestionOptionType.Card:
@@ -134,13 +134,13 @@ export function mapToDynamicForm(arr): DynamicFormSection[] {
         ];
         break;
       case QuestionOptionType.Table:
-        mapToDynamicForm(obj.groupQuestionItems).map((sec: DynamicFormSection) => {
+        mapToDynamicForm(obj.groupQuestionItems).map((sec: DynamicFormSectionO) => {
           const sections = [sec, ...section.sections ?? []];
           section = {sections, items: [...items, ...sec.items]}
         });
         break;
       case QuestionOptionType.Group:
-        mapToDynamicForm(obj.groupQuestionItems).map((sec: DynamicFormSection) => {
+        mapToDynamicForm(obj.groupQuestionItems).map((sec: DynamicFormSectionO) => {
           items = [...items, ...sec.items];
         });
         break;

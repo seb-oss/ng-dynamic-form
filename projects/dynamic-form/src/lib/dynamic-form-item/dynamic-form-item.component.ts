@@ -1,4 +1,4 @@
-import { Component, Input, EventEmitter, Output, OnInit, TemplateRef } from '@angular/core';
+import { Component, Input, EventEmitter, Output, OnInit, TemplateRef, ViewContainerRef, ViewChild, ComponentFactoryResolver, AfterViewInit } from '@angular/core';
 import { ExtendedFormControl } from '../model/custom-classes/extended-form-control';
 import { ExtendedFormArray } from '../model/custom-classes/extended-form-array';
 import { DynamicFormType } from '../model/dynamicFormType';
@@ -8,6 +8,8 @@ import { FormService } from '../form.service';
 import { ExtendedFormGroup, ExtendedFormGroupControl } from '../model/custom-classes/extended-form-group';
 import { ValidatorFn } from '@angular/forms';
 import { formatNumber } from '@angular/common';
+import { TextboxComponent } from '@sebgroup/ng-components';
+import { DynamicFormItemDirective } from './dynmic-form-item.directive';
 
 @Component({
   selector: 'app-dynamic-form-item',
@@ -24,7 +26,7 @@ import { formatNumber } from '@angular/common';
     `,
   ],
 })
-export class DynamicFormItemComponent implements OnInit {
+export class DynamicFormItemComponent implements OnInit, AfterViewInit {
   @Input() control: ExtendedFormControl | ExtendedFormArray;
   @Input() parentFormGroup: ExtendedFormGroup | ExtendedFormGroup[];
   @Input() sectionId: string;
@@ -49,9 +51,10 @@ export class DynamicFormItemComponent implements OnInit {
     index: number;
   }> = new EventEmitter();
   @Output() controlValueChanged: EventEmitter<boolean> = new EventEmitter();
+  @ViewChild(DynamicFormItemDirective, {static: true}) dynamicFormItem!: DynamicFormItemDirective;
   controlType = DynamicFormType;
 
-  constructor(private formService: FormService) {}
+  constructor(private formService: FormService, private componentFactoryResolver: ComponentFactoryResolver) {}
 
   ngOnInit(): void {
     this.control && this.setRules();
@@ -73,6 +76,40 @@ export class DynamicFormItemComponent implements OnInit {
         delete (this.control as ExtendedFormControl).formGroup;
       }
     });
+  }
+
+  ngAfterViewInit(): void {
+    this.loadComponent();
+  }
+
+  getComponent() {
+    switch (this.control.formItem?.controlType) {
+      case "Text": return TextboxComponent;
+      default: return TextboxComponent;
+    }
+  }
+
+  loadComponent() {
+    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(this.getComponent());
+    const viewContainerRef = this.dynamicFormItem.viewContainerRef;
+    viewContainerRef.clear();
+
+    const componentRef = viewContainerRef.createComponent<TextboxComponent>(componentFactory);
+    componentRef.instance.id = this.makeId(); 
+    componentRef.instance.className = "dynamic-form-item"; 
+    componentRef.instance.name = this.makeId(); 
+    componentRef.instance.placeholder = this.control.formItem.placeholder; 
+    componentRef.instance.rightText = this.control.formItem?.controlMetaData?.inputGroupLabel;
+    componentRef.instance.error = this.error;
+    // {
+    //   id: this.makeId(),
+    //   className: "dynamic-form-item",
+    //   name: this.makeId(),
+    //   placeholder: this.control.formItem.placeholder,
+    //   formControl: this.control,
+    //   rightText: this.control.formItem?.controlMetaData?.inputGroupLabel,
+    //   error: this.error
+    // };
   }
 
   setRules(): void {

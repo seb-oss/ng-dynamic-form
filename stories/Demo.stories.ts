@@ -202,79 +202,154 @@ const familyFollowup: FollowUpItem = {
 export const Basic = Template.bind({});
 Basic.args = {
   activeStep: 0,
-  formSection: [
+  fields: [
     {
       title: 'Basic Usage',
-      key: 'section-1-login',
-      items: [
+      category: 'Basic cat',
+      name: 'section-1-login',
+      controlType: 'Section',
+      fields: [
         {
-          key: 'name',
+          name: 'name',
           label: 'Name',
           order: 1,
           controlType: 'Text',
         },
         {
-          key: 'email',
-          label: 'Email',
-          placeholder: 'name@domain.com',
-          order: 2,
-          controlType: 'Text',
+          label: 'Birthday',
+          name: 'p-birthday',
+          controlType: 'Datepicker',
+        },
+      ]
+    },
+    {
+      name: 'name',
+      label: 'Name',
+      order: 1,
+      controlType: 'TextArea',
+      rules: [
+        {
+          message: 'field is required',
+          type: RuleType.required,
         },
         {
-          key: 'user-accepted',
-          label: 'I understand',
-          order: 3,
-          value: true,
-          controlType: 'Checkbox',
+          message: 'should be more than base',
+          type: RuleType.minThanReference,
+          value: 'partner-monthly-income',
         },
       ],
     },
-  ] as DynamicFormSection[],
+    {
+      name: 'email',
+      label: 'Email',
+      placeholder: 'name@domain.com',
+      order: 2,
+      controlType: 'Text',
+    },
+    {
+      label: 'Birthday',
+      name: 'child-birthday',
+      controlType: 'Datepicker',
+    },
+    {
+      name: 'user-choice',
+      label: 'I understand',
+      condensed: true,
+      inline: true,
+      order: 3,
+      value: "yes",
+      list: [{ label: "yes", value: "yes" }, { label: "no", value: "no"}],
+      controlType: 'Radio',
+    },
+    {
+      name: 'user-selector-toggle',
+      label: 'I understand?',
+      order: 3,
+      value: "yes",
+      list: [{ label: "yes", value: "yes" }, { label: "no", value: "no"}],
+      controlType: 'ToggleSelector',
+    },
+    {
+      name: 'user-accepted',
+      label: 'I understand',
+      order: 3,
+      value: true,
+      controlType: 'Checkbox',
+    },
+  ],
+  // formSection: [
+  //   {
+  //     title: 'Basic Usage',
+  //     key: 'section-1-login',
+  //     items: [
+  //       {
+  //         key: 'name',
+  //         label: 'Name',
+  //         order: 1,
+  //         controlType: 'Text',
+  //       },
+  //       {
+  //         key: 'email',
+  //         label: 'Email',
+  //         placeholder: 'name@domain.com',
+  //         order: 2,
+  //         controlType: 'Text',
+  //       },
+  //       {
+  //         key: 'user-accepted',
+  //         label: 'I understand',
+  //         order: 3,
+  //         value: true,
+  //         controlType: 'Checkbox',
+  //       },
+  //     ],
+  //   },
+  // ] as DynamicFormSection<any>[],
 };
 
 export const InlineConditionalRendering = Template.bind({});
 InlineConditionalRendering.args = {
   activeStep: 0,
   formSection: [
-    {
-      title: 'Inline Conditinal Rendering',
-      key: 'section-2-extra-info',
-      items: [
-        {
-          key: 'have-additional-info',
-          label: 'I have additional information',
-          order: 1,
-          value: false,
-          controlType: 'Radio',
-          options: [
-            {
-              id: '1',
-              value: '1',
-              label: 'Yes',
-              followUpItems: {
-                type: 'inline',
-                items: [
-                  {
-                    key: 'info',
-                    controlType: 'Text',
-                    value: '',
-                    controlMetaData: {
-                      label: 'Additional information',
-                    },
-                  },
-                ],
-              },
-            },
-            {
-              id: '2',
-              value: '2',
-              label: 'No',
-            },
-          ],
-        },
-      ],
-    },
-  ] as DynamicFormSection[],
+    // {
+    //   title: 'Inline Conditinal Rendering',
+    //   key: 'section-2-extra-info',
+    //   items: [
+    //     {
+    //       key: 'have-additional-info',
+    //       label: 'I have additional information',
+    //       order: 1,
+    //       value: false,
+    //       controlType: 'Radio',
+    //       options: [
+    //         {
+    //           id: '1',
+    //           value: '1',
+    //           label: 'Yes',
+    //           followUpItems: {
+    //             type: 'inline',
+    //             items: [
+    //               {
+    //                 key: 'info',
+    //                 controlType: 'Text',
+    //                 value: '',
+    //                 controlMetaData: {
+    //                   label: 'Additional information',
+    //                 },
+    //               },
+    //             ],
+    //           },
+    //         },
+    //         {
+    //           id: '2',
+    //           value: '2',
+    //           label: 'No',
+    //         },
+    //       ],
+    //     },
+    //   ],
+    // },
+  ] as DynamicFormSection<any>[],
 };
 
 export const ModalConditionalRendering = Template.bind({});
@@ -283,45 +358,46 @@ ModalConditionalRendering.args = {
   formSection: [
     {
       title: 'Modal Conditinal Rendering',
-      key: 'section-2-extra-info',
-      items: [
-        {
-          key: 'modal-have-additional-info',
-          label: 'Do you have Additional information',
-          order: 1,
-          value: false,
-          controlType: 'Radio',
-          options: [
-            {
-              id: '1',
-              value: '1',
-              label: 'Yes',
-              followUpItems: {
-                type: 'modal',
-                nextAction: { hasAction: true, label: 'Next' },
-                previousAction: { hasAction: true, label: 'Previous' },
-                items: [
-                  {
-                    key: 'info-modal',
-                    controlType: 'Text',
-                    value: '',
-                    controlMetaData: {
-                      label: 'Additional information',
-                    },
-                  },
-                ],
-              },
-            },
-            {
-              id: '2',
-              value: '2',
-              label: 'No',
-            },
-          ],
-        },
+      name: 'section-2-extra-info',
+      controlType: "Section",
+      fields: [
+        // {
+        //   name: 'modal-have-additional-info',
+        //   label: 'Do you have Additional information',
+        //   order: 1,
+        //   value: false,
+        //   controlType: 'Radio',
+        //   options: [
+        //     {
+        //       id: '1',
+        //       value: '1',
+        //       label: 'Yes',
+        //       followUpItems: {
+        //         type: 'modal',
+        //         nextAction: { hasAction: true, label: 'Next' },
+        //         previousAction: { hasAction: true, label: 'Previous' },
+        //         items: [
+        //           {
+        //             key: 'info-modal',
+        //             controlType: 'Text',
+        //             value: '',
+        //             controlMetaData: {
+        //               label: 'Additional information',
+        //             },
+        //           },
+        //         ],
+        //       },
+        //     },
+        //     {
+        //       id: '2',
+        //       value: '2',
+        //       label: 'No',
+        //     },
+        //   ],
+        // },
       ],
     },
-  ] as DynamicFormSection[],
+  ] as DynamicFormSection<any>[],
 };
 
 export const InlineMultipleRecords = Template.bind({});
@@ -329,11 +405,11 @@ InlineMultipleRecords.args = {
   activeStep: 0,
   formSection: [
     {
-      key: 'inline-multiple-records',
+      name: 'inline-multiple-records',
       title: 'Wifes',
-      items: [
+      fields: [
         {
-          key: 'key-1',
+          name: 'key-1',
           label: 'Wife name',
           value: '',
           controlType: 'Text',
@@ -341,7 +417,7 @@ InlineMultipleRecords.args = {
       ],
       multi: true,
     },
-  ] as DynamicFormSection[],
+  ] as DynamicFormSection<any>[],
 };
 
 export const MultipleRecords = Template.bind({});
@@ -349,169 +425,170 @@ MultipleRecords.args = {
   activeStep: 0,
   formSection: [
     {
-      key: 'inline-multiple-records',
+      name: 'inline-multiple-records',
       title: 'Children Form',
-      items: [
+      controlType: "Section",
+      fields: [
         {
-          key: 'do-you-have-children',
+          name: 'do-you-have-children',
           label: 'Do you have Children',
           value: '',
-          controlType: 'Radio',
-          options: [
-            {
-              id: '1',
-              value: '1',
-              label: 'Yes',
-              followUpItems: {
-                type: 'modal',
-                items: [
-                  {
-                    key: 'child-name',
-                    controlType: 'Text',
-                    value: '',
-                    controlMetaData: {
-                      label: 'Child Name',
-                    },
-                  },
-                  {
-                    key: 'child-age',
-                    controlType: 'Number',
-                    value: '',
-                    controlMetaData: {
-                      label: 'Child Age',
-                    },
-                  },
-                ],
-                multi: true,
-              },
-            },
-            {
-              id: '2',
-              value: '2',
-              label: 'No',
-            },
-          ],
+          controlType: 'Radio' as any,
+          // options: [
+          //   {
+          //     id: '1',
+          //     value: '1',
+          //     label: 'Yes',
+          //     followUpItems: {
+          //       type: 'modal',
+          //       items: [
+          //         {
+          //           key: 'child-name',
+          //           controlType: 'Text',
+          //           value: '',
+          //           controlMetaData: {
+          //             label: 'Child Name',
+          //           },
+          //         },
+          //         {
+          //           key: 'child-age',
+          //           controlType: 'Number',
+          //           value: '',
+          //           controlMetaData: {
+          //             label: 'Child Age',
+          //           },
+          //         },
+          //       ],
+          //       multi: true,
+          //     },
+          //   },
+          //   {
+          //     id: '2',
+          //     value: '2',
+          //     label: 'No',
+          //   },
+          // ],
         },
       ],
     },
-  ] as DynamicFormSection[],
+  ] as DynamicFormSection<any>[],
 };
 
 export const FormValidation = Template.bind({});
 FormValidation.args = {
   activeStep: 0,
   formSection: [
-    {
-      title: 'Form Validation',
-      key: 'section-2-extra-info',
-      items: [
-        {
-          key: 'required-input',
-          controlType: 'Text',
-          value: '',
-          controlMetaData: {
-            label: 'Required Input',
-          },
-          rules: [
-            {
-              message: 'field is required',
-              type: RuleType.required,
-            },
-          ],
-        },
-        {
-          key: 'partner-monthly-income',
-          controlType: 'Number',
-          value: '',
-          controlMetaData: {
-            label: 'Base Number',
-          },
-          rules: [
-            {
-              message: 'field is required',
-              type: RuleType.required,
-            },
-          ],
-        },
-        {
-          key: 'partner-monthly-income-more-than-equal',
-          controlType: 'Number',
-          value: '',
-          controlMetaData: {
-            label: 'more than equal base',
-          },
-          rules: [
-            {
-              message: 'field is required',
-              type: RuleType.required,
-            },
-            {
-              message: 'should be more than or equal base',
-              type: RuleType.minThanEqualsReference,
-              value: 'partner-monthly-income',
-            },
-          ],
-        },
-        {
-          key: 'partner-monthly-income-more-than',
-          controlType: 'Number',
-          value: '',
-          controlMetaData: {
-            label: 'more than base',
-          },
-          rules: [
-            {
-              message: 'field is required',
-              type: RuleType.required,
-            },
-            {
-              message: 'should be more than base',
-              type: RuleType.minThanReference,
-              value: 'partner-monthly-income',
-            },
-          ],
-        },
-        {
-          key: 'partner-monthly-income-less-than',
-          controlType: 'Number',
-          value: '',
-          controlMetaData: {
-            label: 'less than base',
-          },
-          rules: [
-            {
-              message: 'field is required',
-              type: RuleType.required,
-            },
-            {
-              message: 'should be less than base',
-              type: RuleType.maxThanReference,
-              value: 'partner-monthly-income',
-            },
-          ],
-        },
-        {
-          key: 'partner-monthly-income-less-than-equal',
-          controlType: 'Number',
-          value: '',
-          controlMetaData: {
-            label: 'less than equal base',
-          },
-          rules: [
-            {
-              message: 'field is required',
-              type: RuleType.required,
-            },
-            {
-              message: 'should be less than equal base',
-              type: RuleType.maxThanEqualReference,
-              value: 'partner-monthly-income',
-            },
-          ],
-        },
-      ],
-    },
-  ] as DynamicFormSection[],
+    // {
+    //   title: 'Form Validation',
+    //   key: 'section-2-extra-info',
+    //   items: [
+    //     {
+    //       key: 'required-input',
+    //       controlType: 'Text',
+    //       value: '',
+    //       controlMetaData: {
+    //         label: 'Required Input',
+    //       },
+    //       rules: [
+    //         {
+    //           message: 'field is required',
+    //           type: RuleType.required,
+    //         },
+    //       ],
+    //     },
+    //     {
+    //       key: 'partner-monthly-income',
+    //       controlType: 'Number',
+    //       value: '',
+    //       controlMetaData: {
+    //         label: 'Base Number',
+    //       },
+    //       rules: [
+    //         {
+    //           message: 'field is required',
+    //           type: RuleType.required,
+    //         },
+    //       ],
+    //     },
+    //     {
+    //       key: 'partner-monthly-income-more-than-equal',
+    //       controlType: 'Number',
+    //       value: '',
+    //       controlMetaData: {
+    //         label: 'more than equal base',
+    //       },
+    //       rules: [
+    //         {
+    //           message: 'field is required',
+    //           type: RuleType.required,
+    //         },
+    //         {
+    //           message: 'should be more than or equal base',
+    //           type: RuleType.minThanEqualsReference,
+    //           value: 'partner-monthly-income',
+    //         },
+    //       ],
+    //     },
+    //     {
+    //       key: 'partner-monthly-income-more-than',
+    //       controlType: 'Number',
+    //       value: '',
+    //       controlMetaData: {
+    //         label: 'more than base',
+    //       },
+    //       rules: [
+    //         {
+    //           message: 'field is required',
+    //           type: RuleType.required,
+    //         },
+    //         {
+    //           message: 'should be more than base',
+    //           type: RuleType.minThanReference,
+    //           value: 'partner-monthly-income',
+    //         },
+    //       ],
+    //     },
+    //     {
+    //       key: 'partner-monthly-income-less-than',
+    //       controlType: 'Number',
+    //       value: '',
+    //       controlMetaData: {
+    //         label: 'less than base',
+    //       },
+    //       rules: [
+    //         {
+    //           message: 'field is required',
+    //           type: RuleType.required,
+    //         },
+    //         {
+    //           message: 'should be less than base',
+    //           type: RuleType.maxThanReference,
+    //           value: 'partner-monthly-income',
+    //         },
+    //       ],
+    //     },
+    //     {
+    //       key: 'partner-monthly-income-less-than-equal',
+    //       controlType: 'Number',
+    //       value: '',
+    //       controlMetaData: {
+    //         label: 'less than equal base',
+    //       },
+    //       rules: [
+    //         {
+    //           message: 'field is required',
+    //           type: RuleType.required,
+    //         },
+    //         {
+    //           message: 'should be less than equal base',
+    //           type: RuleType.maxThanEqualReference,
+    //           value: 'partner-monthly-income',
+    //         },
+    //       ],
+    //     },
+    //   ],
+    // },
+  ] as DynamicFormSection<any>[],
   hasFormActions: true,
   nextAction: { hasAction: true, label: 'Next' },
 };
@@ -520,404 +597,404 @@ export const MultiStepForm = Template.bind({});
 MultiStepForm.args = {
   activeStep: 0,
   formSection: [
-    {
-      title: 'Step 1',
-      key: 'step-1',
-      items: [
-        {
-          key: 'name',
-          label: 'Step 1 Input',
-          order: 1,
-          controlType: 'Text',
-        },
-        {
-          key: 'email',
-          label: 'Another Step 1 Input',
-          order: 2,
-          controlType: 'Text',
-        },
-      ],
-    },
-    {
-      title: 'step 2',
-      key: 'step-2',
-      items: [
-        {
-          key: 'name',
-          label: 'Step 2 input',
-          order: 1,
-          controlType: 'Text',
-        },
-        {
-          key: 'email',
-          label: 'Another Step 2 input',
-          placeholder: 'name@domain.com',
-          order: 2,
-          controlType: 'Text',
-        },
-        {
-          key: 'user-accepted',
-          label: 'I understand',
-          order: 3,
-          value: true,
-          controlType: 'Checkbox',
-        },
-      ],
-    },
-  ] as DynamicFormSection[],
-  hasFormActions: true,
-  nextAction: { hasAction: true, label: 'Next' },
-  previousAction: { hasAction: true, label: 'Previous' },
-};
+//     {
+//       title: 'Step 1',
+//       key: 'step-1',
+//       items: [
+//         {
+//           key: 'name',
+//           label: 'Step 1 Input',
+//           order: 1,
+//           controlType: 'Text',
+//         },
+//         {
+//           key: 'email',
+//           label: 'Another Step 1 Input',
+//           order: 2,
+//           controlType: 'Text',
+//         },
+//       ],
+//     },
+//     {
+//       title: 'step 2',
+//       key: 'step-2',
+//       items: [
+//         {
+//           key: 'name',
+//           label: 'Step 2 input',
+//           order: 1,
+//           controlType: 'Text',
+//         },
+//         {
+//           key: 'email',
+//           label: 'Another Step 2 input',
+//           placeholder: 'name@domain.com',
+//           order: 2,
+//           controlType: 'Text',
+//         },
+//         {
+//           key: 'user-accepted',
+//           label: 'I understand',
+//           order: 3,
+//           value: true,
+//           controlType: 'Checkbox',
+//         },
+//       ],
+//     },
+//   ] as DynamicFormSection<any>[],
+//   hasFormActions: true,
+//   nextAction: { hasAction: true, label: 'Next' },
+//   previousAction: { hasAction: true, label: 'Previous' },
+// };
 
-export const ComplexForm = Template.bind({});
-ComplexForm.args = {
-  activeStep: 0,
-  formSection: [
-    {
-      key: 'form1',
-      title: 'Familj',
-      items: [
-        {
-          key: 'relation',
-          title: 'Relation',
-          controlType: 'ToggleSelector',
-          options: [
-            {
-              id: '1',
-              value: '1',
-              label: 'Gift',
-              followUpItems: familyFollowup,
-            },
-            {
-              id: '2',
-              value: '2',
-              label: 'Sambo',
-              followUpItems: familyFollowup,
-            },
-            {
-              id: '3',
-              value: '3',
-              label: 'Sarbo',
-              followUpItems: familyFollowup,
-            },
-            {
-              id: '4',
-              value: '4',
-              label: 'Singel',
-            },
-          ],
-          rules: [
-            {
-              type: RuleType.required,
-              message: 'please select one item',
-              value: '',
-            },
-          ],
-        },
-        {
-          key: 'extra-information',
-          controlType: 'Checkbox',
-          title: 'Har du och din partner något av nedstående?',
-          label: 'Äktenskapsförord',
-          value: '',
-        },
-        {
-          key: 'deed-of-gift',
-          controlType: 'Checkbox',
-          label: 'Gåvobrev',
-          value: '',
-        },
-        {
-          key: 'testament',
-          controlType: 'Checkbox',
-          label: 'Testamente',
-          value: '',
-        },
-        {
-          key: 'none-of-the-above',
-          controlType: 'Checkbox',
-          label: 'Inget av ovanstående',
-          value: '',
-        },
-        {
-          key: 'barn',
-          controlType: 'Radio',
-          title: 'Barn',
-          description: '',
-          value: '',
-          options: [
-            {
-              id: '1',
-              value: '1',
-              label: 'Ja',
-              followUpItems: {
-                type: 'modal',
-                items: [
-                  {
-                    key: 'child-name',
-                    controlType: 'Text',
-                    value: '',
-                    controlMetaData: {
-                      label: 'Barnets namn',
-                    },
-                    rules: [
-                      {
-                        message: 'field is required',
-                        type: RuleType.required,
-                      },
-                    ],
-                  },
-                  {
-                    key: 'child-to',
-                    controlType: 'Text',
-                    value: '',
-                    controlMetaData: {
-                      label: 'Barn till',
-                    },
-                    rules: [
-                      {
-                        message: 'field is required',
-                        type: RuleType.required,
-                      },
-                    ],
-                  },
-                  {
-                    key: 'accomodation',
-                    controlType: 'Text',
-                    value: '',
-                    controlMetaData: {
-                      label: 'Boende',
-                    },
-                    rules: [
-                      {
-                        message: 'field is required',
-                        type: RuleType.required,
-                      },
-                    ],
-                  },
-                  {
-                    key: 'child-birthday',
-                    controlType: 'Datepicker',
-                    value: '',
-                    controlMetaData: {
-                      label: 'Barnets födelsedag:',
-                    },
-                    rules: [
-                      {
-                        message: 'field is required',
-                        type: RuleType.required,
-                      },
-                    ],
-                  },
-                  {
-                    key: 'is-child-with-partner',
-                    controlType: 'Radio',
-                    value: '',
-                    controlMetaData: {
-                      label: 'Är barnet gemensamt med din partner',
-                    },
-                    rules: [
-                      {
-                        message: 'field is required',
-                        type: RuleType.required,
-                      },
-                    ],
-                    options: [
-                      {
-                        id: '1',
-                        value: '1',
-                        label: 'Ja',
-                      },
-                      {
-                        id: '2',
-                        value: '2',
-                        label: 'Nej',
-                      },
-                    ],
-                  },
-                  {
-                    key: 'whos-child',
-                    controlType: 'Radio',
-                    value: '',
-                    rules: [
-                      {
-                        message: 'field is required',
-                        type: RuleType.required,
-                      },
-                    ],
-                    options: [
-                      {
-                        id: '1',
-                        value: '1',
-                        label: 'Barnet är mitt barn',
-                      },
-                      {
-                        id: '2',
-                        value: '2',
-                        label: 'Barnet är min partners barn',
-                      },
-                    ],
-                  },
-                ],
-                multi: true,
-              },
-            },
-            {
-              id: '2',
-              value: '2',
-              label: 'Nej',
-            },
-          ],
-          rules: [
-            {
-              type: RuleType.required,
-              message: 'value is required',
-              value: '',
-            },
-          ],
-          controlMetaData: {
-            description: 'Har du eller din partner barn?',
-          },
-        },
-      ],
-    },
-    {
-      key: 'form2',
-      title: 'Sysselsättning',
-      items: [
-        {
-          key: 'occupation',
-          title: 'Välj din huvudsaklig sysselsättning',
-          controlType: 'ToggleSelector',
-          options: [
-            {
-              id: '1',
-              value: '1',
-              label: 'Anställd',
-            },
-            {
-              id: '2',
-              value: '2',
-              label: 'Företagare',
-            },
-            {
-              id: '3',
-              value: '3',
-              label: 'Pensionär',
-            },
-            {
-              id: '4',
-              value: '4',
-              label: 'Student',
-            },
-            {
-              id: '5',
-              value: '5',
-              label: 'Annat',
-            },
-          ],
-        },
-        {
-          key: 'profession',
-          controlType: 'Text',
-          label: 'Ditt yrke',
-          value: '',
-          rules: [
-            {
-              message: 'field is required',
-              type: RuleType.required,
-            },
-          ],
-        },
-        {
-          key: 'kind-of-employment',
-          controlType: 'Text',
-          label: 'Vilken slags anställning/tjänsterpension',
-          value: '',
-          rules: [
-            {
-              message: 'field is required',
-              type: RuleType.required,
-            },
-          ],
-        },
-        {
-          key: 'worked-since',
-          controlType: 'Text',
-          label: 'Har arbetat sedan',
-          value: '',
-          rules: [
-            {
-              message: 'field is required',
-              type: RuleType.required,
-            },
-          ],
-        },
-        {
-          key: 'monthly-income',
-          controlType: 'Text',
-          value: '',
-          controlMetaData: {
-            label: 'Din månadsinkomst',
-            inputGroupLabel: 'kr',
-            inputGroupPosition: 'right',
-          },
-          rules: [
-            {
-              message: 'field is required',
-              type: RuleType.required,
-            },
-          ],
-        },
-        {
-          key: 'estimated-income-after-tax',
-          controlType: 'Text',
-          value: '',
-          controlMetaData: {
-            label: 'Beräknad inkonst efterskatt',
-            inputGroupLabel: 'kr',
-            inputGroupPosition: 'right',
-          },
-          rules: [
-            {
-              message: 'field is required',
-              type: RuleType.required,
-            },
-          ],
-        },
-        {
-          key: 'professional-experience',
-          title: 'Yrekeserfarenhet av värdepapper eller försäkring',
-          description:
-            'Vi behöver veta om du har haft ett yrke där du lärt dig om värdepapper och finansiella marknader eftersom vi anpassar våra råd efter din kunskapsnivå och erfarenheta',
-          controlType: 'Radio',
-          value: '',
-          options: [
-            {
-              id: '1',
-              value: '1',
-              label: 'Ja, det har jag',
-            },
-            {
-              id: '2',
-              value: '2',
-              label: 'Nej, det har jag inte',
-            },
-          ],
-        },
-        {
-          key: 'other-comments',
-          controlType: 'TextArea',
-          controlMetaData: {
-            label: 'Beräknad inkonst efterskatt',
-            inputGroupLabel: 'kr',
-            inputGroupPosition: 'right',
-          },
-        },
-      ],
-    },
-  ] as DynamicFormSection[],
+// export const ComplexForm = Template.bind({});
+// ComplexForm.args = {
+//   activeStep: 0,
+//   formSection: [
+//     {
+//       key: 'form1',
+//       title: 'Familj',
+//       items: [
+//         {
+//           key: 'relation',
+//           title: 'Relation',
+//           controlType: 'ToggleSelector',
+//           options: [
+//             {
+//               id: '1',
+//               value: '1',
+//               label: 'Gift',
+//               followUpItems: familyFollowup,
+//             },
+//             {
+//               id: '2',
+//               value: '2',
+//               label: 'Sambo',
+//               followUpItems: familyFollowup,
+//             },
+//             {
+//               id: '3',
+//               value: '3',
+//               label: 'Sarbo',
+//               followUpItems: familyFollowup,
+//             },
+//             {
+//               id: '4',
+//               value: '4',
+//               label: 'Singel',
+//             },
+//           ],
+//           rules: [
+//             {
+//               type: RuleType.required,
+//               message: 'please select one item',
+//               value: '',
+//             },
+//           ],
+//         },
+//         {
+//           key: 'extra-information',
+//           controlType: 'Checkbox',
+//           title: 'Har du och din partner något av nedstående?',
+//           label: 'Äktenskapsförord',
+//           value: '',
+//         },
+//         {
+//           key: 'deed-of-gift',
+//           controlType: 'Checkbox',
+//           label: 'Gåvobrev',
+//           value: '',
+//         },
+//         {
+//           key: 'testament',
+//           controlType: 'Checkbox',
+//           label: 'Testamente',
+//           value: '',
+//         },
+//         {
+//           key: 'none-of-the-above',
+//           controlType: 'Checkbox',
+//           label: 'Inget av ovanstående',
+//           value: '',
+//         },
+//         {
+//           key: 'barn',
+//           controlType: 'Radio',
+//           title: 'Barn',
+//           description: '',
+//           value: '',
+//           options: [
+//             {
+//               id: '1',
+//               value: '1',
+//               label: 'Ja',
+//               followUpItems: {
+//                 type: 'modal',
+//                 items: [
+//                   {
+//                     key: 'child-name',
+//                     controlType: 'Text',
+//                     value: '',
+//                     controlMetaData: {
+//                       label: 'Barnets namn',
+//                     },
+//                     rules: [
+//                       {
+//                         message: 'field is required',
+//                         type: RuleType.required,
+//                       },
+//                     ],
+//                   },
+//                   {
+//                     key: 'child-to',
+//                     controlType: 'Text',
+//                     value: '',
+//                     controlMetaData: {
+//                       label: 'Barn till',
+//                     },
+//                     rules: [
+//                       {
+//                         message: 'field is required',
+//                         type: RuleType.required,
+//                       },
+//                     ],
+//                   },
+//                   {
+//                     key: 'accomodation',
+//                     controlType: 'Text',
+//                     value: '',
+//                     controlMetaData: {
+//                       label: 'Boende',
+//                     },
+//                     rules: [
+//                       {
+//                         message: 'field is required',
+//                         type: RuleType.required,
+//                       },
+//                     ],
+//                   },
+//                   {
+//                     key: 'child-birthday',
+//                     controlType: 'Datepicker',
+//                     value: '',
+//                     controlMetaData: {
+//                       label: 'Barnets födelsedag:',
+//                     },
+//                     rules: [
+//                       {
+//                         message: 'field is required',
+//                         type: RuleType.required,
+//                       },
+//                     ],
+//                   },
+//                   {
+//                     key: 'is-child-with-partner',
+//                     controlType: 'Radio',
+//                     value: '',
+//                     controlMetaData: {
+//                       label: 'Är barnet gemensamt med din partner',
+//                     },
+//                     rules: [
+//                       {
+//                         message: 'field is required',
+//                         type: RuleType.required,
+//                       },
+//                     ],
+//                     options: [
+//                       {
+//                         id: '1',
+//                         value: '1',
+//                         label: 'Ja',
+//                       },
+//                       {
+//                         id: '2',
+//                         value: '2',
+//                         label: 'Nej',
+//                       },
+//                     ],
+//                   },
+//                   {
+//                     key: 'whos-child',
+//                     controlType: 'Radio',
+//                     value: '',
+//                     rules: [
+//                       {
+//                         message: 'field is required',
+//                         type: RuleType.required,
+//                       },
+//                     ],
+//                     options: [
+//                       {
+//                         id: '1',
+//                         value: '1',
+//                         label: 'Barnet är mitt barn',
+//                       },
+//                       {
+//                         id: '2',
+//                         value: '2',
+//                         label: 'Barnet är min partners barn',
+//                       },
+//                     ],
+//                   },
+//                 ],
+//                 multi: true,
+//               },
+//             },
+//             {
+//               id: '2',
+//               value: '2',
+//               label: 'Nej',
+//             },
+//           ],
+//           rules: [
+//             {
+//               type: RuleType.required,
+//               message: 'value is required',
+//               value: '',
+//             },
+//           ],
+//           controlMetaData: {
+//             description: 'Har du eller din partner barn?',
+//           },
+//         },
+//       ],
+//     },
+//     {
+//       key: 'form2',
+//       title: 'Sysselsättning',
+//       items: [
+//         {
+//           key: 'occupation',
+//           title: 'Välj din huvudsaklig sysselsättning',
+//           controlType: 'ToggleSelector',
+//           options: [
+//             {
+//               id: '1',
+//               value: '1',
+//               label: 'Anställd',
+//             },
+//             {
+//               id: '2',
+//               value: '2',
+//               label: 'Företagare',
+//             },
+//             {
+//               id: '3',
+//               value: '3',
+//               label: 'Pensionär',
+//             },
+//             {
+//               id: '4',
+//               value: '4',
+//               label: 'Student',
+//             },
+//             {
+//               id: '5',
+//               value: '5',
+//               label: 'Annat',
+//             },
+//           ],
+//         },
+//         {
+//           key: 'profession',
+//           controlType: 'Text',
+//           label: 'Ditt yrke',
+//           value: '',
+//           rules: [
+//             {
+//               message: 'field is required',
+//               type: RuleType.required,
+//             },
+//           ],
+//         },
+//         {
+//           key: 'kind-of-employment',
+//           controlType: 'Text',
+//           label: 'Vilken slags anställning/tjänsterpension',
+//           value: '',
+//           rules: [
+//             {
+//               message: 'field is required',
+//               type: RuleType.required,
+//             },
+//           ],
+//         },
+//         {
+//           key: 'worked-since',
+//           controlType: 'Text',
+//           label: 'Har arbetat sedan',
+//           value: '',
+//           rules: [
+//             {
+//               message: 'field is required',
+//               type: RuleType.required,
+//             },
+//           ],
+//         },
+//         {
+//           key: 'monthly-income',
+//           controlType: 'Text',
+//           value: '',
+//           controlMetaData: {
+//             label: 'Din månadsinkomst',
+//             inputGroupLabel: 'kr',
+//             inputGroupPosition: 'right',
+//           },
+//           rules: [
+//             {
+//               message: 'field is required',
+//               type: RuleType.required,
+//             },
+//           ],
+//         },
+//         {
+//           key: 'estimated-income-after-tax',
+//           controlType: 'Text',
+//           value: '',
+//           controlMetaData: {
+//             label: 'Beräknad inkonst efterskatt',
+//             inputGroupLabel: 'kr',
+//             inputGroupPosition: 'right',
+//           },
+//           rules: [
+//             {
+//               message: 'field is required',
+//               type: RuleType.required,
+//             },
+//           ],
+//         },
+//         {
+//           key: 'professional-experience',
+//           title: 'Yrekeserfarenhet av värdepapper eller försäkring',
+//           description:
+//             'Vi behöver veta om du har haft ett yrke där du lärt dig om värdepapper och finansiella marknader eftersom vi anpassar våra råd efter din kunskapsnivå och erfarenheta',
+//           controlType: 'Radio',
+//           value: '',
+//           options: [
+//             {
+//               id: '1',
+//               value: '1',
+//               label: 'Ja, det har jag',
+//             },
+//             {
+//               id: '2',
+//               value: '2',
+//               label: 'Nej, det har jag inte',
+//             },
+//           ],
+//         },
+//         {
+//           key: 'other-comments',
+//           controlType: 'TextArea',
+//           controlMetaData: {
+//             label: 'Beräknad inkonst efterskatt',
+//             inputGroupLabel: 'kr',
+//             inputGroupPosition: 'right',
+//           },
+//         },
+//       ],
+//     },
+  ] as DynamicFormSection<any>[],
   hasFormActions: true,
   nextAction: { hasAction: true, label: 'Next' },
   previousAction: { hasAction: true, label: 'Previous' },
@@ -1940,7 +2017,7 @@ const acqFormData = [
 export const AcquisitionForm = Template.bind({});
 AcquisitionForm.args = {
   activeStep: 0,
-  formSection: mapToDynamicForm(acqFormData) as DynamicFormSection[],
+  formSection: mapToDynamicForm(acqFormData) as DynamicFormSection<any>[],
   hasFormActions: true,
   nextAction: { hasAction: true, label: 'Next' },
   previousAction: { hasAction: true, label: 'Previous' },

@@ -1,6 +1,6 @@
 import { AttributeTypeMap } from './models';
 import { DynamicFormItem, Media } from './dynamicFormItem';
-import { DynamicFormSection } from './dynamicFormSection';
+import { DynamicFormSectionO } from './dynamicFormSection';
 
 export interface ConfirmInformation {
   title?: string;
@@ -14,7 +14,7 @@ export interface FollowUpItem {
   title?: string;
   subTitle?: string;
   description?: string;
-  items: DynamicFormItem[] | DynamicFormSection[];
+  items: DynamicFormItem[] | DynamicFormSectionO[];
   multi?: boolean;
 }
 

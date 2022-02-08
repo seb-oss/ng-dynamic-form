@@ -1,7 +1,7 @@
 import { DynamicFormItem } from './dynamicFormItem';
 import { AttributeTypeMap } from './models';
 
-export interface DynamicFormSection {
+export interface DynamicFormSectionO {
   title?: string | null;
   category?: string | null;
   description?: string | null;
@@ -11,7 +11,7 @@ export interface DynamicFormSection {
   order?: number;
   multi?: boolean;
   sectionType?: any;
-  sections?: DynamicFormSection[];
+  sections?: DynamicFormSectionO[];
   items?: DynamicFormItem[] | null;
 }
 

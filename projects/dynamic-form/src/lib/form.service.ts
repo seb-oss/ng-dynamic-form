@@ -24,12 +24,12 @@ export class FormService {
   constructor() {}
 
   dynamicFormSectionsToFormGroup(
-    items: Array<DynamicFormSection>,
+    items: Array<any>,
     original?: ExtendedFormGroup,
     config: { keepForwardHistory: boolean } = { keepForwardHistory: true }
   ): ExtendedFormGroup {
     const controls: ExtendedFormGroupControls = {};
-    const orderedItems = items.sort((a: DynamicFormSection, b: DynamicFormSection) => a.order - b.order);
+    const orderedItems = items.sort((a: any, b: any) => a.order - b.order);
     const existingKeys: boolean =
       config.keepForwardHistory &&
       original &&
@@ -39,7 +39,7 @@ export class FormService {
     if (existingKeys) {
       return original;
     }
-    orderedItems.forEach((item: DynamicFormSection) => {
+    orderedItems.forEach((item: any) => {
       if (!!item.multi) {
         const childControls: ExtendedFormGroupControls = this.dynamicFormItemsToControls(item.items);
         const formGroup: ExtendedFormGroup = new ExtendedFormGroup(childControls, item);

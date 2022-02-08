@@ -4,7 +4,7 @@ import {
   AbstractControlOptions,
   AsyncValidatorFn,
 } from '@angular/forms';
-import { DynamicFormSection } from '../../model/dynamicFormSection';
+// import { DynamicFormSection } from '../../model/dynamicFormSection';
 import { ExtendedFormControl } from './extended-form-control';
 import { ExtendedFormArray } from './extended-form-array';
 import { ExtendedFormGroupArray } from './extended-form-group-array';
@@ -19,11 +19,11 @@ export type ExtendedFormGroupControl =
   | ExtendedFormGroupArray;
 
 export class ExtendedFormGroup extends FormGroup {
-  sectionItem: DynamicFormSection;
+  sectionItem: any;
 
   constructor(
     controls: ExtendedFormGroupControls,
-    item?: DynamicFormSection,
+    item?: any,
     validatorOrOpts?: ValidatorFn | ValidatorFn[] | AbstractControlOptions,
     asyncValidator?: AsyncValidatorFn | AsyncValidatorFn[]
   ) {

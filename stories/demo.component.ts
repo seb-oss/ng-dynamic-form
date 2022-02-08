@@ -7,12 +7,14 @@ import {
   SimpleChanges,
   ViewChild,
 } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import {
   DynamicFormSection,
   FormService,
   ExtendedFormGroup,
   IFormAction,
-  DynamicFormComponent
+  DynamicFormComponent,
+  DynamicFormField
 } from 'projects/dynamic-form/src/lib';
 
 @Component({
@@ -26,9 +28,10 @@ export class DemoComponent implements OnInit, OnChanges {
   constructor(private formService: FormService) {}
 
   ngOnInit(): void {
-    this.extendedFormGroup = this.formService.dynamicFormSectionsToFormGroup([
-      this.formSection[this.activeStep],
-    ]);
+    this.extendedFormGroup = new FormGroup({}) as any;
+    // this.extendedFormGroup = this.formService.dynamicFormSectionsToFormGroup([
+    //   this.formSection[this.activeStep],
+    // ]);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -43,7 +46,10 @@ export class DemoComponent implements OnInit, OnChanges {
   activeStep: number;
 
   @Input()
-  formSection: DynamicFormSection[];
+  formSection: DynamicFormSection<any>[];
+
+  @Input()
+  fields: DynamicFormField<any>[];
 
   @Input()
   hasFormActions: boolean;
@@ -68,6 +74,9 @@ export class DemoComponent implements OnInit, OnChanges {
     );
   }
 
+  testsubmit(e) {
+    console.log(e)
+  }
   gotToPreviousStep(): void {
     this.activeStep -= 1;
   }

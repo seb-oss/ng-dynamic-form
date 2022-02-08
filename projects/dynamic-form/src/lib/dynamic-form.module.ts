@@ -19,23 +19,34 @@ import { DynamicFormItemComponent } from './dynamic-form-item/dynamic-form-item.
 import { DynamicFormModalComponent } from './dynamic-form-modal/dynamic-form-modal.component';
 import { DynamicFormDataComponent } from './dynamic-from-data/dynamic-form-data.component';
 import { DynamicFormMediaComponent } from './dynamic-form-media/dynamic-form-media.component';
-import { SafePipeModule } from './safe.pipe';
+import { SafePipeModule } from './pipes/safe.pipe';
 import { DigitOnlyModule } from './digit-only/digit-only.directive';
 import localeSe from '@angular/common/locales/se';
 import { DynamicFormConfirmationComponent } from './dynamic-form-confirmation/dynamic-form-confirmation.component';
-import { ObjectKeysPipe } from './object-keys.pipe';
+import { ObjectKeysPipe } from './pipes/object-keys.pipe';
+import { ControlRenderPipe } from './pipes/control-render.pipe';
+import { FollowUpControlTypePipe } from './pipes/followup-control-type.pipe';
+import { DynamicFormItemDirective } from './dynamic-form-item/dynmic-form-item.directive';
+import { DynamicFormSectionComponent } from './dynamic-form-section/dynamic-form-section.component';
+import { DynamicFormDirective } from './dynamic-form.directive';
+import { DynamicFormDatepickerComponent } from './dynamic-form-datepicker/dynamic-form-datepicker.component';
 
 registerLocaleData(localeSe);
 
 @NgModule({
   declarations: [
     DynamicFormComponent,
+    DynamicFormSectionComponent,
     DynamicFormItemComponent,
     DynamicFormModalComponent,
+    DynamicFormDatepickerComponent,
     DynamicFormDataComponent,
     DynamicFormMediaComponent,
     DynamicFormConfirmationComponent,
+    DynamicFormDirective,
     ObjectKeysPipe,
+    ControlRenderPipe,
+    FollowUpControlTypePipe
   ],
   imports: [
     CommonModule,
@@ -58,6 +69,7 @@ registerLocaleData(localeSe);
   exports: [
     // COMPONENTS
     DynamicFormComponent,
+    DynamicFormSectionComponent,
     DynamicFormItemComponent,
     DynamicFormModalComponent,
     DynamicFormDataComponent,
