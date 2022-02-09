@@ -19,7 +19,7 @@
     "format:staged": "pretty-quick --staged --verbose",
     "format:check": "pretty-quick --check --verbose",
     "format:all": "prettier --write \"**/*.{ts,html,json,scss,md}\"",
-    "prepare-husky": "husky install"
+    "prepare:husky": "husky install"
   },
   "dependencies": {
     "@angular/animations": "~12.2.16",
