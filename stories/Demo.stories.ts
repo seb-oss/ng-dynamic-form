@@ -15,6 +15,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { DigitOnlyModule } from 'projects/dynamic-form/src/lib';
 import { TextboxModule } from '@sebgroup/ng-components';
 
+const getButtonAction = (label: string) => ({
+  hasAction: false,
+  label,
+});
+
 export default {
   title: 'Example/DynamicForm',
   component: DemoComponent,
@@ -31,6 +36,12 @@ export default {
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }),
   ],
+  args: {
+    saveAction: getButtonAction("Save"),
+    nextAction: getButtonAction("Next"),
+    previousAction: getButtonAction("Previous"),
+    cancelAction: getButtonAction("Cancel"),
+  },
   parameters: {
     docs: {
       page: null,
@@ -287,6 +298,8 @@ ModalConditionalRendering.args = {
               label: 'Yes',
               followUpItems: {
                 type: 'modal',
+                nextAction: { hasAction: true, label: 'Next' },
+                previousAction: { hasAction: true, label: 'Previous' },
                 items: [
                   {
                     key: 'info-modal',

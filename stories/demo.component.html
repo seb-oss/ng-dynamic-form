@@ -55,16 +55,13 @@
 
 <ng-template #radioTmpl let-context="context" let-error="error">
   <div
-    class="radio card"
+    class="radio"
     [formGroup]="extendedFormGroup"
-    *ngIf="!context.formGroup || context?.value?.followUpItems?.multi"
   >
-    <div class="col-sm-12 col-md-5 col-lg-5 pt-3">
-      <label>{{ context?.formItem?.controlMetaData?.label }}</label>
-    </div>
-    <div class="col-2 p-0">
+    <div class="col-12 p-0">
       <sebng-radio-group
         className="dynamic-form-item"
+        [label]="context?.formItem?.label || context?.formItem?.controlMetaData?.description"
         [condensed]="true"
         [inline]="true"
         [formControl]="context"
