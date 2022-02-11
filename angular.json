@@ -42,6 +42,37 @@
           }
         }
       }
+    },
+    "dynamic-form-new": {
+      "projectType": "library",
+      "root": "projects/dynamic-form-new",
+      "sourceRoot": "projects/dynamic-form-new/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/dynamic-form-new/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/dynamic-form-new/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/dynamic-form-new/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/dynamic-form-new/src/test.ts",
+            "tsConfig": "projects/dynamic-form-new/tsconfig.spec.json",
+            "karmaConfig": "projects/dynamic-form-new/karma.conf.js"
+          }
+        }
+      }
     }
   },
   "defaultProject": "dynamic-form"

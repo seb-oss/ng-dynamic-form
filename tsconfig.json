@@ -18,6 +18,10 @@
     "paths": {
       "dynamic-form": [
         "dist/dynamic-form"
+      ],
+      "dynamic-form-new": [
+        "dist/dynamic-form-new/dynamic-form-new",
+        "dist/dynamic-form-new"
       ]
     }
   }

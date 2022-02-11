@@ -1,0 +1,20 @@
+<ng-container
+  [ngTemplateOutlet]="customTemplate || defaultTemplate"
+  [ngTemplateOutletContext]="{ context: { 
+    category, title, description, fields
+  } }"
+></ng-container>
+
+<ng-template #defaultTemplate>
+  <section>
+    <span *ngIf="category">{{ category }}</span>
+    <h3 *ngIf="title">{{ title }}</h3>
+    <p *ngIf="description">{{ description }}</p>
+    <app-dynamic-form
+      [isSubForm]="true"
+      [fields]="fields"
+      [parentFormGroup]="formGroup"
+      [groupName]="name"
+    ></app-dynamic-form>
+  </section>
+</ng-template>
