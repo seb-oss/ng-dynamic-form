@@ -12,7 +12,7 @@ import {
   FormService,
   ExtendedFormGroup,
   IFormAction,
-  DynamicFormComponent
+  DynamicFormComponent,
 } from 'projects/dynamic-form/src/lib';
 
 @Component({
@@ -31,13 +31,7 @@ export class DemoComponent implements OnInit, OnChanges {
     ]);
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    // if (changes.formSection.currentValue) {
-    //   this.extendedFormGroup = this.formService.dynamicFormSectionsToFormGroup(
-    //     this.formSection
-    //   );
-    // }
-  }
+  ngOnChanges(changes: SimpleChanges): void {}
 
   @Input()
   activeStep: number;
@@ -72,8 +66,8 @@ export class DemoComponent implements OnInit, OnChanges {
     this.activeStep -= 1;
   }
 
-  getObjectKeys(obj: {[key: string]: any}): string[] {
-    return Object.keys(obj)
+  getObjectKeys(obj: { [key: string]: any }): string[] {
+    return Object.keys(obj);
   }
 
   edit(param): void {
@@ -83,7 +77,7 @@ export class DemoComponent implements OnInit, OnChanges {
   delete(param): void {
     this.dynamicForm.removeItemFromParent(param);
   }
-  
+
   getNestedControlValue(control): string[] {
     return Object.values(Object.values(control)[0]);
   }
