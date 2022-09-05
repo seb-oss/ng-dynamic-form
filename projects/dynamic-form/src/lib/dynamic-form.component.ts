@@ -21,6 +21,7 @@ import { ExtendedFormControl } from './model/custom-classes/extended-form-contro
 import { ExtendedFormArray } from './model/custom-classes/extended-form-array';
 import { ExtendedFormGroupArray } from './model/custom-classes/extended-form-group-array';
 import { FormService } from './form.service';
+import { IFormAction } from './i-form-action.enum';
 
 interface IDynamicFormValidationError {
   key: string;
@@ -30,12 +31,7 @@ interface IDynamicFormValidationError {
   formItem: Partial<DynamicFormItem>;
 }
 
-export interface IFormAction {
-  hasAction: boolean;
-  label?: string;
-  theme?: string;
-  icon?: string;
-}
+
 /** some comment */
 @Component({
   selector: 'app-dynamic-form',
@@ -104,17 +100,17 @@ export class DynamicFormComponent {
     index: number;
     parentKey: string;
   } = {
-    form: null,
-    index: null,
-    parentKey: null,
-  };
+      form: null,
+      index: null,
+      parentKey: null,
+    };
 
   followUpModalToggle: boolean = false;
 
   constructor(
     private formService: FormService,
     private cd: ChangeDetectorRef
-  ) {}
+  ) { }
 
   shouldRenderFollowUpControlsType(key: any): string {
     if (key.value?.followUpItems) {
@@ -360,7 +356,7 @@ export class DynamicFormComponent {
     parentKey: string;
   }): void {
     const { formArray, index, parentKey } = param;
-    
+
     this.newFormGroup = {
       form: new ExtendedFormGroup(
         (formArray.at(index) as ExtendedFormGroup)
@@ -369,7 +365,7 @@ export class DynamicFormComponent {
       index,
       parentKey,
     };
-    
+
     this.followUpModalToggle = true;
   }
 
@@ -412,7 +408,7 @@ export class DynamicFormComponent {
     if (this.activeStep !== null) {
       return [
         this.extendedFormGroup.controls[
-          Object.keys(this.extendedFormGroup.controls)[this.activeStep]
+        Object.keys(this.extendedFormGroup.controls)[this.activeStep]
         ],
       ];
     } else {
