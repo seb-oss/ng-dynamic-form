@@ -31,7 +31,6 @@ interface IDynamicFormValidationError {
   formItem: Partial<DynamicFormItem>;
 }
 
-
 /** some comment */
 @Component({
   selector: 'app-dynamic-form',
@@ -65,7 +64,8 @@ export class DynamicFormComponent {
   @Input() itemCustomClass: string;
   @Input() hasFormActions: boolean = true;
   // used to compare current rules with saved data
-  @Input() savedFormData: { key: string; value: string | number | boolean }[] = [];
+  @Input() savedFormData: { key: string; value: string | number | boolean }[] =
+    [];
   @Input() nextAction: IFormAction = {
     hasAction: true,
     label: 'Next',
@@ -100,17 +100,17 @@ export class DynamicFormComponent {
     index: number;
     parentKey: string;
   } = {
-      form: null,
-      index: null,
-      parentKey: null,
-    };
+    form: null,
+    index: null,
+    parentKey: null,
+  };
 
   followUpModalToggle: boolean = false;
 
   constructor(
     private formService: FormService,
     private cd: ChangeDetectorRef
-  ) { }
+  ) {}
 
   shouldRenderFollowUpControlsType(key: any): string {
     if (key.value?.followUpItems) {
@@ -182,9 +182,9 @@ export class DynamicFormComponent {
         let ruler: ExtendedFormControl;
         if (index > -1) {
           // the form control where the ruler should be is an array
-          const target: ExtendedFormControl = (this.extendedFormGroup.get(
-            key
-          ) as ExtendedFormGroupArray)
+          const target: ExtendedFormControl = (
+            this.extendedFormGroup.get(key) as ExtendedFormGroupArray
+          )
             .at(index)
             .get(formItem.rulerKey) as ExtendedFormControl;
           if (target) {
@@ -271,9 +271,9 @@ export class DynamicFormComponent {
       // There is an id which means we want to duplicate a form item within a section
       if (sectionIndex > -1) {
         // the form control where the item to duplicate should be is an array
-        const target: ExtendedFormArray = (this.extendedFormGroup.get(
-          key
-        ) as ExtendedFormGroupArray).at(sectionIndex) as ExtendedFormArray;
+        const target: ExtendedFormArray = (
+          this.extendedFormGroup.get(key) as ExtendedFormGroupArray
+        ).at(sectionIndex) as ExtendedFormArray;
         (target.get(id) as ExtendedFormArray).push(new FormControl(''));
       } else {
         // the form control is not an array since there is no section index
@@ -286,9 +286,8 @@ export class DynamicFormComponent {
       const target: ExtendedFormGroupArray = this.extendedFormGroup.get(
         key
       ) as ExtendedFormGroupArray;
-      const childControls: ExtendedFormGroupControls = this.formService.dynamicFormItemsToControls(
-        target.sectionItem.items
-      );
+      const childControls: ExtendedFormGroupControls =
+        this.formService.dynamicFormItemsToControls(target.sectionItem.items);
       const formGroup: ExtendedFormGroup = new ExtendedFormGroup(
         childControls,
         target.sectionItem
@@ -313,15 +312,15 @@ export class DynamicFormComponent {
       // There is info which means we want to remove a form item within a section
       if (sectionIndex > -1) {
         // the form control where the item to remove should be is an array
-        const target: ExtendedFormArray = (this.extendedFormGroup.get(
-          key
-        ) as ExtendedFormGroupArray).at(sectionIndex) as ExtendedFormArray;
+        const target: ExtendedFormArray = (
+          this.extendedFormGroup.get(key) as ExtendedFormGroupArray
+        ).at(sectionIndex) as ExtendedFormArray;
         (target.get(info.id) as ExtendedFormArray).removeAt(info.index);
       } else {
         // the form control is not an array since there is no section index
-        (this.extendedFormGroup
-          .get(key)
-          .get(info.id) as ExtendedFormArray).removeAt(info.index);
+        (
+          this.extendedFormGroup.get(key).get(info.id) as ExtendedFormArray
+        ).removeAt(info.index);
       }
     } else {
       // there is no info indicating we should use the section index to remove the section itself
@@ -408,7 +407,7 @@ export class DynamicFormComponent {
     if (this.activeStep !== null) {
       return [
         this.extendedFormGroup.controls[
-        Object.keys(this.extendedFormGroup.controls)[this.activeStep]
+          Object.keys(this.extendedFormGroup.controls)[this.activeStep]
         ],
       ];
     } else {
