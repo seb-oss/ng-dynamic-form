@@ -1,21 +1,11 @@
-import {
-  Component,
-  Input,
-  EventEmitter,
-  Output,
-  OnInit,
-  TemplateRef,
-} from '@angular/core';
+import { Component, Input, EventEmitter, Output, OnInit, TemplateRef } from '@angular/core';
 import { ExtendedFormControl } from '../model/custom-classes/extended-form-control';
 import { ExtendedFormArray } from '../model/custom-classes/extended-form-array';
 import { DynamicFormType } from '../model/dynamicFormType';
 import { isEmpty } from '@sebgroup/frontend-tools';
 import { RuleType, Rule } from '../model/models';
 import { FormService } from '../form.service';
-import {
-  ExtendedFormGroup,
-  ExtendedFormGroupControl,
-} from '../model/custom-classes/extended-form-group';
+import { ExtendedFormGroup, ExtendedFormGroupControl } from '../model/custom-classes/extended-form-group';
 import { ValidatorFn } from '@angular/forms';
 import { formatNumber } from '@angular/common';
 
@@ -75,10 +65,9 @@ export class DynamicFormItemComponent implements OnInit {
             key: this.control.formItem.key,
           });
         } else {
-          (this.control as ExtendedFormControl).formGroup =
-            this.formService.dynamicFormItemsToFormGroup(
-              valueChange?.followUpItems?.items
-            );
+          (this.control as ExtendedFormControl).formGroup = this.formService.dynamicFormItemsToFormGroup(
+            valueChange?.followUpItems?.items
+          );
         }
       } else {
         delete (this.control as ExtendedFormControl).formGroup;
@@ -97,33 +86,22 @@ export class DynamicFormItemComponent implements OnInit {
         rule.type === RuleType.maxThanEqualReference
     );
     if (rule) {
+      
       if (this.savedFormData.length) {
-        const referenceValue: {
-          key: string;
-          value: string | number | boolean;
-        } = this.savedFormData.find(
-          (savedData: { key: string; value: string | number | boolean }) =>
-            savedData.key === rule.value
+        const referenceValue: { key: string; value: string | number | boolean } = this.savedFormData.find(
+          (savedData: { key: string; value: string | number | boolean }) => savedData.key === rule.value
         );
         if (referenceValue) {
-          ({ validator } = this.formService.appendValidations(
-            rule,
-            null,
-            referenceValue
-          ));
+          ({ validator } = this.formService.appendValidations(rule, null, referenceValue));
         }
-      } else if (
-        this.formService.findNestedControl(this.parentFormGroup, rule.value)
-      ) {
-        const referenceControl: ExtendedFormGroupControl =
-          this.formService.findNestedControl(this.parentFormGroup, rule.value);
-        ({ validator } = this.formService.appendValidations(
-          rule,
-          referenceControl
-        ));
+      } else if (this.formService.findNestedControl(this.parentFormGroup, rule.value)) {
+        const referenceControl: ExtendedFormGroupControl = this.formService.findNestedControl(
+          this.parentFormGroup,
+          rule.value
+        );
+        ({ validator } = this.formService.appendValidations(rule, referenceControl));
       }
-      validator &&
-        this.control.setValidators([this.control.validator, ...validator]);
+      validator && this.control.setValidators([this.control.validator, ...validator]);
       this.control.updateValueAndValidity();
     }
   }
@@ -132,9 +110,7 @@ export class DynamicFormItemComponent implements OnInit {
     if (this.control instanceof ExtendedFormArray) {
       return this.control.controls;
     } else {
-      console.warn(
-        'Error in getFormArrayControls: control is not an instance of ExtendedFormArray'
-      );
+      console.warn('Error in getFormArrayControls: control is not an instance of ExtendedFormArray');
       return [];
     }
   }
@@ -145,45 +121,25 @@ export class DynamicFormItemComponent implements OnInit {
         const errorObjKey: string = Object.keys(this.control.errors)[0];
         switch (errorObjKey) {
           case 'min':
-            return (
-              this.control.formItem.rules.find(
-                (rule: Rule) =>
-                  rule.type === RuleType.min ||
-                  rule.type === RuleType.minThanEqualsReference ||
-                  rule.type === RuleType.minThanReference
-              )?.message +
-              ` ${
-                this.control.errors?.min?.min
-                  ? formatNumber(this.control.errors?.min?.min, 'se')
-                  : ''
-              }`
-            );
+            return this.control.formItem.rules.find(
+              (rule: Rule) =>
+                rule.type === RuleType.min ||
+                rule.type === RuleType.minThanEqualsReference ||
+                rule.type === RuleType.minThanReference
+            )?.message + ` ${this.control.errors?.min?.min ? formatNumber(this.control.errors?.min?.min, 'se') : ''}`;
           case 'max':
-            return (
-              this.control.formItem.rules.find(
-                (rule: Rule) =>
-                  rule.type === RuleType.max ||
-                  rule.type === RuleType.maxThanEqualReference ||
-                  rule.type === RuleType.maxThanReference
-              )?.message +
-              ` ${
-                this.control.errors?.max?.max
-                  ? formatNumber(this.control.errors?.max?.max, 'se')
-                  : ''
-              }`
-            );
+            return this.control.formItem.rules.find(
+              (rule: Rule) =>
+                rule.type === RuleType.max ||
+                rule.type === RuleType.maxThanEqualReference ||
+                rule.type === RuleType.maxThanReference
+            )?.message + ` ${this.control.errors?.max?.max ? formatNumber(this.control.errors?.max?.max, 'se') : ''}`;
           case 'minlength':
-            return this.control.formItem.rules.find(
-              (rule: Rule) => rule.type === RuleType.minLength
-            )?.message;
+            return this.control.formItem.rules.find((rule: Rule) => rule.type === RuleType.minLength)?.message;
           case 'maxlength':
-            return this.control.formItem.rules.find(
-              (rule: Rule) => rule.type === RuleType.maxLength
-            )?.message;
+            return this.control.formItem.rules.find((rule: Rule) => rule.type === RuleType.maxLength)?.message;
           case 'required':
-            return this.control.formItem.rules.find(
-              (rule: Rule) => rule.type === RuleType.required
-            )?.message;
+            return this.control.formItem.rules.find((rule: Rule) => rule.type === RuleType.required)?.message;
           default:
             break;
         }
@@ -194,9 +150,9 @@ export class DynamicFormItemComponent implements OnInit {
   }
 
   makeId(info?: string, index?: number): string {
-    return `${this.sectionId}-${this.control.formItem.key}-${
-      this.control.formItem.controlType
-    }${info ? `-${info}` : '' + index ? `-${index}` : ''}`;
+    return `${this.sectionId}-${this.control.formItem.key}-${this.control.formItem.controlType}${
+      info ? `-${info}` : '' + index ? `-${index}` : ''
+    }`;
   }
 
   get hasTemplate(): boolean {

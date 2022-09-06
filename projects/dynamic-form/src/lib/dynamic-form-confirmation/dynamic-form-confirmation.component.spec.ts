@@ -8,8 +8,9 @@ describe('DynamicFormConfirmationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [DynamicFormConfirmationComponent],
-    }).compileComponents();
+      declarations: [ DynamicFormConfirmationComponent ]
+    })
+    .compileComponents();
   });
 
   beforeEach(() => {

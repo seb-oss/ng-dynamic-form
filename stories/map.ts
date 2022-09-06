@@ -14,7 +14,7 @@ export enum QuestionOptionType {
   Radio,
   CheckBox,
   Group,
-  Table,
+  Table
 }
 
 export enum ComponentType {
@@ -80,8 +80,7 @@ export function mapToDynamicForm(arr): DynamicFormSection[] {
             controlMetaData: {
               label: alternative.reasonLabel,
               description: alternative.text,
-              inputGroupLabel: parseConfiguration(alternative.configuration)
-                ?.GroupLabel,
+              inputGroupLabel: parseConfiguration(alternative.configuration)?.GroupLabel,
               inputGroupPosition: 'right',
             },
           };
@@ -95,13 +94,11 @@ export function mapToDynamicForm(arr): DynamicFormSection[] {
             description: obj.text,
             controlType: DynamicFormType.Radio,
             media: obj.media,
-            rules: [
-              {
-                type: RuleType.required,
-                message: 'some message error',
-                value: '',
-              },
-            ],
+            rules: [{
+              type: RuleType.required,
+              message: 'some message error',
+              value: ''
+            }],
             controlMetaData: {
               label: obj.text,
             },
@@ -112,14 +109,11 @@ export function mapToDynamicForm(arr): DynamicFormSection[] {
                 label: alternative.text,
                 followUpItems: {
                   type: 'modal',
-                  title: parseConfiguration(alternative.configuration)?.Modal
-                    ?.Title,
-                  description: parseConfiguration(alternative.configuration)
-                    ?.Modal?.Description,
+                  title: parseConfiguration(alternative.configuration)?.Modal?.Title,
+                  description: parseConfiguration(alternative.configuration)?.Modal?.Description,
                   items: mapToDynamicForm(alternative.followupQuestions),
                   ...(!!alternative.followupQuestions.find(
-                    (followUpQuestion) =>
-                      followUpQuestion.optionType === QuestionOptionType.Table
+                    (followUpQuestion) => followUpQuestion.optionType === QuestionOptionType.Table
                   ) && { multi: true }),
                 },
               };
@@ -140,19 +134,15 @@ export function mapToDynamicForm(arr): DynamicFormSection[] {
         ];
         break;
       case QuestionOptionType.Table:
-        mapToDynamicForm(obj.groupQuestionItems).map(
-          (sec: DynamicFormSection) => {
-            const sections = [sec, ...(section.sections ?? [])];
-            section = { sections, items: [...items, ...sec.items] };
-          }
-        );
+        mapToDynamicForm(obj.groupQuestionItems).map((sec: DynamicFormSection) => {
+          const sections = [sec, ...section.sections ?? []];
+          section = {sections, items: [...items, ...sec.items]}
+        });
         break;
       case QuestionOptionType.Group:
-        mapToDynamicForm(obj.groupQuestionItems).map(
-          (sec: DynamicFormSection) => {
-            items = [...items, ...sec.items];
-          }
-        );
+        mapToDynamicForm(obj.groupQuestionItems).map((sec: DynamicFormSection) => {
+          items = [...items, ...sec.items];
+        });
         break;
       default:
         items = obj.answerAlternatives.map((alternative) => {

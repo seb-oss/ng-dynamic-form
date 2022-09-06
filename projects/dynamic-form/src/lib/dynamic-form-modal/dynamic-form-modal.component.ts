@@ -1,13 +1,13 @@
 import { KeyValue } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ModalPosition, ModalSize } from '@sebgroup/ng-components';
-import { IFormAction } from '../i-form-action.enum';
 
 import { ExtendedFormControl } from '../model/custom-classes/extended-form-control';
 import {
   ExtendedFormGroup,
   ExtendedFormGroupControl,
 } from '../model/custom-classes/extended-form-group';
+import { IFormAction } from '../dynamic-form.component';
 
 @Component({
   selector: 'app-dynamic-form-modal',
