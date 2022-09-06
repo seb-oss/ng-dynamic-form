@@ -11,9 +11,9 @@ import {
   DynamicFormSection,
   FormService,
   ExtendedFormGroup,
-  IFormAction,
   DynamicFormComponent,
 } from 'projects/dynamic-form/src/lib';
+import { IFormAction } from 'projects/dynamic-form/src/lib/i-form-action.enum';
 
 @Component({
   selector: 'storybook-dynamic-form',
@@ -23,7 +23,7 @@ import {
 export class DemoComponent implements OnInit, OnChanges {
   extendedFormGroup: ExtendedFormGroup;
   @ViewChild('dynamicForm') dynamicForm: DynamicFormComponent;
-  constructor(private formService: FormService) {}
+  constructor(private formService: FormService) { }
 
   ngOnInit(): void {
     this.extendedFormGroup = this.formService.dynamicFormSectionsToFormGroup([
@@ -31,7 +31,7 @@ export class DemoComponent implements OnInit, OnChanges {
     ]);
   }
 
-  ngOnChanges(changes: SimpleChanges): void {}
+  ngOnChanges(changes: SimpleChanges): void { }
 
   @Input()
   activeStep: number;
