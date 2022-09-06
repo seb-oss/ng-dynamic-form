@@ -59,8 +59,9 @@ describe('DigitOnlyDirective', () => {
     const textbox: DebugElement = fixture.debugElement.query(
       By.directive(DigitOnlyDirective)
     );
-    const input: HTMLInputElement =
-      textbox.nativeElement.querySelector('input');
+    const input: HTMLInputElement = textbox.nativeElement.querySelector(
+      'input'
+    );
     const event = new Event('input', { bubbles: true });
 
     const testValues: Array<Array<string>> = [

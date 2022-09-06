@@ -29,9 +29,7 @@ export class FormService {
     config: { keepForwardHistory: boolean } = { keepForwardHistory: true }
   ): ExtendedFormGroup {
     const controls: ExtendedFormGroupControls = {};
-    const orderedItems = items.sort(
-      (a: DynamicFormSection, b: DynamicFormSection) => a.order - b.order
-    );
+    const orderedItems = items.sort((a: DynamicFormSection, b: DynamicFormSection) => a.order - b.order);
     const existingKeys: boolean =
       config.keepForwardHistory &&
       original &&
@@ -43,31 +41,22 @@ export class FormService {
     }
     orderedItems.forEach((item: DynamicFormSection) => {
       if (!!item.multi) {
-        const childControls: ExtendedFormGroupControls =
-          this.dynamicFormItemsToControls(item.items);
-        const formGroup: ExtendedFormGroup = new ExtendedFormGroup(
-          childControls,
-          item
-        );
+        const childControls: ExtendedFormGroupControls = this.dynamicFormItemsToControls(item.items);
+        const formGroup: ExtendedFormGroup = new ExtendedFormGroup(childControls, item);
         const controlsArray: ExtendedFormGroup[] = [formGroup];
         controls[item.key] = new ExtendedFormGroupArray(controlsArray, item);
       } else {
         // if section has an inner section call dynamicFormSectionsToFormGroup recursively
-        if (item.sections) {
-          controls[item.key] = this.dynamicFormSectionsToFormGroup(
-            item.sections
-          );
+        if(item.sections) {
+          controls[item.key] = this.dynamicFormSectionsToFormGroup(item.sections);
         } else {
-          const childControls: ExtendedFormGroupControls =
-            this.dynamicFormItemsToControls(item.items);
+          const childControls: ExtendedFormGroupControls = this.dynamicFormItemsToControls(item.items);
           controls[item.key] = new ExtendedFormGroup(childControls, item);
           if (original) {
-            original.controls[item.key] = new ExtendedFormGroup(
-              childControls,
-              item
-            );
+            original.controls[item.key] = new ExtendedFormGroup(childControls, item);
           }
         }
+       
       }
     });
     if (original) {
@@ -76,9 +65,7 @@ export class FormService {
     return new ExtendedFormGroup(controls);
   }
 
-  dynamicFormItemsToControls(
-    items: Array<DynamicFormItem>
-  ): ExtendedFormGroupControls {
+  dynamicFormItemsToControls(items: Array<DynamicFormItem>): ExtendedFormGroupControls {
     const controls: ExtendedFormGroupControls = {};
     const orderedItems: Array<DynamicFormItem> = items?.sort(
       (a: DynamicFormItem, b: DynamicFormItem) => a.order - b.order
@@ -87,9 +74,7 @@ export class FormService {
     orderedItems?.forEach((item: DynamicFormItem) => {
       if (item.controlType === DynamicFormType.Text && item.multi) {
         const controlsArray: FormControl[] = item.value
-          ? (item.value as Array<string>).map(
-              (val: string) => new FormControl(val)
-            )
+          ? (item.value as Array<string>).map((val: string) => new FormControl(val))
           : [new FormControl('')];
         controls[item.key] = new ExtendedFormArray(item, controlsArray);
       } else {
@@ -103,20 +88,14 @@ export class FormService {
     return controls;
   }
 
-  dynamicFormItemsToFormGroup(
-    items: Array<DynamicFormItem>
-  ): ExtendedFormGroup {
-    const controls: ExtendedFormGroupControls =
-      this.dynamicFormItemsToControls(items);
+  dynamicFormItemsToFormGroup(items: Array<DynamicFormItem>): ExtendedFormGroup {
+    const controls: ExtendedFormGroupControls = this.dynamicFormItemsToControls(items);
     const formGroup: ExtendedFormGroup = new ExtendedFormGroup(controls);
     return formGroup;
   }
 
-  dynamicFormItemsToArrayFormGroup(
-    items: Array<DynamicFormItem>
-  ): ExtendedFormGroupArray {
-    const formGroup: ExtendedFormGroup =
-      this.dynamicFormItemsToFormGroup(items);
+  dynamicFormItemsToArrayFormGroup(items: Array<DynamicFormItem>): ExtendedFormGroupArray {
+    const formGroup: ExtendedFormGroup = this.dynamicFormItemsToFormGroup(items);
     return new ExtendedFormGroupArray([formGroup]);
   }
 
@@ -130,39 +109,28 @@ export class FormService {
       const targetSection: ExtendedFormGroupControl = formGroup.get(section);
       if (targetSection) {
         if (targetSection instanceof ExtendedFormGroupArray) {
-          (targetSection as ExtendedFormGroupArray).controls.map(
-            (item: ExtendedFormGroup, sectionIndex: number) => {
-              for (const key of Object.keys(data[section][sectionIndex])) {
-                const target: ExtendedFormControl | ExtendedFormArray =
-                  (item.get(key) as ExtendedFormControl | ExtendedFormArray) ||
-                  null;
-                if (target) {
-                  const {
-                    value,
-                    formItem,
-                  }: ExtendedFormControl | ExtendedFormArray = target;
-                  dynamicFormSubmitValues.push({
-                    key,
-                    formItem,
-                    value,
-                    sectionId: section,
-                    sectionIndex,
-                  });
-                }
+          (targetSection as ExtendedFormGroupArray).controls.map((item: ExtendedFormGroup, sectionIndex: number) => {
+            for (const key of Object.keys(data[section][sectionIndex])) {
+              const target: ExtendedFormControl | ExtendedFormArray =
+                (item.get(key) as ExtendedFormControl | ExtendedFormArray) || null;
+              if (target) {
+                const { value, formItem }: ExtendedFormControl | ExtendedFormArray = target;
+                dynamicFormSubmitValues.push({
+                  key,
+                  formItem,
+                  value,
+                  sectionId: section,
+                  sectionIndex,
+                });
               }
             }
-          );
+          });
         } else {
           for (const key of Object.keys(data[section])) {
             const target: ExtendedFormControl | ExtendedFormArray =
-              (targetSection.get(key) as
-                | ExtendedFormControl
-                | ExtendedFormArray) || null;
+              (targetSection.get(key) as ExtendedFormControl | ExtendedFormArray) || null;
             if (target) {
-              const {
-                value,
-                formItem,
-              }: ExtendedFormControl | ExtendedFormArray = target;
+              const { value, formItem }: ExtendedFormControl | ExtendedFormArray = target;
               dynamicFormSubmitValues.push({
                 key,
                 formItem,
@@ -226,57 +194,39 @@ export class FormService {
     rule: Rule,
     referenceControl?: ExtendedFormGroupControl,
     referenceValue?: { key: string; value: string | number | boolean }
-  ): { validator: ValidatorFn[]; customRule: Rule } {
+  ): { validator: ValidatorFn[], customRule: Rule} {
     let customRule: Rule;
     switch (rule.type) {
       case RuleType.maxThanReference:
         customRule = {
           ...rule,
-          ...{
-            value: referenceControl
-              ? Number(referenceControl.value) - 1
-              : Number(referenceValue.value) - 1,
-          },
+          ...{ value: referenceControl ? Number(referenceControl.value) - 1 : Number(referenceValue.value) - 1 },
         };
         break;
       case RuleType.maxThanEqualReference:
         customRule = {
           ...rule,
-          ...{
-            value: referenceControl
-              ? referenceControl.value
-              : referenceValue.value,
-          },
+          ...{ value: referenceControl ? referenceControl.value : referenceValue.value },
         };
         break;
       case RuleType.minThanReference:
         customRule = {
           ...rule,
-          ...{
-            value: referenceControl
-              ? Number(referenceControl.value) + 1
-              : Number(referenceValue.value) + 1,
-          },
+          ...{ value: referenceControl ? Number(referenceControl.value) + 1 : Number(referenceValue.value) + 1 },
         };
         break;
       case RuleType.minThanEqualsReference:
         customRule = {
           ...rule,
-          ...{
-            value: referenceControl
-              ? referenceControl.value
-              : referenceValue.value,
-          },
+          ...{ value: referenceControl ? referenceControl.value : referenceValue.value },
         };
         break;
       default:
         break;
     }
     return {
-      validator: this.generateControlValidator(
-        this.generateValidations([customRule])
-      ),
-      customRule,
+      validator: this.generateControlValidator(this.generateValidations([customRule])),
+      customRule
     };
   }
 
@@ -312,9 +262,8 @@ export class FormService {
   isNestedFormInvalid(form: ExtendedFormGroup): boolean {
     return Object.keys(form.controls).some((key: string) => {
       if (form.controls[key]?.valid) {
-        const formGroup: ExtendedFormGroup = (
-          form.controls[key] as ExtendedFormControl
-        )?.formGroup as ExtendedFormGroup;
+        const formGroup: ExtendedFormGroup = (form.controls[key] as ExtendedFormControl)
+          ?.formGroup as ExtendedFormGroup;
         if (formGroup && !formGroup.valid) {
           return true;
         }
@@ -324,10 +273,7 @@ export class FormService {
     });
   }
 
-  findNestedControl(
-    forms: ExtendedFormGroup | ExtendedFormGroup[],
-    controlKey: string
-  ): ExtendedFormGroupControl {
+  findNestedControl(forms: ExtendedFormGroup | ExtendedFormGroup[], controlKey: string): ExtendedFormGroupControl {
     let existingControl: ExtendedFormGroupControl;
 
     if (Array.isArray(forms)) {
@@ -336,54 +282,33 @@ export class FormService {
       });
     } else {
       if (forms.controls[controlKey]) {
-        existingControl = forms.controls[
-          controlKey
-        ] as ExtendedFormGroupControl;
+        existingControl = forms.controls[controlKey] as ExtendedFormGroupControl;
       } else {
         Object.keys(forms.controls).forEach((key: string) => {
           if ((forms.controls[key] as ExtendedFormGroup).controls) {
-            if (
-              (forms.controls[key] as ExtendedFormGroup).controls[controlKey]
-            ) {
-              existingControl = (forms.controls[key] as ExtendedFormGroup)
-                .controls[controlKey] as ExtendedFormGroupControl;
+            if ((forms.controls[key] as ExtendedFormGroup).controls[controlKey]) {
+              existingControl = (forms.controls[key] as ExtendedFormGroup).controls[
+                controlKey
+              ] as ExtendedFormGroupControl;
             } else {
-              Object.keys(
-                (forms.controls[key] as ExtendedFormGroup).controls
-              ).forEach((control: string) => {
+              Object.keys((forms.controls[key] as ExtendedFormGroup).controls).forEach((control: string) => {
                 (forms.controls[key] as ExtendedFormGroup).controls[control];
-                if (
-                  (
-                    (forms.controls[key] as ExtendedFormGroup).controls[
-                      control
-                    ] as ExtendedFormControl
-                  ).formGroup
-                ) {
+                if (((forms.controls[key] as ExtendedFormGroup).controls[control] as ExtendedFormControl).formGroup) {
                   if (
-                    (
-                      (forms.controls[key] as ExtendedFormGroup).controls[
-                        control
-                      ] as ExtendedFormControl
-                    ).formGroup.controls[controlKey]
+                    ((forms.controls[key] as ExtendedFormGroup).controls[control] as ExtendedFormControl).formGroup
+                      .controls[controlKey]
                   ) {
-                    existingControl = (
-                      (forms.controls[key] as ExtendedFormGroup).controls[
-                        control
-                      ] as ExtendedFormControl
-                    ).formGroup.controls[controlKey];
+                    existingControl = ((forms.controls[key] as ExtendedFormGroup).controls[
+                      control
+                    ] as ExtendedFormControl).formGroup.controls[controlKey];
                   }
                 }
               });
             }
           }
           if ((forms.controls[key] as ExtendedFormControl).formGroup) {
-            if (
-              (forms.controls[key] as ExtendedFormControl).formGroup.controls[
-                controlKey
-              ]
-            ) {
-              existingControl = (forms.controls[key] as ExtendedFormControl)
-                .formGroup.controls[controlKey];
+            if ((forms.controls[key] as ExtendedFormControl).formGroup.controls[controlKey]) {
+              existingControl = (forms.controls[key] as ExtendedFormControl).formGroup.controls[controlKey];
             }
           }
         });

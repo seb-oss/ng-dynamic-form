@@ -3,5 +3,9 @@
   "dest": "../../dist/dynamic-form",
   "lib": {
     "entryFile": "src/public-api.ts"
-  }
+  },
+  "whitelistedNonPeerDependencies": [
+    "@sebgroup/bootstrap",
+    "@sebgroup/frontend-tools"
+  ]
 }

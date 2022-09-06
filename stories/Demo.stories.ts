@@ -37,10 +37,10 @@ export default {
     }),
   ],
   args: {
-    saveAction: getButtonAction('Save'),
-    nextAction: getButtonAction('Next'),
-    previousAction: getButtonAction('Previous'),
-    cancelAction: getButtonAction('Cancel'),
+    saveAction: getButtonAction("Save"),
+    nextAction: getButtonAction("Next"),
+    previousAction: getButtonAction("Previous"),
+    cancelAction: getButtonAction("Cancel"),
   },
   parameters: {
     docs: {
@@ -927,7 +927,8 @@ const acqFormData = [
   {
     id: 'd0be9c91-3211-40a1-84a1-903133b07d7a',
     name: 'Hög eller låg risk',
-    text: 'Hur tänker du om risk och möjlighet till avkastning när det gäller ditt pensionssparande?',
+    text:
+      'Hur tänker du om risk och möjlighet till avkastning när det gäller ditt pensionssparande?',
     description:
       'Att pensionsspara med högre risk innebär att sparandet har bättre möjligheter att växa, men att värdet kan gå mycket upp och ner fram tills du går i pension. Det finns också en risk att sparandet sjunker i värde.Med lägre risk svänger värdet på sparandet mindre, men du har inte möjlighet till samma avkastning som när du sparar med högre risk. Däremot minskar risken för att sparandet ska sjunka mycket i värde. ',
     subTitle: 'Placeringsrådgivning',
@@ -946,7 +947,8 @@ const acqFormData = [
     answerAlternatives: [
       {
         id: '116469b6-afed-42ff-b697-efecb594ab08',
-        text: 'Jag vill få möjlighet till högre pension, även om det innebär högre risk',
+        text:
+          'Jag vill få möjlighet till högre pension, även om det innebär högre risk',
         reasonLabel: null,
         category: null,
         value: null,
@@ -960,7 +962,8 @@ const acqFormData = [
       },
       {
         id: 'fcda0671-bd08-4349-b20a-e13cd200e499',
-        text: 'Jag vill att sparandet får möjlighet att växa, men risken får inte vara för hög',
+        text:
+          'Jag vill att sparandet får möjlighet att växa, men risken får inte vara för hög',
         reasonLabel: null,
         category: '',
         value: null,
@@ -974,7 +977,8 @@ const acqFormData = [
       },
       {
         id: '8a4c0290-608b-4af7-b1a9-af3d7b1d6a57',
-        text: 'Jag vill att risken är låg, även om sparandet får sämre möjlighet att växa',
+        text:
+          'Jag vill att risken är låg, även om sparandet får sämre möjlighet att växa',
         reasonLabel: null,
         category: null,
         value: null,
@@ -1033,7 +1037,8 @@ const acqFormData = [
   {
     id: '98f8bbd3-3f2c-41e3-a2a0-502806108dd4',
     name: 'Kortsiktig risk',
-    text: 'Tänk dig att du idag har ett pensionssparande som är värt 100 000 kronor. Är du bekväm med att ha hög risk i det sparandet?',
+    text:
+      'Tänk dig att du idag har ett pensionssparande som är värt 100 000 kronor. Är du bekväm med att ha hög risk i det sparandet?',
     description: '',
     subTitle: 'Placeringsrådgivning',
     shortDescription: '',
@@ -1041,7 +1046,8 @@ const acqFormData = [
     media: [
       {
         id: '56798cd4-6dda-4416-9f78-3d30dbb789b0',
-        url: '/api/v1/media/56798cd4-6dda-4416-9f78-3d30dbb789b0/form/5a2118b7-90d5-4018-a9e5-f4bf0f490529',
+        url:
+          '/api/v1/media/56798cd4-6dda-4416-9f78-3d30dbb789b0/form/5a2118b7-90d5-4018-a9e5-f4bf0f490529',
         kind: 0,
         mimeType: 'image/png',
         name: 'main',
@@ -1091,7 +1097,8 @@ const acqFormData = [
   {
     id: '8096e8ae-8eb8-4008-ba34-b97404043068',
     name: 'Olika riskstrategier',
-    text: 'Tänk dig att du har 3 år kvar till hela din pension har betalats ut och ett pensionssparande på 100 000 kronor. Vilken strategi skulle du vara mest bekväm med för det här pensionssparandet?',
+    text:
+      'Tänk dig att du har 3 år kvar till hela din pension har betalats ut och ett pensionssparande på 100 000 kronor. Vilken strategi skulle du vara mest bekväm med för det här pensionssparandet?',
     description:
       '{"Heading": "Läs mer om riskstrategierna","Texts": [{"Subheading": "Vad är en riskstrategi?","Content": "När du sparar med SEB Bot Advisor får du en personlig riskstrategi. Riskstrategin kan var vara låg, medellåg, medel, medelhög eller hög. Det är den här strategin som avgör hur hög risken i sparandet blir och hur snabbt risken sänks. Oavsett strategi är risken högre när du har lång tid kvar till sista utbetalningen från sparandet, men sänks gradvis ju äldre du blir. Vilken riskstrategi som vi tillämpar för ditt sparande beror bland annat på hur du svarar på de här frågorna.","Image": "high-risk"},{"Subheading": "Så funkar prognoserna","Content": "&lt;p&gt;När vi räknar på hur sparandet kan utvecklas över tid använder vi oss av avancerade beräkningsmodeller. I frågan utgår vi från ett påhittat sparande och visar ett pessimistiskt, ett optimistiskt och ett förväntat värde för tre olika riskstrategier efter ett visst antal år. Vid den tidpunkten tror vi att värdet på sparandet kommer att ligga nära det förväntade värdet, men&lt;/p&gt;&lt;ul&gt;&lt;li&gt;det är 30 procents sannolikt att sparandet utvecklas till det optimistiska värdet eller mer&lt;/li&gt;&lt;li&gt;det är mindre än 5 procents sannolikhet att sparandet utvecklas till det pessimistiska värdet eller mindre.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;I exemplen räknar vi med att värdet på sparandet fortsätter att förändras under spartiden.Däremot räknar vi inte med framtida inbetalningar.&lt;/p&gt;","Image": null}]}',
     subTitle: 'Placeringsrådgivning',
@@ -1100,7 +1107,8 @@ const acqFormData = [
     media: [
       {
         id: '3164e266-039f-4ac1-8b87-31c2a29ba2e9',
-        url: '/api/v1/media/3164e266-039f-4ac1-8b87-31c2a29ba2e9/form/5a2118b7-90d5-4018-a9e5-f4bf0f490529',
+        url:
+          '/api/v1/media/3164e266-039f-4ac1-8b87-31c2a29ba2e9/form/5a2118b7-90d5-4018-a9e5-f4bf0f490529',
         kind: 0,
         mimeType: 'image/png',
         name: 'main',
@@ -1109,7 +1117,8 @@ const acqFormData = [
       },
       {
         id: 'a6f876e3-000c-4c6b-8f19-af8e548f3439',
-        url: '/api/v1/media/a6f876e3-000c-4c6b-8f19-af8e548f3439/form/5a2118b7-90d5-4018-a9e5-f4bf0f490529',
+        url:
+          '/api/v1/media/a6f876e3-000c-4c6b-8f19-af8e548f3439/form/5a2118b7-90d5-4018-a9e5-f4bf0f490529',
         kind: 0,
         mimeType: 'image/png',
         name: 'high-risk',
@@ -1258,7 +1267,8 @@ const acqFormData = [
   {
     id: '53532df5-586f-453b-a1a4-d409b6fd4a9b',
     name: 'Kvar i månaden',
-    text: 'Hur mycket brukar du ha kvar efter att du har betalat alla viktiga utgifter?',
+    text:
+      'Hur mycket brukar du ha kvar efter att du har betalat alla viktiga utgifter?',
     description:
       'Räkna också med sådant som är viktigt för dig, till exempel restaurangbesök och sparande till resor.',
     subTitle: 'Din ekonomi',
@@ -1307,7 +1317,8 @@ const acqFormData = [
     id: '92e1f6fc-d838-4a6f-9da9-38435f9be5ba',
     name: 'Tillgångar',
     visibleInTable: false,
-    text: '&lt;p&gt;Lägg till skulder som du har hos eller utanför SEB.&lt;/p&gt;<br>',
+    text:
+      '&lt;p&gt;Lägg till skulder som du har hos eller utanför SEB.&lt;/p&gt;<br>',
     description: '[]',
     subTitle: 'Din ekonomi',
     shortDescription: '',
@@ -1922,7 +1933,9 @@ const acqFormData = [
       },
     ],
   },
+  
 ];
+
 
 export const AcquisitionForm = Template.bind({});
 AcquisitionForm.args = {
