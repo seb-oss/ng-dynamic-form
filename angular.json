@@ -28,18 +28,6 @@
             "tsConfig": "projects/dynamic-form/tsconfig.spec.json",
             "karmaConfig": "projects/dynamic-form/karma.conf.js"
           }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/dynamic-form/tsconfig.lib.json",
-              "projects/dynamic-form/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
         }
       }
     }
